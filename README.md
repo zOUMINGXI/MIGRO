@@ -38,6 +38,15 @@ The all-question custom composite is reported on a 0–100 scale. Each model has
 
 This composite was selected post hoc and is not official LoCoMo token F1. It averages the 1,540 category 1–4 question scores and 446 category 5 scores with equal weight per question. Qwen uses the AA write trajectory; Phi and Mistral use AB with their selected frozen interfaces. These entries are not a strict controlled ranking of model capability.
 
+### Migration operations
+
+| Operation | What moves or is rebuilt |
+|---|---|
+| **State Transfer** | Existing memory state is reused by the target backbone; small interface calibration is allowed. |
+| **Full-History Rebuilding** | The complete history is processed again to rebuild target-model memory. |
+
+MIGRO, PlugMem and mem0 have completed **State Transfer** results. Independently target-built controls are labeled **Full-History Rebuilding**, including those for otherwise transferable methods. [Labeled migration results](results/migration_snapshot.csv) · [Definitions and calibration](docs/migration_protocol.md).
+
 ## 03 / Extended benchmarks
 
 |Benchmark|Score|Questions|Metric|

@@ -16,6 +16,19 @@ The components in this formula are on a 0–100 scale. The composite is equivale
 
 The repository shows one final LoCoMo metric. Raw benchmark labels, conversations and predictions are not redistributed in this initial snapshot.
 
+## Migration operations
+
+| Operation | Meaning |
+|---|---|
+| **State Transfer** | Reuse an existing persistent memory state on another backbone. Small read-interface calibration is allowed. |
+| **Full-History Rebuilding** | Process the complete raw history again to reconstruct target-model memory and any required model-specific memory components. |
+
+Operation is a property of each run. A method that supports State Transfer can also have a Full-History Rebuilding control. Backbone training is recorded separately.
+
+For MIGRO, the Phi result uses the selected step-0 identity interface; the Mistral result uses a 131,072-parameter read interface calibrated on 64 unique public human-QA examples (64 optimizer updates). Both backbones and the shared memory core remain frozen. The stored memory is transferred rather than rebuilt for these rows.
+
+See [the migration protocol](migration_protocol.md) for trajectories and [the labeled snapshot](../results/migration_snapshot.csv) for per-run operations.
+
 ## Baseline execution differences
 - PlugMem retains its native planning/reasoning stages.
 - mem0, TiMEM and A-Mem retain their declared memory/retrieval ports and final evidence budgets.
