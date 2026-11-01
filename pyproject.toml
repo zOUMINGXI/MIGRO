@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "migro-eval"
+version = "0.0.1"
+description = "Preliminary performance reporting utilities for MIGRO"
+requires-python = ">=3.10"
+authors = [{name = "Mingxi Zou"}, {name = "Codex (AI-assisted implementation)"}]
+
+[tool.setuptools.packages.find]
+where = ["src"]
