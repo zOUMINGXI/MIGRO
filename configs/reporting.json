@@ -1,0 +1,16 @@
+{
+  "locomo": {
+    "total_questions": 1986,
+    "main_questions": 1540,
+    "category5_questions": 446,
+    "score_scale": "0-100",
+    "custom_metric": true,
+    "official_f1": false,
+    "metric_selected_post_hoc": true
+  },
+  "models": [
+    "Qwen3-4B-Instruct-2507",
+    "Phi-3-mini-4k-instruct",
+    "Mistral-7B-Instruct-v0.3"
+  ]
+}

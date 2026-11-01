@@ -1,0 +1,115 @@
+{
+  "created_at": "2026-11-01T20:54:02.611462+08:00",
+  "pending_qwen_evaluations": [
+    {
+      "method": "transmem",
+      "benchmark": "memops",
+      "generated": 1826,
+      "expected": 2006,
+      "stage": "answer",
+      "completed": false,
+      "tag": "A_full"
+    },
+    {
+      "method": "doctolora",
+      "benchmark": "memops",
+      "generated": 1700,
+      "expected": 2006,
+      "stage": "qizhi_answer",
+      "completed": false,
+      "tag": "A_native_window_norm_v1"
+    },
+    {
+      "method": "doctolora",
+      "benchmark": "beam1m",
+      "generated": 421,
+      "expected": 700,
+      "stage": "qizhi_answer",
+      "completed": false,
+      "tag": "A_native_window_norm_v1"
+    }
+  ],
+  "target_backbone_controls": [
+    {
+      "method": "plugmem",
+      "host": "B",
+      "backbone": "Phi-3-mini-4k-instruct",
+      "track": "target_native",
+      "generated": 78,
+      "expected": 1986,
+      "stage": "answer",
+      "completed": false
+    },
+    {
+      "method": "plugmem",
+      "host": "C",
+      "backbone": "Mistral-7B-Instruct-v0.3",
+      "track": "target_native",
+      "generated": 0,
+      "expected": 1986,
+      "stage": "queued",
+      "completed": false
+    },
+    {
+      "method": "mem0",
+      "host": "B",
+      "backbone": "Phi-3-mini-4k-instruct",
+      "track": "target_native",
+      "generated": 0,
+      "expected": 1986,
+      "stage": "queued",
+      "completed": false
+    },
+    {
+      "method": "mem0",
+      "host": "C",
+      "backbone": "Mistral-7B-Instruct-v0.3",
+      "track": "target_native",
+      "generated": 0,
+      "expected": 1986,
+      "stage": "queued",
+      "completed": false
+    },
+    {
+      "method": "timem",
+      "host": "B",
+      "backbone": "Phi-3-mini-4k-instruct",
+      "track": "target_native",
+      "generated": 0,
+      "expected": 1986,
+      "stage": "queued",
+      "completed": false
+    },
+    {
+      "method": "timem",
+      "host": "C",
+      "backbone": "Mistral-7B-Instruct-v0.3",
+      "track": "target_native",
+      "generated": 0,
+      "expected": 1986,
+      "stage": "queued",
+      "completed": false
+    },
+    {
+      "method": "amem",
+      "host": "B",
+      "backbone": "Phi-3-mini-4k-instruct",
+      "track": "target_native",
+      "generated": 0,
+      "expected": 1986,
+      "stage": "queued",
+      "completed": false
+    },
+    {
+      "method": "amem",
+      "host": "C",
+      "backbone": "Mistral-7B-Instruct-v0.3",
+      "track": "target_native",
+      "generated": 0,
+      "expected": 1986,
+      "stage": "queued",
+      "completed": false
+    }
+  ],
+  "live_status": false
+}
