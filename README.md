@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/migro-cyberpunk-banner.svg" alt="MIGRO — Change the Model. Keep the Mind. Gold icon beside the MIGRO wordmark." width="1200">
+  <img src="assets/migro-cyberpunk-animated.svg" alt="MIGRO — Change the Model. Keep the Mind. Gold icon beside the MIGRO wordmark." width="1200">
 </p>
 
 <p align="center">

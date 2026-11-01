@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="hero-title hero-desc">
+  <title id="hero-title">MIGRO — Change the Model. Keep the Mind.</title>
+  <desc id="hero-desc">The original gold MIGRO icon sits beside the MIGRO wordmark on a dark technical panel with animated cyan data packets, a slow light sweep and breathing neon accents.</desc>
+  <style>
+    .ambient-sweep { animation: ambient-sweep 7.2s linear infinite; }
+    .icon-charge { filter: url(#gold-charge); animation: icon-charge 3.6s ease-in-out infinite; }
+    .frame-charge { animation: frame-charge 3.6s ease-in-out infinite; }
+    .wordmark-cyan { animation: cyan-breathe 4.8s ease-in-out infinite; }
+    .wordmark-magenta { animation: magenta-breathe 6.4s ease-in-out infinite; }
+    .data-packet { stroke-dasharray: 7 93; stroke-dashoffset: 100; animation: packet-flow 3.2s linear infinite; }
+    .packet-b { animation-delay: -1.6s; animation-duration: 4.4s; }
+    .packet-c { animation-delay: -.8s; animation-duration: 3.8s; }
+    .packet-d { animation-delay: -2.4s; animation-duration: 4.8s; }
+    .signal-arrow { animation: arrow-signal 2.4s ease-in-out infinite; }
+    .signal-b { animation-delay: -.35s; }
+    .terminal-cursor { animation: cursor-blink 1.6s steps(2, jump-none) infinite; }
+    .divider-packet { animation: divider-flow 6.4s linear infinite; }
+    @keyframes ambient-sweep { from { transform: translateX(-240px); } to { transform: translateX(1440px); } }
+    @keyframes icon-charge { 0%, 100% { opacity: .88; } 50% { opacity: 1; } }
+    @keyframes frame-charge { 0%, 100% { stroke-opacity: .26; } 50% { stroke-opacity: .9; } }
+    @keyframes cyan-breathe { 0%, 100% { opacity: .14; } 50% { opacity: .48; } }
+    @keyframes magenta-breathe { 0%, 100% { opacity: .1; } 50% { opacity: .3; } }
+    @keyframes packet-flow { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+    @keyframes arrow-signal { 0%, 100% { opacity: .2; transform: translateX(0); } 50% { opacity: 1; transform: translateX(5px); } }
+    @keyframes cursor-blink { from { opacity: .15; } to { opacity: .9; } }
+    @keyframes divider-flow { from { transform: translateX(-160px); } to { transform: translateX(1200px); } }
+    @media (prefers-reduced-motion: reduce) {
+      .ambient-sweep, .data-packet, .divider-packet, .terminal-cursor { display: none; }
+      .icon-charge, .frame-charge, .wordmark-cyan, .wordmark-magenta, .signal-arrow { animation: none; }
+    }
+  </style>
+  <defs>
+    <clipPath id="panel-clip"><rect x="1" y="1" width="1198" height="358" rx="11"/></clipPath>
+    <clipPath id="divider-clip"><rect x="48" y="307" width="1104" height="6"/></clipPath>
+    <linearGradient id="sweep-light"><stop stop-color="#59E8ED" stop-opacity="0"/><stop offset=".5" stop-color="#59E8ED" stop-opacity=".13"/><stop offset="1" stop-color="#59E8ED" stop-opacity="0"/></linearGradient>
+    <linearGradient id="divider-light"><stop stop-color="#59E8ED" stop-opacity="0"/><stop offset=".7" stop-color="#A8FFFF"/><stop offset="1" stop-color="#59E8ED" stop-opacity="0"/></linearGradient>
+    <filter id="gold-charge" x="-35%" y="-35%" width="170%" height="170%" color-interpolation-filters="sRGB"><feGaussianBlur in="SourceGraphic" stdDeviation="5" result="halo"/><feComponentTransfer in="halo" result="soft-halo"><feFuncA type="linear" slope=".24"/></feComponentTransfer><feMerge><feMergeNode in="soft-halo"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#86A5BF" stroke-opacity=".075" stroke-width="1"/></pattern>
+    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><path d="M0 1H4" stroke="#D8F5FF" stroke-opacity=".025"/></pattern>
+    <radialGradient id="atmosphere" cx=".78" cy=".48" r=".85"><stop stop-color="#12333F"/><stop offset=".58" stop-color="#0A1520"/><stop offset="1" stop-color="#070B13"/></radialGradient>
+    <linearGradient id="edge"><stop stop-color="#F3C54E"/><stop offset=".38" stop-color="#59E8ED"/><stop offset=".78" stop-color="#59E8ED" stop-opacity=".12"/><stop offset="1" stop-color="#F65A9B"/></linearGradient>
+  </defs>
+  <rect width="1200" height="360" rx="12" fill="#070B13"/>
+  <rect x="1" y="1" width="1198" height="358" rx="11" fill="url(#atmosphere)" stroke="#263A4A"/>
+  <rect x="1" y="1" width="1198" height="358" rx="11" fill="url(#grid)"/>
+  <rect x="1" y="1" width="1198" height="358" rx="11" fill="url(#scan)"/>
+  <g clip-path="url(#panel-clip)"><g class="ambient-sweep"><path d="M-120 1H-24L120 359H24Z" fill="url(#sweep-light)"/><path d="M-24 1L120 359" stroke="#59E8ED" stroke-opacity=".12"/></g></g>
+  <path d="M28 65V28H65M1135 28H1172V65M28 295V332H65M1135 332H1172V295" fill="none" stroke="#59E8ED" stroke-width="2"/>
+  <path d="M48 63H1152" stroke="#29424F"/>
+  <rect x="48" y="34" width="7" height="7" fill="#F3C54E"/>
+  <text x="68" y="42" fill="#A5B9C7" font-family="Menlo, Consolas, Liberation Mono, monospace" font-size="11" letter-spacing="2">MIGRO / MEMORY SYSTEMS</text>
+  <text x="1152" y="42" text-anchor="end" fill="#66C8D1" font-family="Menlo, Consolas, Liberation Mono, monospace" font-size="10" letter-spacing="1.5">PERFORMANCE // RESEARCH BUILD</text>
+  <g fill="none" stroke="#59E8ED" stroke-opacity=".22">
+    <path d="M945 97H1016L1050 131H1152M966 118H1005L1039 152H1107M922 257H993L1022 228H1152M990 278H1027L1054 251H1120"/>
+    <path d="M1135 94V117M1142 94V117M1149 94V117"/>
+    <circle cx="945" cy="97" r="4"/><circle cx="966" cy="118" r="3"/><circle cx="922" cy="257" r="4"/><circle cx="990" cy="278" r="3"/>
+  </g>
+  <g fill="none" stroke-linecap="round" stroke-width="2.5">
+    <path class="data-packet" pathLength="100" d="M945 97H1016L1050 131H1152" stroke="#75F9FF"/>
+    <path class="data-packet packet-b" pathLength="100" d="M966 118H1005L1039 152H1107" stroke="#F3C54E"/>
+    <path class="data-packet packet-c" pathLength="100" d="M922 257H993L1022 228H1152" stroke="#75F9FF"/>
+    <path class="data-packet packet-d" pathLength="100" d="M990 278H1027L1054 251H1120" stroke="#F65A9B"/>
+  </g>
+  <g fill="none" stroke="#F65A9B" stroke-width="2"><path class="signal-arrow" d="M1110 178L1120 188L1110 198"/><path class="signal-arrow signal-b" d="M1130 178L1140 188L1130 198"/></g>
+  <path class="frame-charge" d="M190 126V111H209M339 111H358V126M190 239V254H209M339 254H358V239" fill="none" stroke="#F3C54E" stroke-opacity=".48"/>
+  <g class="icon-charge" transform="translate(160 85) scale(1.13)">
+  <g id="handwritten-migro" fill="#F3C54E" transform="matrix(1 0 -0.035 1 3.7 0)">
+    <path id="pressure-stroke-M" d="M43.5 147.1 C45.1 125.9 44.1 95.9 47.2 69.4 C47.6 65.6 50.8 66.1 54.5 69.0 C70.6 83.4 88.7 103.3 106.3 120.3 C123.6 104.2 143.5 81.2 157.4 62.5 L166.7 70.7 C150.1 96.3 128.3 122.7 111.2 141.5 C108.9 144.5 106.4 145.8 103.4 143.8 C87.4 130.6 75.9 115.5 63.2 103.5 C62.1 117.1 63.6 131.5 61.4 145.9 C57.4 148 50.5 147.4 43.5 147.1 Z"/>
+    <path id="handwritten-arrow-tip" d="M126.6 79.4 C137.8 68.5 147.9 54.3 159.8 45.4 C162.2 44.4 166.7 44.2 169.0 45.0 C170.1 62.2 167.9 83.3 167.7 103.5 C161.0 99.3 155.9 92.8 150.2 88.2 C143.3 84.1 134.7 82.1 126.6 79.4 Z"/>
+  </g>
+  </g>
+  <g class="wordmark-cyan" transform="translate(390 142)" fill="#59E8ED" opacity=".18"><path d="M0 104V0H20L45 42L70 0H90V104H69V36L45 75L21 36V104Z"/>
+    <path transform="translate(110)" d="M0 0H70V19H46V85H70V104H0V85H24V19H0Z"/>
+    <path transform="translate(200)" d="M15 0H89V21H24V83H68V63H47V43H90V104H15L0 89V15Z"/>
+    <path transform="translate(310)" fill-rule="evenodd" d="M0 104V0H72L90 18V51L73 68L96 104H70L48 70H22V104ZM22 20V50H63L68 45V25L63 20Z"/>
+    <path transform="translate(426)" fill-rule="evenodd" d="M17 0H73L90 17V87L73 104H17L0 87V17ZM26 21H64L69 26V78L64 83H26L21 78V26Z"/></g>
+  <g class="wordmark-magenta" transform="translate(394 138)" fill="#F65A9B" opacity=".16"><path d="M0 104V0H20L45 42L70 0H90V104H69V36L45 75L21 36V104Z"/>
+    <path transform="translate(110)" d="M0 0H70V19H46V85H70V104H0V85H24V19H0Z"/>
+    <path transform="translate(200)" d="M15 0H89V21H24V83H68V63H47V43H90V104H15L0 89V15Z"/>
+    <path transform="translate(310)" fill-rule="evenodd" d="M0 104V0H72L90 18V51L73 68L96 104H70L48 70H22V104ZM22 20V50H63L68 45V25L63 20Z"/>
+    <path transform="translate(426)" fill-rule="evenodd" d="M17 0H73L90 17V87L73 104H17L0 87V17ZM26 21H64L69 26V78L64 83H26L21 78V26Z"/></g>
+  <g transform="translate(392 140)" fill="#EDF7FF" aria-label="MIGRO wordmark"><path d="M0 104V0H20L45 42L70 0H90V104H69V36L45 75L21 36V104Z"/>
+    <path transform="translate(110)" d="M0 0H70V19H46V85H70V104H0V85H24V19H0Z"/>
+    <path transform="translate(200)" d="M15 0H89V21H24V83H68V63H47V43H90V104H15L0 89V15Z"/>
+    <path transform="translate(310)" fill-rule="evenodd" d="M0 104V0H72L90 18V51L73 68L96 104H70L48 70H22V104ZM22 20V50H63L68 45V25L63 20Z"/>
+    <path transform="translate(426)" fill-rule="evenodd" d="M17 0H73L90 17V87L73 104H17L0 87V17ZM26 21H64L69 26V78L64 83H26L21 78V26Z"/></g>
+  <rect class="terminal-cursor" x="924" y="152" width="3" height="80" fill="#59E8ED" opacity=".6"/>
+  <path d="M394 248H496M505 248H533" stroke="#59E8ED" stroke-width="3"/>
+  <text x="193" y="290" fill="#DCE9F1" font-family="Menlo, Consolas, Liberation Mono, monospace" font-size="17" letter-spacing="2">CHANGE THE MODEL. KEEP THE MIND.</text>
+  <path d="M48 310H1152" stroke="url(#edge)"/>
+  <g clip-path="url(#divider-clip)"><g class="divider-packet"><path d="M48 310H208" stroke="url(#divider-light)" stroke-width="2"/></g></g>
+  <text x="48" y="328" fill="#74919F" font-family="Menlo, Consolas, Liberation Mono, monospace" font-size="10" letter-spacing="1.8">PERSISTENT MEMORY / MULTIPLE BACKBONES</text>
+  <text x="1152" y="328" text-anchor="end" fill="#A4BDCA" font-family="Menlo, Consolas, Liberation Mono, monospace" font-size="10" letter-spacing="1.8">CHANGE THE CARRIER. PRESERVE THE CONTINUITY.</text>
+</svg>
