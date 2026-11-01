@@ -1,13 +1,24 @@
 <p align="center">
-  <img src="assets/MIGRO_icon_transparent.svg" alt="MIGRO logo" width="160" height="160">
+  <img src="assets/migro-cyberpunk-banner.svg" alt="MIGRO — Change the Model. Keep the Mind. Gold icon beside the MIGRO wordmark." width="1200">
 </p>
 
-# MIGRO
-### Change the Model. Keep the Mind.
+<p align="center">
+  <code>3 BACKBONES</code> &nbsp; / &nbsp; <code>4 BENCHMARKS</code> &nbsp; / &nbsp; <code>19 SCORED ENTRIES</code>
+</p>
+
+<p align="center">
+  <a href="results/performance_snapshot.csv">RESULTS</a> &nbsp; · &nbsp;
+  <a href="docs/performance_protocol.md">PROTOCOL</a> &nbsp; · &nbsp;
+  <a href="docs/reporting_tools.md">REPORTING TOOLS</a> &nbsp; · &nbsp;
+  <a href="CONTRIBUTORS.md">CONTRIBUTORS</a>
+</p>
+
+---
 
 MIGRO studies persistent memory across language-model backbones. This initial private repository stages the performance-reporting part of a later open-source release.
 
-## Included in this snapshot
+## 01 / Research snapshot
+
 - Checked aggregate results for 19 completed benchmark/method/model cells.
 - Frozen evaluation profiles and explicit metric definitions.
 - Small standalone tools for aggregating scored LoCoMo records and rendering result tables.
@@ -15,7 +26,8 @@ MIGRO studies persistent memory across language-model backbones. This initial pr
 
 The full memory implementation, model/interface checkpoints, benchmark inference runners and benchmark datasets are not included in this first upload. The reporting utilities can be executed independently; this is not yet an end-to-end benchmark reproduction package.
 
-## MIGRO: complete LoCoMo
+## 02 / LoCoMo · cross-model
+
 The all-question custom composite is reported on a 0–100 scale. Each model has 1,986 questions.
 
 |Backbone|Composite|Questions|
@@ -26,7 +38,8 @@ The all-question custom composite is reported on a 0–100 scale. Each model has
 
 This composite was selected post hoc and is not official LoCoMo token F1. It averages the 1,540 category 1–4 question scores and 446 category 5 scores with equal weight per question. Qwen uses the AA write trajectory; Phi and Mistral use AB with their selected frozen interfaces. These entries are not a strict controlled ranking of model capability.
 
-## MIGRO: other complete Qwen evaluations
+## 03 / Extended benchmarks
+
 |Benchmark|Score|Questions|Metric|
 |---|---:|---:|---|
 |LongMemEval-S|68.40|500|auxiliary_judge_accuracy|
@@ -37,22 +50,27 @@ LongMemEval-S and MemOps use the recorded auxiliary judge protocol; BEAM uses ca
 
 See [the complete performance snapshot](results/performance_snapshot.csv), [protocol details](docs/performance_protocol.md), [snapshot scope](docs/release_scope.md) and [evaluation status](results/evaluation_status.json). Baseline results use their declared native read paths; the comparison does not equalize inference compute.
 
-## Reporting utilities
+## 04 / Reporting terminal
+
 Python 3.10 or later is sufficient; the scripts have no third-party runtime dependencies.
 
-    python scripts/render_results.py
-    python scripts/summarize_locomo.py /path/to/scored_records.json --output summary.json
-    python -m unittest discover -s tests -v
+```bash
+python scripts/render_results.py
+python scripts/summarize_locomo.py /path/to/scored_records.json --output summary.json
+python -m unittest discover -s tests -v
+```
 
 The summarizer consumes already-scored records. It rejects incomplete cohorts by default and never replaces the official category-specific per-question scoring procedure. See [input format](docs/reporting_tools.md).
 
-## Contributors
+## 05 / Contributors
+
 - [Mingxi Zou](https://github.com/zOUMINGXI): research lead, experiment decisions and release direction.
 - [Codex](https://openai.com/codex/): AI-assisted implementation, experiment orchestration, debugging and documentation.
 
 See [CONTRIBUTORS.md](CONTRIBUTORS.md) for attribution and commit conventions.
 
-## Release status
+## 06 / Release notes
+
 Snapshot created: 2026-11-01T20:54:02.611462+08:00. Results reflect completed scored runs available at that time. Pending results have no assigned final score. Larger-read-budget candidates and storage-replica QA scores are not substituted into the frozen performance table.
 
 This repository is currently private. A public license and full reproduction instructions will be specified when the open-source release is prepared. Third-party methods and datasets retain their respective licenses; see [third-party references](docs/third_party.md).
