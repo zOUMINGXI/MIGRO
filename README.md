@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/MIGRO_icon_transparent.svg" alt="MIGRO logo" width="160" height="160">
+</p>
+
 # MIGRO
 ### Change the Model. Keep the Mind.
 
