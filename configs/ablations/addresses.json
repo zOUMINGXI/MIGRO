@@ -1,0 +1,14 @@
+{
+  "scope": "paired address-representation ablation",
+  "conditions": [
+    "anchor_residual",
+    "anchor_only",
+    "original_full_float32"
+  ],
+  "content_and_metadata": "unchanged",
+  "source_token_cap": 2000,
+  "max_new_tokens": 50,
+  "full_float32": "same original observed write inputs, frozen encoder",
+  "storage_metric": "standalone address tables with headers, excluding common contents and public basis",
+  "quality_metric": "custom all-question composite"
+}

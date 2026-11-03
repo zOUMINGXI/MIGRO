@@ -15,7 +15,7 @@
 
 ---
 
-MIGRO studies persistent memory across language-model backbones. This initial private repository stages the performance-reporting part of a later open-source release.
+MIGRO studies persistent memory across language-model backbones. This private repository stages implementation components and performance-reporting tools for a later open-source release.
 
 ## 01 / Research snapshot
 
@@ -24,7 +24,7 @@ MIGRO studies persistent memory across language-model backbones. This initial pr
 - Small standalone tools for aggregating scored LoCoMo records and rendering result tables.
 - A dated snapshot of evaluations that are still running.
 
-The full memory implementation, model/interface checkpoints, benchmark inference runners and benchmark datasets are not included in this first upload. The reporting utilities can be executed independently; this is not yet an end-to-end benchmark reproduction package.
+Selected implementation components are included: lexical transport, calibration, native reference writing, portable memory controls and paired ablation analysis. See [implementation modules and usage](docs/implementation.md). The full compressed state backend, pretrained core/interface checkpoints, benchmark-specific inference runners and datasets remain outside this staged upload; this is not yet an end-to-end benchmark reproduction package.
 
 ## 02 / LoCoMo · cross-model
 
@@ -70,6 +70,16 @@ python -m unittest discover -s tests -v
 ```
 
 The summarizer consumes already-scored records. It rejects incomplete cohorts by default and never replaces the official category-specific per-question scoring procedure. See [input format](docs/reporting_tools.md).
+
+### Implementation terminal
+
+```bash
+python -m pip install -e .
+python -m pip install -e '.[transport,analysis]'
+python scripts/summarize_ablations.py --help
+```
+
+[Code components and examples](docs/implementation.md) · [Ablation contracts](configs/ablations). Reporting and simple memory controls use the standard library; implementation and analysis dependencies are optional. Numerical tables above remain the dated initial snapshot.
 
 ## 05 / Contributors
 

@@ -11,3 +11,8 @@ The full memory model, inference runners, interfaces and experiment orchestratio
 LoCoMo target-model runs are labeled by operation: **State Transfer** reuses existing memory, with small interface calibration permitted; **Full-History Rebuilding** reprocesses the full history to construct target-model memory. MIGRO, PlugMem and mem0 have completed State Transfer rows. PlugMem/mem0 also have rebuilding controls, alongside the target-built TiMEM/A-Mem rows. These operations are not mixed. See [migration protocol](migration_protocol.md) and [labeled results](../results/migration_snapshot.csv). A cross-model score difference is not automatically a target-relative migration loss.
 
 The checked-in status JSON is a dated snapshot, not a live dashboard. Unsupported checkpoints and pending evaluations receive no fabricated zero score.
+
+
+## Selected implementation components
+
+This code upload adds standalone interfaces, calibration, native reference writing, simple portable-memory controls and paired analysis, documented in [implementation.md](implementation.md). The compressed state engine, weights, datasets and complete inference harness remain outside this staged upload. Existing numerical snapshots are not refreshed by this code-only update.

@@ -1,0 +1,36 @@
+{
+  "scope": "whole portable-memory efficacy, not module optimality",
+  "benchmark": "LoCoMo",
+  "questions": 1986,
+  "conversation_clusters": 10,
+  "source_model": "Qwen3-4B-Instruct-2507",
+  "target_models": [
+    "Phi-3-mini-4k-instruct",
+    "Mistral-7B-Instruct-v0.3"
+  ],
+  "conditions": [
+    "state_transfer",
+    "bm25_text",
+    "recent_window",
+    "no_memory",
+    "target_rebuild"
+  ],
+  "source_reference_omits": "target_rebuild",
+  "source_token_cap": 2000,
+  "max_new_tokens": 50,
+  "bm25": {
+    "k1": 1.2,
+    "b": 0.75
+  },
+  "native_writer": {
+    "batch_size": 8,
+    "window": 4,
+    "backbone_training": false
+  },
+  "common_readout": "same complete transport/calibration and host answer policy",
+  "operations": {
+    "state_transfer": "State Transfer",
+    "target_rebuild": "Full-History Rebuilding"
+  },
+  "note": "Rebuilding is a positive reference, not required to score lower. Local load/build timing excludes common deployment and network latency."
+}

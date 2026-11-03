@@ -1,0 +1,17 @@
+{
+  "scope": "lossless archive selection",
+  "conditions": [
+    "full_selection_including_causal_content",
+    "existing_literal_lossless_candidates_only",
+    "uncompressed_archive"
+  ],
+  "requirements": [
+    "exact source IDs",
+    "exact address geometry",
+    "exact metadata and events"
+  ],
+  "raw_archive": "no entropy/content compression; address quantization held fixed",
+  "storage_metric": "private archive bytes including framing and source-ID escapes",
+  "shared_decoder_weights": "count separately",
+  "qa_rerun": "not needed for identical restored states"
+}

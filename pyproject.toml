@@ -5,9 +5,13 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "migro-eval"
 version = "0.0.1"
-description = "Preliminary performance reporting utilities for MIGRO"
+description = "MIGRO portable-memory interfaces, controls and evaluation utilities"
 requires-python = ">=3.10"
 authors = [{name = "Mingxi Zou"}, {name = "Codex (AI-assisted implementation)"}]
+
+[project.optional-dependencies]
+analysis = ["numpy>=1.24"]
+transport = ["torch>=2.1", "tokenizers>=0.15", "numpy>=1.24"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

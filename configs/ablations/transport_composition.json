@@ -1,0 +1,20 @@
+{
+  "scope": "local interface component removal",
+  "factors": {
+    "composition": [
+      "boundary_composed",
+      "valid_vocabulary_piecewise"
+    ],
+    "calibration": [
+      "existing_frozen_checkpoint",
+      "zero_residual"
+    ]
+  },
+  "identity_calibration_count_once": true,
+  "source_token_cap": 2000,
+  "max_new_tokens": 50,
+  "source_evidence": "same fixed packets within host",
+  "context_policy": "common whole-observation trimming",
+  "no_new_training": true,
+  "native_text": "separate compatibility/fidelity reference; not assumed inferior"
+}
