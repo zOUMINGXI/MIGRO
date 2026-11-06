@@ -26,6 +26,15 @@ That history carries the context behind decisions: what a user values, which con
 
 > **The ambition: let improvements in the model build on the experience already accumulated by the agent.**
 
+<p align="center">
+  <a href="assets/joint_frontier.png"><img src="assets/joint_frontier.png" alt="Joint memory frontier: continued writing after Qwen 4B to Mistral 7B handoff, comparing answer quality, private memory footprint and rebuilding quality retained." width="1600"></a>
+</p>
+
+<p align="center">
+  <strong>Carry the experience. Keep writing.</strong><br>
+  Continued writing after a Qwen 4B → Mistral 7B handoff: answer quality, private memory footprint and quality retained relative to target-side rebuilding.
+</p>
+
 ## The continuity problem
 
 Long-lived agents operate on a different timescale from the models that power them. A deployment may change backbone, tokenizer or model family while its history continues to grow. Each change raises a practical question: **what must be carried forward, and what must be rebuilt?**
@@ -191,7 +200,7 @@ tests/                  Component and reporting checks
 
 This repository is being prepared for open-source release. The current upload contains selected implementation modules, experimental contracts and reporting tools. The full compressed-state engine, pretrained core/interface checkpoints, complete benchmark inference runners and datasets are outside this upload.
 
-The numerical snapshot dates to November 1, 2026. The checked-in evaluation status is a dated record; pending runs have no assigned final score. Larger-read-budget candidates and storage-replica QA scores do not replace the frozen performance table.
+The tabulated numerical snapshot dates to November 1, 2026. The checked-in evaluation status is a dated record; pending runs have no assigned final score. Larger-read-budget candidates and storage-replica QA scores do not replace the frozen performance table.
 
 Public licensing and full reproduction instructions will be specified for the open-source release. Third-party methods and datasets retain their respective licenses.
 
