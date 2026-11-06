@@ -58,7 +58,7 @@ These objectives shape both the architecture and the evaluation. A smaller archi
 
 ### The Handoff · interactive demo
 
-Qwen remembers where Ada left her recorder. Mistral opens the same memory and learns that the venue has changed. Ask each host where to go, then inspect the notes it retrieved.
+Qwen records the hydrophone’s locker and the required audio format. Mistral inherits those notes, then learns a new venue and delivery time. Ask for the pickup route or delivery brief and compare the answer with a receiver that has only the new notes, only the transferred notes, or a full rebuild. The handwritten notebook includes two recorded sessions and lets you run your own.
 
 [![The Handoff — recorded Qwen to Mistral session](demo/preview.webp)](demo/README.md)
 

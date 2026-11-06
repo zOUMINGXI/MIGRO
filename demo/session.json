@@ -1,11 +1,29 @@
 {
-  "title": "The listening session",
+  "title": "The midnight field session",
   "speaker": "Ada",
-  "source": "I left the spare field recorder in locker 12 at North Pier. Our listening session is booked for Harbor Hall.",
-  "update": "The listening session has moved from Harbor Hall to Glasshouse Studio. Please bring the spare field recorder.",
+  "source": [
+    "I left the hydrophone in case Cedar-4, in locker 12 at North Pier.",
+    "Our archive requires a WAV master. An MP3 is only for previews.",
+    "I booked Harbor Hall for Friday’s field session.",
+    "The camera crew keeps its lenses in locker 31 at South Pier."
+  ],
+  "update": [
+    "Friday’s field session has moved from Harbor Hall to Glasshouse Studio.",
+    "Mika will collect the archive master at 21:30.",
+    "The van is unavailable. I’ll take the ferry from North Pier."
+  ],
   "questions": [
-    "Where did Ada leave the spare field recorder?",
-    "Where is Ada’s listening session being held?",
-    "Where should Ada collect the spare recorder, and which venue should she take it to?"
+    "Where did Ada leave the hydrophone?",
+    "Where is Friday’s field session now?",
+    "Which audio format must Ada deliver to Mika, and at what time?",
+    "Which locker should Ada collect the hydrophone from, and where is the field session now?",
+    "What is Mika’s phone number?"
+  ],
+  "labels": [
+    "Retained fact",
+    "Revised venue",
+    "Delivery brief",
+    "Pickup route",
+    "Unknown detail"
   ]
 }

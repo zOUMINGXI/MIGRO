@@ -9,7 +9,7 @@ Source: https://github.com/google/fonts/tree/main/ofl/kalam
 
 All lettering is embedded as SVG paths; no runtime font download or installed font is required.
 The original layout, cyan/magenta offsets and existing CSS motion are retained.
-The font binaries are not bundled in this repository. Upstream license texts follow.
+The standalone handoff demo embeds the Latin WOFF2 distributions of Kalam Regular and Bold. Its HTML includes the Kalam attribution and license for offline distribution. Upstream license texts follow.
 
 ## Permanent Marker — upstream license
 

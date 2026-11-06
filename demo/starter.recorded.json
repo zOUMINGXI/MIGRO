@@ -1,0 +1,178 @@
+{
+  "schema": 2,
+  "case": {
+    "title": "The listening session",
+    "speaker": "Ada",
+    "source": "I left the spare field recorder in locker 12 at North Pier. Our listening session is booked for Harbor Hall.",
+    "update": "The listening session has moved from Harbor Hall to Glasshouse Studio. Please bring the spare field recorder.",
+    "questions": [
+      "Where did Ada leave the spare field recorder?",
+      "Where is Ada’s listening session being held?",
+      "Where should Ada collect the spare recorder, and which venue should she take it to?"
+    ]
+  },
+  "stages": [
+    {
+      "name": "source",
+      "host": "A",
+      "bytes": 2022,
+      "observations": 1,
+      "note_ids": [
+        0
+      ],
+      "receiver_writes": 0,
+      "answers": [
+        {
+          "text": "In locker 12 at North Pier.",
+          "slots": [
+            0
+          ]
+        },
+        {
+          "text": "Harbor Hall",
+          "slots": [
+            0
+          ]
+        },
+        {
+          "text": "Locker 12 at North Pier, then Harbor Hall",
+          "slots": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "handoff",
+      "host": "C",
+      "bytes": 2022,
+      "observations": 1,
+      "note_ids": [
+        0
+      ],
+      "receiver_writes": 0,
+      "answers": [
+        {
+          "text": "North Pier, locker 12",
+          "slots": [
+            0
+          ]
+        },
+        {
+          "text": "Harbor Hall",
+          "slots": [
+            0
+          ]
+        },
+        {
+          "text": "Locker 12 at North Pier, Harbor Hall",
+          "slots": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "append",
+      "host": "C",
+      "bytes": 2308,
+      "observations": 2,
+      "note_ids": [
+        0,
+        1
+      ],
+      "receiver_writes": 1,
+      "answers": [
+        {
+          "text": "Locker 12 at North Pier",
+          "slots": [
+            0,
+            1
+          ]
+        },
+        {
+          "text": "Glasshouse Studio",
+          "slots": [
+            0,
+            1
+          ]
+        },
+        {
+          "text": "Locker 12 at North Pier, Glasshouse Studio",
+          "slots": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "new_only",
+      "host": "C",
+      "bytes": 2021,
+      "observations": 1,
+      "note_ids": [
+        1
+      ],
+      "receiver_writes": 1,
+      "answers": [
+        {
+          "text": "Ada did not specify where she left the spare field recorder.",
+          "slots": [
+            1
+          ]
+        },
+        {
+          "text": "Glasshouse Studio",
+          "slots": [
+            1
+          ]
+        },
+        {
+          "text": "Collect the spare recorder from its location and take it to Glasshouse Studio.",
+          "slots": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rebuild",
+      "host": "C",
+      "bytes": 2306,
+      "observations": 2,
+      "note_ids": [
+        0,
+        1
+      ],
+      "receiver_writes": 2,
+      "answers": [
+        {
+          "text": "Locker 12 at North Pier",
+          "slots": [
+            0,
+            1
+          ]
+        },
+        {
+          "text": "Glasshouse Studio",
+          "slots": [
+            0,
+            1
+          ]
+        },
+        {
+          "text": "Locker 12 at North Pier, Glasshouse Studio",
+          "slots": [
+            0,
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "device": "cpu",
+  "source_model": "Qwen3-4B-Instruct-2507",
+  "target_model": "Mistral-7B-Instruct-v0.3",
+  "source_bindings_preserved": true
+}
