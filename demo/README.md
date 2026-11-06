@@ -1,6 +1,6 @@
 # The Handoff
 
-Open `demo/index.html` in a browser. The page contains the nine answers from a recorded native MIGRO run and works offline. [Download the standalone HTML](https://github.com/zOUMINGXI/MIGRO/raw/refs/heads/main/demo/index.html).
+[**Download MIGRO-Handoff.zip**](https://github.com/zOUMINGXI/MIGRO/raw/refs/heads/main/demo/MIGRO-Handoff.zip). Unzip it and double-click **MIGRO-Handoff.html** to open the interactive replay in your browser. It works offline and includes all nine answers from the recorded Qwen-to-Mistral run.
 
 Select **Both**, hand the state from Qwen to Mistral, then append the change of venue. Expand **Retrieved observations** to read the notes selected for each answer. The wire sculpture illustrates the handoff. The byte counts come from the serialized states. This fictional session is an example, separate from the benchmark results.
 

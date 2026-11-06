@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-  <a href="demo/README.md"><strong>Try the demo ↗</strong></a> &nbsp; · &nbsp;
+  <a href="https://github.com/zOUMINGXI/MIGRO/raw/refs/heads/main/demo/MIGRO-Handoff.zip"><strong>Download demo (.zip)</strong></a> &nbsp; · &nbsp;
   <a href="#the-continuity-problem">Overview</a> &nbsp; · &nbsp;
   <a href="#system-design">Architecture</a> &nbsp; · &nbsp;
   <a href="#experimental-evidence">Evidence</a> &nbsp; · &nbsp;
@@ -62,7 +62,9 @@ Qwen remembers where Ada left her recorder. Mistral opens the same memory and le
 
 [![The Handoff — recorded Qwen to Mistral session](demo/preview.webp)](demo/README.md)
 
-[**Download the offline demo**](https://github.com/zOUMINGXI/MIGRO/raw/refs/heads/main/demo/index.html) · [Run your own session](demo/README.md#run-your-own-session)
+[**Download the offline demo (.zip)**](https://github.com/zOUMINGXI/MIGRO/raw/refs/heads/main/demo/MIGRO-Handoff.zip) · [Run your own session](demo/README.md#run-your-own-session)
+
+Unzip the download and double-click `MIGRO-Handoff.html` to play the demo in your browser.
 
 ### A persistent substrate with adaptable host connections
 
