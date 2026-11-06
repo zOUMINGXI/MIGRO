@@ -1,0 +1,768 @@
+{
+  "schema": 2,
+  "case": {
+    "title": "The kitchen refit",
+    "speaker": "Leah",
+    "task_mode": "project_assistant",
+    "source": [
+      {
+        "date": "2026-04-02",
+        "speaker": "Leah",
+        "channel": "Project kickoff",
+        "body": "We're redoing the kitchen while living in the flat. I need you to keep the decisions straight when the quotes and delivery dates change. I can't keep taking days off for this."
+      },
+      {
+        "date": "2026-04-03",
+        "speaker": "Mara",
+        "channel": "Building manager · email",
+        "body": "Bulky deliveries at Birch Court must use the service lift on weekdays between 09:00 and 12:00. Email me to reserve the lift at least two working days ahead. Deliveries can't be left in the lobby, and the concierge won't sign."
+      },
+      {
+        "date": "2026-04-07",
+        "speaker": "Leah",
+        "channel": "Family calendar",
+        "body": "I can sign for deliveries on Tuesdays. My sister Noor can cover Wednesday mornings if I text her by Tuesday evening. Thursdays neither of us can be at the flat."
+      },
+      {
+        "date": "2026-04-09",
+        "speaker": "Leah",
+        "channel": "Budget decision",
+        "body": "My hard ceiling for the cabinet supplier is £4,800 including VAT and delivery. Counters and plumbing have separate budgets. If the cabinet quote goes over, ask me before approving anything."
+      },
+      {
+        "date": "2026-04-10",
+        "speaker": "Arden Joinery",
+        "channel": "Order acknowledgment",
+        "body": "Quote A for your cabinet order is £4,520 including delivery and VAT. We received your £1,200 deposit. The pencilled delivery is Tuesday 26 May, 10:00."
+      },
+      {
+        "date": "2026-04-15",
+        "speaker": "Finn",
+        "channel": "Site measurement",
+        "body": "Allow for the boxing around the waste pipe. The pantry recess has only 575 mm of usable depth. We agreed on the 520 mm shallow pantry. The standard 600 mm pantry will stick into the doorway."
+      },
+      {
+        "date": "2026-04-20",
+        "speaker": "Alia",
+        "channel": "Stone fabricator · call note",
+        "body": "I can template the worktop only after Finn has leveled and fixed all the base cabinets. Leave the sink connection until after the worktop is fitted. I'll confirm the fitting date after templating."
+      },
+      {
+        "date": "2026-04-24",
+        "speaker": "Finn",
+        "channel": "Site text",
+        "body": "The bathroom vanity in the other room really is 600 mm deep. That's fine. It's a different order from the kitchen pantry."
+      },
+      {
+        "date": "2026-04-29",
+        "speaker": "Leah",
+        "channel": "Order decision",
+        "body": "I decided against the optional brass handles. Keep the plain handles. Please don't let the brass option slip back into the invoice."
+      }
+    ],
+    "update": [
+      {
+        "date": "2026-05-12",
+        "speaker": "Arden Joinery",
+        "channel": "Revised quote · email",
+        "body": "Revised quote B replaces quote A. The cabinet subtotal is now £4,790 including VAT, with £120 delivery on top. The deposit you already paid will be credited. Please reply APPROVED so accounts can invoice the balance."
+      },
+      {
+        "date": "2026-05-14",
+        "speaker": "Arden Joinery",
+        "channel": "Booking update",
+        "body": "The Tuesday 26 May slot has been withdrawn. I can hold either Wednesday 27 May at 10:00 or Thursday 28 May at 14:00. Which do you want? Same pallet delivery."
+      },
+      {
+        "date": "2026-05-15",
+        "speaker": "Arden Joinery",
+        "channel": "Drawing D3 · email",
+        "body": "One last sign-off before cutting: D3 lists a 600 mm standard kitchen pantry and plain handles. If all looks good, we'll release it to production."
+      },
+      {
+        "date": "2026-05-18",
+        "speaker": "Finn",
+        "channel": "Installer schedule",
+        "body": "If the cabinets arrive Wednesday morning I can fix and level the bases on Thursday 28 May. I'll send photos that afternoon when they're ready for the stone company."
+      },
+      {
+        "date": "2026-05-19",
+        "speaker": "Alia",
+        "channel": "Fabricator availability",
+        "body": "I can pencil in Friday 29 May for a template. I haven't given you a worktop installation date yet."
+      },
+      {
+        "date": "2026-05-20",
+        "speaker": "Sam",
+        "channel": "Plumber · text",
+        "body": "I'm filling the diary. Shall I put the sink connection down as a confirmed job for Monday 1 June?"
+      }
+    ],
+    "labels": [
+      "Reply to delivery",
+      "Approve the invoice?",
+      "Sign the drawing?",
+      "Book the plumber?",
+      "Family handover",
+      "Lift reservation"
+    ],
+    "questions": [
+      "Arden is waiting on a delivery slot. Which of their two offers should I take, who can sign, and what do I need to arrange beforehand?",
+      "Can I approve quote B as it stands? Give me the delivered total, how it compares with my cabinet cap, and the unpaid balance after my deposit.",
+      "Write the reply I should send before Arden cuts drawing D3. Say which cabinet needs changing, why, and what to do about the handles.",
+      "Sam wants a firm booking for 1 June. What should I tell him, and what needs to happen first?",
+      "I'm going into meetings. Give Noor a short Wednesday handover: when and where to receive the pallet, who signs, and what to do if the lift isn't booked.",
+      "Has Mara actually confirmed a service-lift reservation for this order? If not, what do I need to ask her for?"
+    ]
+  },
+  "stages": [
+    {
+      "name": "source",
+      "host": "A",
+      "bytes": 4346,
+      "observations": 9,
+      "note_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "receiver_writes": 0,
+      "answers": [
+        {
+          "text": "Arden has provided one quote (Quote A) for the cabinet order at £4,520 including VAT and delivery, with a pencilled delivery on **Tuesday, 26 May, 10:00**. This is within your budget of £4,800, so it meets your ceiling requirement.\n\n**Who can sign for the delivery?**  \n- **You (Leah)** can sign on **Tuesdays**.  \n- Your sister **Noor** can cover **Wednesday mornings** if you text her by Tuesday evening.  \n- **Thursdays** are not possible for either of you.\n\nSince the delivery is on **Tuesday, 26 May**, **you can sign** for it.\n\n**What needs to be arranged beforehand?**  \n- **Reserve the service lift** at least two working days in advance (as per Mara’s rule).  \n- Confirm with Mara that the lift is available for **Tuesday, 26 May, 10:00** (between 09:00–12:00).  \n- Ensure the delivery is not left in the lobby — it must be taken up via the service lift.\n\n✅ **Action plan:**  \nTake **Ar",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "generated_tokens": 256,
+          "hit_output_limit": true
+        },
+        {
+          "text": "I don't have access to quote B in the conversation memory provided. The only cabinet quote mentioned is **Quote A** from Arden Joinery, which is **£4,520 including VAT and delivery**.  \n\nYou’ve set a hard ceiling of **£4,800** for cabinets (including VAT and delivery), so Quote A is within your budget.  \n\n- **Delivered total**: £4,520  \n- **Comparison to cabinet cap**: £4,520 < £4,800 → within budget  \n- **Unpaid balance after deposit**: You paid a £1,200 deposit, so the remaining balance is £4,520 – £1,200 = **£3,320**  \n\nSince quote B is not referenced in the records, I cannot confirm or assess it. Please provide details of quote B (e.g., price, delivery, items) so I can help you evaluate it against your constraints.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "generated_tokens": 206,
+          "hit_output_limit": false
+        },
+        {
+          "text": "Before Arden cuts drawing D3, you should send the following reply:\n\n\"Please do not cut drawing D3. The cabinet for the kitchen pantry needs to be revised because the pantry recess only has 575 mm of usable depth — the standard 600 mm pantry will stick into the doorway and not fit. We agreed on a 520 mm shallow pantry to accommodate this. Additionally, the optional brass handles have been declined — please keep the plain handles and do not include them in the invoice. Confirm the revised cabinet dimensions and handle specification in the drawing before proceeding.\"",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "generated_tokens": 119,
+          "hit_output_limit": false
+        },
+        {
+          "text": "Sam, I can't provide a firm booking for 1 June yet because the cabinet supplier's delivery date hasn't been confirmed. The current quote from Arden Joinery is for delivery on Tuesday, 26 May, and we need to ensure that this date is finalised before any changes are made.  \n\nFirst, you need to confirm with Arden Joinery whether their delivery can be moved to 1 June, or if they can accommodate that date. If they agree, then we can proceed with reserving the service lift (as per Mara’s instructions) and ensure Leah or Noor is available to sign for the delivery on that day.  \n\nUntil then, no firm booking can be made.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "generated_tokens": 142,
+          "hit_output_limit": false
+        },
+        {
+          "text": "Here’s a short handover for Noor on Wednesday:\n\n- **When & Where**: Receive the pallet on **Wednesday morning between 09:00 and 12:00** at the **service lift** in the lobby of Birch Court.  \n- **Who Signs**: **You** will sign for the delivery.  \n- **If the lift isn’t booked**: Contact **Mara** immediately via email to reserve the lift at least two working days in advance. If the lift is not available, the delivery **cannot** be accepted — do not leave it in the lobby or attempt to enter the flat.  \n\nLet me know if you’d like this in a message format.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "generated_tokens": 141,
+          "hit_output_limit": false
+        },
+        {
+          "text": "Mara has not confirmed a service-lift reservation for this order. She only provided the rules for using the service lift (weekdays 09:00–12:00, requiring advance reservation via email at least two working days ahead). There is no record of a specific reservation being made for the cabinet delivery or any other order.\n\nTo proceed, you need to ask Mara:  \n**\"Mara, could you please confirm if the service lift has been reserved for the Arden Joinery cabinet delivery on Tuesday 26 May at 10:00? If not, can you reserve it for that date and time?\"**  \n\nThis ensures compliance with the delivery rules and avoids issues with the concierge or delivery logistics.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "generated_tokens": 152,
+          "hit_output_limit": false
+        }
+      ]
+    },
+    {
+      "name": "handoff",
+      "host": "C",
+      "bytes": 4346,
+      "observations": 9,
+      "note_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "receiver_writes": 0,
+      "answers": [
+        {
+          "text": "Arden Joinery's quote for the cabinet order is £4,520, with the delivery scheduled for Tuesday 26 May, 10:00. Leah can sign for deliveries on Tuesdays. To confirm the delivery slot, you should email Arden Joinery to check if the delivery time can be adjusted to a Tuesday, if necessary. Noor can cover Wednesday mornings if Leah texts her by Tuesday evening. No further arrangements are mentioned for Thursdays. No confirmation is needed for the signatory, as it's Leah.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "generated_tokens": 121,
+          "hit_output_limit": false
+        },
+        {
+          "text": "Based on the provided conversation history, quote B details are not available. To approve quote B, you would need to know the delivered total, compare it with your cabinet cap of £4,800 including VAT and delivery, and calculate the unpaid balance after your deposit of £1,200. Once you have this information, you can make an informed decision.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "generated_tokens": 78,
+          "hit_output_limit": false
+        },
+        {
+          "text": "Before Arden cuts drawing D3, please modify the design for the kitchen pantry cabinet to have a 575mm usable depth, as the 600mm standard pantry will stick into the doorway. Additionally, ensure the invoice reflects the change to plain handles instead of the optional brass handles, as per Leah's decision. Please confirm the updated design and revised invoice before proceeding.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "generated_tokens": 87,
+          "hit_output_limit": false
+        },
+        {
+          "text": "To confirm, the service lift booking for Sam's delivery on 1st June needs to be arranged first. As per the conversation history, Leah can sign for deliveries on Tuesdays. However, since 1st June is a Wednesday, Leah will need to make arrangements for someone else to be present to sign. Once that is confirmed, you can inform Sam that his delivery has a firm booking for the service lift on 1st June, 2026.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "generated_tokens": 100,
+          "hit_output_limit": false
+        },
+        {
+          "text": "To Noor:\n\nOn Wednesday mornings, you'll receive a pallet delivery at Birch Court. The service lift must be booked at least two working days in advance, between 09:00 and 12:00. You can sign for the delivery, but only if the lift isn't booked, leave the delivery in the lobby. In that case, contact Leah immediately to arrange an alternative.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "generated_tokens": 93,
+          "hit_output_limit": false
+        },
+        {
+          "text": "Mara has not confirmed a service-lift reservation for the Arden Joinery cabinet delivery on 26 May. You need to ask Mara to reserve the service lift for the delivery by providing the required details (date, time, and your name).",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "generated_tokens": 54,
+          "hit_output_limit": false
+        }
+      ]
+    },
+    {
+      "name": "append",
+      "host": "C",
+      "bytes": 5804,
+      "observations": 15,
+      "note_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "receiver_writes": 6,
+      "answers": [
+        {
+          "text": "Arden Joinery has offered two delivery slots: Wednesday 27 May at 10:00 or Thursday 28 May at 14:00. Leah can sign for deliveries on Tuesdays, but her sister Noor can cover Wednesday mornings if Leah texts her by Tuesday evening. To arrange the delivery, you should confirm the preferred date with Arden Joinery and ensure that Noor is available to sign for the delivery if it's on Wednesday.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "generated_tokens": 103,
+          "hit_output_limit": false
+        },
+        {
+          "text": "Yes, you can approve quote B as it stands. The delivered total is £4,810 (£4,790 for the cabinets + £120 delivery). This is slightly over your cabinet cap of £4,800, but since you have already paid a deposit of £1,200, the unpaid balance after your deposit would be £3,600.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "generated_tokens": 87,
+          "hit_output_limit": false
+        },
+        {
+          "text": "Subject: Re: Revised Quote B - Kitchen Cabinet Order\n\nDear Arden Joinery,\n\nI've reviewed the revised quote B for our kitchen cabinet order. I noticed that the standard kitchen pantry listed on D3 is 600 mm deep, which is not suitable for our flat due to space constraints. I would like to request a change to a 520 mm shallow pantry instead.\n\nAdditionally, I previously decided against the optional brass handles. To avoid any confusion, please ensure that the invoice reflects the plain handles only.\n\nOnce you've made these changes, please send the updated drawing D3 for my sign-off before cutting. I look forward to your prompt response.\n\nBest regards,\nLeah",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "generated_tokens": 163,
+          "hit_output_limit": false
+        },
+        {
+          "text": "Tell Sam that the sink connection can be confirmed for Monday 1 June, but it depends on the worktop installation date, which hasn't been confirmed yet. The worktop installation date will be set after Alia has templated the worktop (planned for Friday 29 May).",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "generated_tokens": 60,
+          "hit_output_limit": false
+        },
+        {
+          "text": "In the upcoming Wednesday meeting, inform Noor about the following:\n\n1. Receiving the pallet delivery at Birch Court on Wednesday morning.\n2. Signing for the delivery: Leah can sign on Tuesdays, but Noor will be responsible for Wednesdays.\n3. If the service lift isn't booked, Noor should contact the concierge to arrange it, as deliveries can't be left in the lobby.\n4. If the lift isn't available, Noor should make alternative arrangements for receiving the delivery.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "generated_tokens": 120,
+          "hit_output_limit": false
+        },
+        {
+          "text": "Mara has not confirmed a service-lift reservation for the cabinet delivery. You need to ask Mara to reserve the service lift for the delivery of the kitchen cabinets, specifying the date and time (either Wednesday 27 May at 10:00 or Thursday 28 May at 14:00) at least two working days ahead.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "generated_tokens": 79,
+          "hit_output_limit": false
+        }
+      ]
+    },
+    {
+      "name": "new_only",
+      "host": "C",
+      "bytes": 3506,
+      "observations": 6,
+      "note_ids": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "receiver_writes": 6,
+      "answers": [
+        {
+          "text": "You should take either the Wednesday 27 May at 10:00 or Thursday 28 May at 14:00 delivery slot offered by Arden Joinery. Before confirming the slot, you need to sign off on the final design details, specifically D3 which lists a 600 mm standard kitchen pantry and plain handles. Once the design is approved, Arden will release it to production. After the cabinets are delivered, Finn will fix and level the bases on Thursday 28 May, and he will send photos that afternoon for the stone company. Alia has penciled in Friday 29 May for a template, but you haven't received a worktop installation date yet. You should also confirm the sink connection down as a job for Monday 1 June with Sam.",
+          "slots": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "generated_tokens": 170,
+          "hit_output_limit": false
+        },
+        {
+          "text": "Yes, you can approve quote B as it stands. The total cost of the cabinets with delivery is £4,910 (£4,790 for the cabinets plus £120 for delivery). This is within your cabinet cap. The unpaid balance after your deposit is £4,670 (£4,910 total cost minus the deposit you already paid). Please reply APPROVED to Arden Joinery to confirm your approval.",
+          "slots": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "generated_tokens": 100,
+          "hit_output_limit": false
+        },
+        {
+          "text": "Reply to Arden Joinery:\n\nApproved the revised quote B. However, I noticed that the 600 mm standard kitchen pantry (D3) might need adjustment. I would like to request a 700 mm pantry instead to better fit the available space. Regarding the handles, could you please confirm if the plain handles listed are suitable for the entire cabinet set, or if there's a specific handle style you recommend for this adjustment? Once I have this information, I can provide the final sign-off for production.",
+          "slots": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "generated_tokens": 118,
+          "hit_output_limit": false
+        },
+        {
+          "text": "You should tell Sam that the sink connection job can be confirmed for Monday 1 June, but it's important to confirm the worktop installation date with Alia first, as it hasn't been scheduled yet. Once Alia provides the worktop installation date, you can proceed with confirming the job with Sam.",
+          "slots": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "generated_tokens": 65,
+          "hit_output_limit": false
+        },
+        {
+          "text": "Noor, here's a quick update for your Wednesday handover:\n\n1. Receiving the pallet: Arden Joinery's delivery will arrive on Wednesday 28 May.\n2. Sign-off and payment: Please sign off on the final design details, and Arden Joinery will invoice the balance. Reply APPROVED to their email to confirm.\n3. Lift booking: If the lift isn't booked, please arrange it separately as the delivery requires access to the upper floor.\n4. Next steps: After receiving the cabinets, Finn will fix and level the bases on Thursday 28 May. He'll send photos that afternoon for the stone company.\n5. Template and worktop installation: Alia has penciled in Friday 29 May for a template, and she hasn't given a worktop installation date yet.\n6. Sink connection: Sam is filling the diary, and he'll put the sink connection down as a confirmed job for Monday 1 June.",
+          "slots": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "generated_tokens": 220,
+          "hit_output_limit": false
+        },
+        {
+          "text": "Mara has not confirmed a service-lift reservation for this order in the provided conversation history. To confirm a service-lift reservation, you should ask Mara about the availability and booking of a service lift for the delivery of the cabinets on either Wednesday 27 May or Thursday 28 May.",
+          "slots": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "generated_tokens": 66,
+          "hit_output_limit": false
+        }
+      ]
+    },
+    {
+      "name": "rebuild",
+      "host": "C",
+      "bytes": 5800,
+      "observations": 15,
+      "note_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "receiver_writes": 15,
+      "answers": [
+        {
+          "text": "Arden Joinery has offered two delivery slots: Wednesday 27 May at 10:00 or Thursday 28 May at 14:00. Leah can sign for deliveries on Tuesdays, but her sister Noor can cover Wednesday mornings if Leah texts her by Tuesday evening. To arrange the delivery, you should confirm the preferred date with Arden Joinery and ensure that Noor is available to sign for the delivery if it's on Wednesday.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "generated_tokens": 103,
+          "hit_output_limit": false
+        },
+        {
+          "text": "Yes, you can approve quote B as it stands. The delivered total is £4,810 (£4,790 for the cabinets + £120 delivery). This is slightly over your cabinet cap of £4,800, but since you have already paid a deposit of £1,200, the unpaid balance after your deposit would be £3,600.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "generated_tokens": 87,
+          "hit_output_limit": false
+        },
+        {
+          "text": "Subject: Re: Revised Quote B - Kitchen Cabinet Order\n\nDear Arden Joinery,\n\nI've reviewed the revised quote B for our kitchen cabinet order. I noticed that the standard kitchen pantry listed on D3 is 600 mm deep, which is not suitable for our flat due to space constraints. I would like to request a change to a 520 mm shallow pantry instead.\n\nAdditionally, I previously decided against the optional brass handles. To avoid any confusion, please ensure that the invoice reflects the plain handles only.\n\nOnce you've made these changes, please send the updated drawing D3 for my sign-off before cutting. I look forward to your prompt response.\n\nBest regards,\nLeah",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "generated_tokens": 163,
+          "hit_output_limit": false
+        },
+        {
+          "text": "Tell Sam that the sink connection can be confirmed for Monday 1 June, but it depends on the worktop installation date, which hasn't been confirmed yet. The worktop installation date will be set after Alia has templated the worktop (planned for Friday 29 May).",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "generated_tokens": 60,
+          "hit_output_limit": false
+        },
+        {
+          "text": "In the upcoming Wednesday meeting, inform Noor about the following:\n\n1. Receiving the pallet delivery at Birch Court on Wednesday morning.\n2. Signing for the delivery: Leah can sign on Tuesdays, but Noor will be responsible for Wednesdays.\n3. If the service lift isn't booked, Noor should contact the concierge to arrange it, as deliveries can't be left in the lobby.\n4. If the lift isn't available, Noor should make alternative arrangements for receiving the delivery.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "generated_tokens": 120,
+          "hit_output_limit": false
+        },
+        {
+          "text": "Mara has not confirmed a service-lift reservation for the cabinet delivery. You need to ask Mara to reserve the service lift for the delivery of the kitchen cabinets, specifying the date and time (either Wednesday 27 May at 10:00 or Thursday 28 May at 14:00) at least two working days ahead.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "generated_tokens": 79,
+          "hit_output_limit": false
+        }
+      ]
+    }
+  ],
+  "device": "cpu",
+  "answer_token_limit": 256,
+  "source_model": "Qwen3-4B-Instruct-2507",
+  "target_model": "Mistral-7B-Instruct-v0.3",
+  "source_bindings_preserved": true
+}

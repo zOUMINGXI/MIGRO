@@ -85,7 +85,7 @@ class HostBridge:
    out=self.host(input_ids=token[:,None],attention_mask=mask,position_ids=pos,past_key_values=cache,use_cache=True)
    cache=out.past_key_values
   self.synchronize()
-  costs=dict(seconds=time.monotonic()-start,end_to_end_seconds=time.monotonic()-e2e_start,interface_and_pack_seconds=interface_seconds,prefill_seconds=prefill,generated_tokens=sum(map(len,outputs)),
+  costs=dict(seconds=time.monotonic()-start,end_to_end_seconds=time.monotonic()-e2e_start,interface_and_pack_seconds=interface_seconds,prefill_seconds=prefill,generated_tokens=sum(map(len,outputs)),generated_tokens_per_answer=[len(x) for x in outputs],
    prompt_tokens=sum(x[2]["prompt_tokens"] for x in items),soft_tokens=sum(x[2]["soft_tokens"] for x in items),
    padded_prefill_tokens=len(rows)*inputs["inputs_embeds"].shape[1],decode_forwards=step,prefill_forwards=1)
   return [self.tokenizer.decode(o,skip_special_tokens=True).strip() for o in outputs],costs

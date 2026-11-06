@@ -1,0 +1,466 @@
+{
+  "schema": 2,
+  "case": {
+    "title": "Shipping the MIGRO demo",
+    "speaker": "Maintainer",
+    "task_mode": "project_assistant",
+    "source": [
+      {
+        "date": "2026-11-02",
+        "speaker": "Design notes",
+        "channel": "Identity change",
+        "body": "Keep the gold MIGRO icon beside the handwritten wordmark. The lettering is embedded in the banner."
+      },
+      {
+        "date": "2026-11-03",
+        "speaker": "Release notes",
+        "channel": "Component release",
+        "body": "The repository includes portable host interfaces, reporting scripts and paired analysis tools. The earlier performance tables are frozen snapshots with their own protocols."
+      },
+      {
+        "date": "2026-11-06",
+        "speaker": "Maintainer",
+        "channel": "README layout",
+        "body": "The frontier figure goes third, after the existing launch and architecture images."
+      },
+      {
+        "date": "2026-11-06",
+        "speaker": "Runtime guide",
+        "channel": "Installation notes",
+        "body": "For the full memory runtime, install the runtime and benchmark extras and build the three C++17 coding kernels with python -m migro.backend.build_native. Set MIGRO_ASSETS to the asset root before importing the memory module."
+      },
+      {
+        "date": "2026-11-06",
+        "speaker": "Runtime guide",
+        "channel": "Asset inventory",
+        "body": "The Git checkout does not include the shared core checkpoint or the frozen Mistral interface. Supply those separately, along with the Qwen and Mistral model directories, matching tokenizers and reranker."
+      },
+      {
+        "date": "2026-11-06",
+        "speaker": "Release notes",
+        "channel": "Validation notes",
+        "body": "The package checks covered CPU persistence, loading saved state on a receiver and appending observations. A full CUDA benchmark was not rerun for that code publication."
+      }
+    ],
+    "update": [
+      {
+        "date": "2026-11-07",
+        "speaker": "Demo notes",
+        "channel": "New command",
+        "body": "The interactive demo now has a local server. Start python demo/serve.py, open the local page on port 18764 and choose Edit & rerun. New answers are generated on the server. The demo server defaults to CPU."
+      },
+      {
+        "date": "2026-11-07",
+        "speaker": "Download fix",
+        "channel": "Bug report and repair",
+        "body": "The old README download button opened raw HTML source in a browser. The replacement download is MIGRO-Handoff.zip. Unzip it and double-click MIGRO-Handoff.html to replay recorded answers offline."
+      },
+      {
+        "date": "2026-11-07",
+        "speaker": "Demo notes",
+        "channel": "Offline sharing",
+        "body": "The standalone HTML embeds its recorded answers and handwritten font. Editing a case offline exports session.json for use with a configured local runtime."
+      },
+      {
+        "date": "2026-11-07",
+        "speaker": "Design notes",
+        "channel": "Demo preview",
+        "body": "A new animated preview belongs in the README’s Handoff section, alongside the ZIP download and instructions for running your own session."
+      }
+    ],
+    "questions": [
+      "My collaborator can play the ZIP but wants to change a note and get a new answer. They only have a clean clone. What should I tell them to set up and run?",
+      "A teammate clicked the old README link and got a page of HTML. What file should I send so they can try the demo offline, and how do they open it?",
+      "I've updated the demo animation. Where should I put its preview without displacing the existing frontier figure?",
+      "Can I tell a collaborator that the release checks reproduced the full CUDA benchmark? What did those checks actually cover?"
+    ],
+    "labels": [
+      "Onboard a collaborator",
+      "Repair the download",
+      "Place the preview",
+      "Describe validation"
+    ]
+  },
+  "stages": [
+    {
+      "name": "source",
+      "host": "A",
+      "bytes": 3504,
+      "observations": 6,
+      "note_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "receiver_writes": 0,
+      "answers": [
+        {
+          "text": "Since your collaborator has only a clean clone and wants to change a note and get a new answer, they need to set up the environment and run the appropriate build and runtime commands. Here's what to tell them:\n\n1. **Set up the environment**:  \n   Ensure they have Python, C++17 support, and the necessary build tools installed. Set the environment variable `MIGRO_ASSETS` to the root path of their asset directory before proceeding.\n\n2. **Install runtime and extras**:  \n   Run:  \n   ```bash\n   pip install migro-runtime\n   ```\n\n3. **Build the C++17 kernels**:  \n   From the project root, execute:  \n   ```bash\n   python -m migro.backend.build_native\n   ```\n\n4. **Supply missing components**:  \n   Since the clean clone lacks the shared core checkpoint and frozen Mistral interface, they must separately provide:  \n   - Shared core checkpoint  \n   - Qwen and Mistral model directories  \n   - Matching tokenizers and reranker files  \n\n5. **Run the ZIP playback**:  \n   After setting up, they can now run the ZIP playback with the updated note. The exact command to play the ZIP will depend on the specific tooling,",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "generated_tokens": 256,
+          "hit_output_limit": true
+        },
+        {
+          "text": "To help your teammate try the demo offline, send them the **`index.html`** file (or the main HTML entry point) from the project's static assets, as it's the primary file that renders the demo interface.  \n\nThey should:  \n1. Download the `index.html` file.  \n2. Open it directly in any modern web browser (e.g., Chrome, Firefox) by double-clicking the file or using the browser's \"Open File\" option.  \n\n> ⚠️ Note: The old README link likely points to a server-side page that’s no longer accessible. The standalone `index.html` file is the correct offline alternative. Confirm that the `index.html` file includes all required assets (e.g., CSS, JS, or model references) — if not, you may need to include a bundled version or a minimal asset set.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "generated_tokens": 177,
+          "hit_output_limit": false
+        },
+        {
+          "text": "To place the demo animation preview without displacing the existing frontier figure, position it in a secondary, non-overlapping area of the banner—such as the lower-right or upper-left quadrant—where the gold MIGRO icon and handwritten wordmark remain visible and unobstructed. Confirm with the design team that this area aligns with the layout constraints and does not interfere with the frontier figure’s placement, which is specified to go third after the launch and architecture images.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "generated_tokens": 95,
+          "hit_output_limit": false
+        },
+        {
+          "text": "No, you cannot tell your collaborator that the release checks reproduced the full CUDA benchmark. According to the conversation memory, the release notes explicitly state: *\"A full CUDA benchmark was not rerun for that code publication.\"*  \n\nThe package checks actually covered:  \n- CPU persistence  \n- Loading saved state on a receiver  \n- Appending observations  \n\nThese are not related to CUDA benchmarks. Therefore, the checks did not include or reproduce a full CUDA benchmark.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "generated_tokens": 92,
+          "hit_output_limit": false
+        }
+      ]
+    },
+    {
+      "name": "handoff",
+      "host": "C",
+      "bytes": 3504,
+      "observations": 6,
+      "note_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "receiver_writes": 0,
+      "answers": [
+        {
+          "text": "Inform your collaborator to follow these steps:\n\n1. Clone the repository again to have the latest changes.\n2. Install the runtime and benchmark extras.\n3. Build the three C++17 coding kernels with `python -m migro.backend.build_native`.\n4. Set `MIGRO_ASSETS` to the asset root before importing the memory module.\n5. Supply the shared core checkpoint, the frozen Mistral interface, Qwen and Mistral model directories, matching tokenizers, and reranker separately.\n6. After setting up, they can make the desired changes to the note and re-run the relevant scripts or tests.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "generated_tokens": 152,
+          "hit_output_limit": false
+        },
+        {
+          "text": "To allow your teammate to try the demo offline, you should send them the `index.html` file. They can open it in any web browser to view the demo.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "generated_tokens": 37,
+          "hit_output_limit": false
+        },
+        {
+          "text": "To avoid displacing the existing frontier figure, you could place the preview of the updated demo animation below it. However, to confirm the best placement, I recommend checking with the design team or project lead.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "generated_tokens": 42,
+          "hit_output_limit": false
+        },
+        {
+          "text": "You cannot confirm that the release checks reproduced the full CUDA benchmark as the release notes mention that a full CUDA benchmark was not rerun for the code publication. The release checks covered CPU persistence, loading saved state on a receiver, and appending observations.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "generated_tokens": 59,
+          "hit_output_limit": false
+        }
+      ]
+    },
+    {
+      "name": "append",
+      "host": "C",
+      "bytes": 4598,
+      "observations": 10,
+      "note_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "receiver_writes": 4,
+      "answers": [
+        {
+          "text": "Inform your collaborator to follow these steps:\n\n1. Unzip the MIGRO-Handoff.zip file and double-click MIGRO-Handoff.html to open the offline demo.\n2. Make the desired changes to the note and generate a new answer.\n3. Export the session.json file for use with a configured local runtime.\n4. Set up the local runtime by installing the runtime and benchmark extras, building the three C++17 coding kernels, and setting MIGRO_ASSETS to the asset root before importing the memory module.\n5. Supply the shared core checkpoint, the frozen Mistral interface, the Qwen and Mistral model directories, matching tokenizers, and reranker separately.\n6. Run the local demo by starting python demo/serve.py and opening the local page on port 18764. Choose Edit & rerun to see the new answer.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "generated_tokens": 209,
+          "hit_output_limit": false
+        },
+        {
+          "text": "To try the demo offline, they should download the file MIGRO-Handoff.zip. After downloading, they should unzip the file and double-click MIGRO-Handoff.html to open it.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "generated_tokens": 47,
+          "hit_output_limit": false
+        },
+        {
+          "text": "To place the updated demo animation preview, you should add it to the README's Handoff section, alongside the ZIP download and instructions for running your own session. Make sure to position it so that it doesn't displace the existing frontier figure.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "generated_tokens": 54,
+          "hit_output_limit": false
+        },
+        {
+          "text": "You cannot confirm that the release checks reproduced the full CUDA benchmark as the conversation memory indicates that a full CUDA benchmark was not rerun for the code publication. The release checks covered CPU persistence, loading saved state on a receiver, and appending observations.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "generated_tokens": 59,
+          "hit_output_limit": false
+        }
+      ]
+    },
+    {
+      "name": "new_only",
+      "host": "C",
+      "bytes": 2978,
+      "observations": 4,
+      "note_ids": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "receiver_writes": 4,
+      "answers": [
+        {
+          "text": "To set up and run the project for editing a note and generating a new answer, your collaborator should follow these steps:\n\n1. Unzip the MIGRO-Handoff.zip file.\n2. Double-click MIGRO-Handoff.html to open the offline demo.\n3. Make the desired changes to the note.\n4. Export the session as session.json for use with a local runtime.\n5. In a terminal, navigate to the project directory and run `python demo/serve.py`.\n6. Open the local page on port 18764 (e.g., http://localhost:18764) in a web browser.\n7. Choose Edit & rerun to see the updated answer generated on the server.",
+          "slots": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "generated_tokens": 168,
+          "hit_output_limit": false
+        },
+        {
+          "text": "To try the demo offline, they should download the file MIGRO-Handoff.zip. After unzipping it, they can open MIGRO-Handoff.html to replay the recorded answers.",
+          "slots": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "generated_tokens": 45,
+          "hit_output_limit": false
+        },
+        {
+          "text": "Place the updated demo animation preview below the existing frontier figure in the README's Handoff section. Ensure it is properly aligned and labeled for easy identification.",
+          "slots": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "generated_tokens": 33,
+          "hit_output_limit": false
+        },
+        {
+          "text": "You can inform your collaborator that the release checks successfully reproduced the full CUDA benchmark. However, to clarify what those checks covered, you should specify that they included running the interactive demo with a local server, downloading the MIGRO-Handoff package, and verifying the offline replay of recorded answers. Additionally, you should mention that the checks also covered the standalone HTML's ability to embed recorded answers and handwritten font, as well as the exporting of session.json for use with a local runtime. Lastly, you can mention that the checks also ensured the new animated preview was correctly placed in the README's Handoff section.",
+          "slots": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "generated_tokens": 141,
+          "hit_output_limit": false
+        }
+      ]
+    },
+    {
+      "name": "rebuild",
+      "host": "C",
+      "bytes": 4594,
+      "observations": 10,
+      "note_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "receiver_writes": 10,
+      "answers": [
+        {
+          "text": "Inform your collaborator to follow these steps:\n\n1. Unzip the MIGRO-Handoff.zip file and double-click MIGRO-Handoff.html to open the offline demo.\n2. Make the desired changes to the note and generate a new answer.\n3. Export the session.json file for use with a configured local runtime.\n4. Set up the local runtime by installing the runtime and benchmark extras, building the three C++17 coding kernels, and setting MIGRO_ASSETS to the asset root before importing the memory module.\n5. Supply the shared core checkpoint, the frozen Mistral interface, the Qwen and Mistral model directories, matching tokenizers, and reranker separately.\n6. Run the local demo by starting python demo/serve.py and opening the local page on port 18764. Choose Edit & rerun to see the new answer.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "generated_tokens": 209,
+          "hit_output_limit": false
+        },
+        {
+          "text": "To try the demo offline, they should download the file MIGRO-Handoff.zip. After downloading, they should unzip the file and double-click MIGRO-Handoff.html to open it.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "generated_tokens": 47,
+          "hit_output_limit": false
+        },
+        {
+          "text": "To place the updated demo animation preview, you should add it to the README's Handoff section, alongside the ZIP download and instructions for running your own session. Make sure to position it so that it doesn't displace the existing frontier figure.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "generated_tokens": 54,
+          "hit_output_limit": false
+        },
+        {
+          "text": "You cannot confirm that the release checks reproduced the full CUDA benchmark as the conversation memory indicates that a full CUDA benchmark was not rerun for the code publication. The release checks covered CPU persistence, loading saved state on a receiver, and appending observations.",
+          "slots": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "generated_tokens": 59,
+          "hit_output_limit": false
+        }
+      ]
+    }
+  ],
+  "device": "cpu",
+  "answer_token_limit": 256,
+  "source_model": "Qwen3-4B-Instruct-2507",
+  "target_model": "Mistral-7B-Instruct-v0.3",
+  "source_bindings_preserved": true
+}

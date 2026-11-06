@@ -1,0 +1,76 @@
+[
+  {
+    "decision": "Receiving the cabinets",
+    "points": [
+      "Take Wed 27 May at 10:00. Thursday afternoon is outside lift hours and nobody can receive it.",
+      "Text Noor by Tuesday evening. Email Mara at least two working days ahead to reserve the service lift."
+    ],
+    "notes": [
+      2,
+      3,
+      11
+    ]
+  },
+  {
+    "decision": "Authorizing a payment",
+    "points": [
+      "£4,790 + £120 = £4,910 delivered, £110 above Leah’s £4,800 cap. Hold approval.",
+      "The £1,200 deposit reduces the balance to £3,710; it does not reduce the order total."
+    ],
+    "notes": [
+      4,
+      5,
+      10
+    ],
+    "record_note": "£4,790 + £120 = £4,910 delivered. That is £110 over the agreed cap; £3,710 remains after the deposit."
+  },
+  {
+    "decision": "Releasing the drawing",
+    "points": [
+      "Hold cutting. Replace the 600 mm kitchen pantry with the agreed 520 mm unit to fit the 575 mm recess.",
+      "Keep plain handles. The 600 mm bathroom vanity belongs to another order."
+    ],
+    "notes": [
+      6,
+      8,
+      9,
+      12
+    ]
+  },
+  {
+    "decision": "Booking dependent trades",
+    "points": [
+      "Keep the 1 June plumbing job provisional. First the bases must be fixed and leveled, then templating, then worktop fitting.",
+      "29 May is a pencilled template date, not a confirmed fitting date."
+    ],
+    "notes": [
+      7,
+      13,
+      14,
+      15
+    ],
+    "record_note": "29 May is a proposed template appointment. The worktop fitting date is still open."
+  },
+  {
+    "decision": "Delegating the delivery",
+    "points": [
+      "Noor can sign at Birch Court on Wed 27 May at 10:00. Leah needs to notify her by Tuesday evening.",
+      "Use a reserved service lift; check with Mara if unconfirmed and do not leave the pallet in the lobby."
+    ],
+    "notes": [
+      2,
+      3,
+      11
+    ]
+  },
+  {
+    "decision": "Avoiding a false confirmation",
+    "points": [
+      "The correspondence gives rules for booking the lift but no confirmation. Ask Mara to reserve the service lift for Wednesday’s delivery."
+    ],
+    "notes": [
+      2,
+      11
+    ]
+  }
+]

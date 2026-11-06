@@ -1,0 +1,81 @@
+{
+  "title": "Shipping the MIGRO demo",
+  "speaker": "Maintainer",
+  "task_mode": "project_assistant",
+  "source": [
+    {
+      "date": "2026-11-02",
+      "speaker": "Design notes",
+      "channel": "Identity change",
+      "body": "Keep the gold MIGRO icon beside the handwritten wordmark. The lettering is embedded in the banner."
+    },
+    {
+      "date": "2026-11-03",
+      "speaker": "Release notes",
+      "channel": "Component release",
+      "body": "The repository includes portable host interfaces, reporting scripts and paired analysis tools. The earlier performance tables are frozen snapshots with their own protocols."
+    },
+    {
+      "date": "2026-11-06",
+      "speaker": "Maintainer",
+      "channel": "README layout",
+      "body": "The frontier figure goes third, after the existing launch and architecture images."
+    },
+    {
+      "date": "2026-11-06",
+      "speaker": "Runtime guide",
+      "channel": "Installation notes",
+      "body": "For the full memory runtime, install the runtime and benchmark extras and build the three C++17 coding kernels with python -m migro.backend.build_native. Set MIGRO_ASSETS to the asset root before importing the memory module."
+    },
+    {
+      "date": "2026-11-06",
+      "speaker": "Runtime guide",
+      "channel": "Asset inventory",
+      "body": "The Git checkout does not include the shared core checkpoint or the frozen Mistral interface. Supply those separately, along with the Qwen and Mistral model directories, matching tokenizers and reranker."
+    },
+    {
+      "date": "2026-11-06",
+      "speaker": "Release notes",
+      "channel": "Validation notes",
+      "body": "The package checks covered CPU persistence, loading saved state on a receiver and appending observations. A full CUDA benchmark was not rerun for that code publication."
+    }
+  ],
+  "update": [
+    {
+      "date": "2026-11-07",
+      "speaker": "Demo notes",
+      "channel": "New command",
+      "body": "The interactive demo now has a local server. Start python demo/serve.py, open the local page on port 18764 and choose Edit & rerun. New answers are generated on the server. The demo server defaults to CPU."
+    },
+    {
+      "date": "2026-11-07",
+      "speaker": "Download fix",
+      "channel": "Bug report and repair",
+      "body": "The old README download button opened raw HTML source in a browser. The replacement download is MIGRO-Handoff.zip. Unzip it and double-click MIGRO-Handoff.html to replay recorded answers offline."
+    },
+    {
+      "date": "2026-11-07",
+      "speaker": "Demo notes",
+      "channel": "Offline sharing",
+      "body": "The standalone HTML embeds its recorded answers and handwritten font. Editing a case offline exports session.json for use with a configured local runtime."
+    },
+    {
+      "date": "2026-11-07",
+      "speaker": "Design notes",
+      "channel": "Demo preview",
+      "body": "A new animated preview belongs in the README’s Handoff section, alongside the ZIP download and instructions for running your own session."
+    }
+  ],
+  "questions": [
+    "My collaborator can play the ZIP but wants to change a note and get a new answer. They only have a clean clone. What should I tell them to set up and run?",
+    "A teammate clicked the old README link and got a page of HTML. What file should I send so they can try the demo offline, and how do they open it?",
+    "I've updated the demo animation. Where should I put its preview without displacing the existing frontier figure?",
+    "Can I tell a collaborator that the release checks reproduced the full CUDA benchmark? What did those checks actually cover?"
+  ],
+  "labels": [
+    "Onboard a collaborator",
+    "Repair the download",
+    "Place the preview",
+    "Describe validation"
+  ]
+}

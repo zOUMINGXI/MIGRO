@@ -27,6 +27,12 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path in ("/", "/index.html"):
             self.reply(200, self.server.page, "text/html")
+        elif self.path == "/api/progress":
+            try:
+                progress = json.loads(self.server.progress_path.read_text())
+            except FileNotFoundError:
+                progress = {"stage": "idle"}
+            self.reply(200, progress)
         elif self.path == "/api/info":
             self.reply(200, {"live": True})
         else:
@@ -54,6 +60,9 @@ class Handler(BaseHTTPRequestHandler):
             self.reply(409, {"error": "A session is generating. Try again when it finishes."})
             return
         try:
+            temporary = self.server.progress_path.with_suffix(".tmp")
+            temporary.write_text(json.dumps({"stage":"loading"}))
+            temporary.replace(self.server.progress_path)
             with tempfile.TemporaryDirectory() as directory:
                 root = Path(directory)
                 request = root / "session.json"
@@ -61,12 +70,13 @@ class Handler(BaseHTTPRequestHandler):
                 request.write_text(json.dumps(case))
                 try:
                     subprocess.run([sys.executable, str(HERE / "run.py"), "--case", str(request),
-                                    "--output", str(output)], check=True, timeout=900)
+                                    "--output", str(output), "--progress", str(self.server.progress_path)], check=True, timeout=3600)
                 except (subprocess.SubprocessError, OSError):
                     self.reply(503, {"error": "Generation failed. Check the server log and runtime asset paths."})
                     return
                 self.reply(200, output.read_bytes())
         finally:
+            self.server.progress_path.unlink(missing_ok=True)
             run_lock.release()
 
 
@@ -76,7 +86,8 @@ if __name__ == "__main__":
     parser.add_argument("--trace", type=Path, help="Open a trace produced by run.py")
     args = parser.parse_args()
     os.environ.setdefault("MIGRO_DEVICE", "cpu")
-    with ThreadingHTTPServer(("127.0.0.1", args.port), Handler) as server:
+    with tempfile.TemporaryDirectory() as scratch, ThreadingHTTPServer(("127.0.0.1", args.port), Handler) as server:
+        server.progress_path = Path(scratch) / "progress.json"
         page = (HERE / "index.html").read_text().replace("</head>", '<meta name="migro-live"></head>', 1)
         if args.trace:
             before, rest = page.split('<script type="application/json" id="capture">', 1)

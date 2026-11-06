@@ -1,0 +1,115 @@
+{
+  "title": "The kitchen refit",
+  "speaker": "Leah",
+  "task_mode": "project_assistant",
+  "source": [
+    {
+      "date": "2026-04-02",
+      "speaker": "Leah",
+      "channel": "Project kickoff",
+      "body": "We're redoing the kitchen while living in the flat. I need you to keep the decisions straight when the quotes and delivery dates change. I can't keep taking days off for this."
+    },
+    {
+      "date": "2026-04-03",
+      "speaker": "Mara",
+      "channel": "Building manager · email",
+      "body": "Bulky deliveries at Birch Court must use the service lift on weekdays between 09:00 and 12:00. Email me to reserve the lift at least two working days ahead. Deliveries can't be left in the lobby, and the concierge won't sign."
+    },
+    {
+      "date": "2026-04-07",
+      "speaker": "Leah",
+      "channel": "Family calendar",
+      "body": "I can sign for deliveries on Tuesdays. My sister Noor can cover Wednesday mornings if I text her by Tuesday evening. Thursdays neither of us can be at the flat."
+    },
+    {
+      "date": "2026-04-09",
+      "speaker": "Leah",
+      "channel": "Budget decision",
+      "body": "My hard ceiling for the cabinet supplier is £4,800 including VAT and delivery. Counters and plumbing have separate budgets. If the cabinet quote goes over, ask me before approving anything."
+    },
+    {
+      "date": "2026-04-10",
+      "speaker": "Arden Joinery",
+      "channel": "Order acknowledgment",
+      "body": "Quote A for your cabinet order is £4,520 including delivery and VAT. We received your £1,200 deposit. The pencilled delivery is Tuesday 26 May, 10:00."
+    },
+    {
+      "date": "2026-04-15",
+      "speaker": "Finn",
+      "channel": "Site measurement",
+      "body": "Allow for the boxing around the waste pipe. The pantry recess has only 575 mm of usable depth. We agreed on the 520 mm shallow pantry. The standard 600 mm pantry will stick into the doorway."
+    },
+    {
+      "date": "2026-04-20",
+      "speaker": "Alia",
+      "channel": "Stone fabricator · call note",
+      "body": "I can template the worktop only after Finn has leveled and fixed all the base cabinets. Leave the sink connection until after the worktop is fitted. I'll confirm the fitting date after templating."
+    },
+    {
+      "date": "2026-04-24",
+      "speaker": "Finn",
+      "channel": "Site text",
+      "body": "The bathroom vanity in the other room really is 600 mm deep. That's fine. It's a different order from the kitchen pantry."
+    },
+    {
+      "date": "2026-04-29",
+      "speaker": "Leah",
+      "channel": "Order decision",
+      "body": "I decided against the optional brass handles. Keep the plain handles. Please don't let the brass option slip back into the invoice."
+    }
+  ],
+  "update": [
+    {
+      "date": "2026-05-12",
+      "speaker": "Arden Joinery",
+      "channel": "Revised quote · email",
+      "body": "Revised quote B replaces quote A. The cabinet subtotal is now £4,790 including VAT, with £120 delivery on top. The deposit you already paid will be credited. Please reply APPROVED so accounts can invoice the balance."
+    },
+    {
+      "date": "2026-05-14",
+      "speaker": "Arden Joinery",
+      "channel": "Booking update",
+      "body": "The Tuesday 26 May slot has been withdrawn. I can hold either Wednesday 27 May at 10:00 or Thursday 28 May at 14:00. Which do you want? Same pallet delivery."
+    },
+    {
+      "date": "2026-05-15",
+      "speaker": "Arden Joinery",
+      "channel": "Drawing D3 · email",
+      "body": "One last sign-off before cutting: D3 lists a 600 mm standard kitchen pantry and plain handles. If all looks good, we'll release it to production."
+    },
+    {
+      "date": "2026-05-18",
+      "speaker": "Finn",
+      "channel": "Installer schedule",
+      "body": "If the cabinets arrive Wednesday morning I can fix and level the bases on Thursday 28 May. I'll send photos that afternoon when they're ready for the stone company."
+    },
+    {
+      "date": "2026-05-19",
+      "speaker": "Alia",
+      "channel": "Fabricator availability",
+      "body": "I can pencil in Friday 29 May for a template. I haven't given you a worktop installation date yet."
+    },
+    {
+      "date": "2026-05-20",
+      "speaker": "Sam",
+      "channel": "Plumber · text",
+      "body": "I'm filling the diary. Shall I put the sink connection down as a confirmed job for Monday 1 June?"
+    }
+  ],
+  "labels": [
+    "Reply to delivery",
+    "Approve the invoice?",
+    "Sign the drawing?",
+    "Book the plumber?",
+    "Family handover",
+    "Lift reservation"
+  ],
+  "questions": [
+    "Arden is waiting on a delivery slot. Which of their two offers should I take, who can sign, and what do I need to arrange beforehand?",
+    "Can I approve quote B as it stands? Give me the delivered total, how it compares with my cabinet cap, and the unpaid balance after my deposit.",
+    "Write the reply I should send before Arden cuts drawing D3. Say which cabinet needs changing, why, and what to do about the handles.",
+    "Sam wants a firm booking for 1 June. What should I tell him, and what needs to happen first?",
+    "I'm going into meetings. Give Noor a short Wednesday handover: when and where to receive the pallet, who signs, and what to do if the lift isn't booked.",
+    "Has Mara actually confirmed a service-lift reservation for this order? If not, what do I need to ask her for?"
+  ]
+}

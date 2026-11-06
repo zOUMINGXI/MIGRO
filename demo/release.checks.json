@@ -1,0 +1,47 @@
+[
+  {
+    "decision": "From replay to fresh answers",
+    "points": [
+      "A clone and the ZIP suffice for replay, not new inference. Supply the shared runtime core, frozen Mistral interface, both hosts, tokenizers and reranker.",
+      "Install runtime dependencies, set MIGRO_ASSETS, build the C++ kernels and start python demo/serve.py. Edit the session on the local page."
+    ],
+    "notes": [
+      4,
+      5,
+      7,
+      8,
+      9
+    ],
+    "record_note": "Offline HTML plays saved answers. Generating new answers requires the configured local model runtime."
+  },
+  {
+    "decision": "Delivering the demo",
+    "points": [
+      "Send MIGRO-Handoff.zip. Extract it and double-click MIGRO-Handoff.html in a browser. This plays the recorded session."
+    ],
+    "notes": [
+      8,
+      9
+    ]
+  },
+  {
+    "decision": "Homepage layout",
+    "points": [
+      "Keep launch and architecture first, frontier third. Put the demo animation in the Handoff section with its ZIP and local-run instructions."
+    ],
+    "notes": [
+      3,
+      10
+    ]
+  },
+  {
+    "decision": "Claims a maintainer can make",
+    "points": [
+      "The release checks covered CPU persistence, receiver restore and append. The release did not rerun the full CUDA benchmark."
+    ],
+    "notes": [
+      6
+    ],
+    "record_note": "The release checked CPU persistence, restore and append. The full CUDA benchmark was not rerun for that publication."
+  }
+]

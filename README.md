@@ -58,7 +58,7 @@ These objectives shape both the architecture and the evaluation. A smaller archi
 
 ### The Handoff · interactive demo
 
-Qwen records the hydrophone’s locker and the required audio format. Mistral inherits those notes, then learns a new venue and delivery time. Ask for the pickup route or delivery brief and compare the answer with a receiver that has only the new notes, only the transferred notes, or a full rebuild. The handwritten notebook includes two recorded sessions and lets you run your own.
+A kitchen supplier asks for sign-off just as Leah changes assistants. The new quote, drawing and delivery options are in the latest emails; her spending cap, site measurements and building restrictions are in April’s correspondence. Open the decision desk to compare the actual answers from five memory conditions. A second case reconstructs our own demo-download support issue from the release commits.
 
 [![The Handoff — recorded Qwen to Mistral session](demo/preview.webp)](demo/README.md)
 
