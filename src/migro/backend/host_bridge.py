@@ -1,5 +1,5 @@
 """Frozen-host input connector. No writer or history replay in this module."""
-import math,time
+import math,time,os
 import torch
 from torch import nn
 from torch.nn import functional as F
@@ -18,7 +18,7 @@ class Connector(nn.Module):
 class HostBridge:
  def __init__(self,path,hidden=512):
   self.tokenizer=AutoTokenizer.from_pretrained(path,local_files_only=True)
-  self.host=AutoModelForCausalLM.from_pretrained(path,local_files_only=True,dtype=torch.bfloat16,attn_implementation="sdpa").cuda().eval().requires_grad_(False)
+  self.host=AutoModelForCausalLM.from_pretrained(path,local_files_only=True,dtype=torch.bfloat16,attn_implementation="sdpa").to(os.environ.get("MIGRO_DEVICE", "cuda")).eval().requires_grad_(False)
   self.device=self.host.device
   with torch.no_grad():rms=float(self.host.get_input_embeddings().weight.float().square().mean().sqrt())
   self.connector=Connector(self.host.config.hidden_size,rms,hidden).to(self.device)
@@ -26,6 +26,9 @@ class HostBridge:
   ids=self.host.generation_config.eos_token_id
   self.eos=set(ids if isinstance(ids,list) else [ids])
   if self.tokenizer.eos_token_id is not None:self.eos.add(self.tokenizer.eos_token_id)
+ def synchronize(self):
+  if self.device.type == "cuda":
+   torch.cuda.synchronize(self.device)
  def ids(self,text):return self.tokenizer.encode(text,add_special_tokens=False)
  def render(self,query,content=None,soft=False):
   soft_content=("Saved question and answer:\nQuestion: "+query+"\nAnswer: "+MARKER) if self.bind_packet else MARKER
@@ -62,14 +65,14 @@ class HostBridge:
   return result.loss,[x[2] for x in items]
  @torch.no_grad()
  def generate(self,rows,latents=None,texts=None,max_new=48):
-  torch.cuda.synchronize();e2e_start=time.monotonic()
+  self.synchronize();e2e_start=time.monotonic()
   if latents is None:latents=[None]*len(rows)
   if texts is None:texts=[None]*len(rows)
   items=[self.sequence(r["query"],z=z,text=t) for r,z,t in zip(rows,latents,texts)]
   inputs,_=self.pack(items);mask=inputs["attention_mask"];positions=inputs["position_ids"]
-  torch.cuda.synchronize();start=time.monotonic()
+  self.synchronize();start=time.monotonic()
   interface_seconds=start-e2e_start
-  out=self.host(**inputs,use_cache=True,**({"logits_to_keep":1} if getattr(self,"last_logits_only",False) else {}));torch.cuda.synchronize();prefill=time.monotonic()-start
+  out=self.host(**inputs,use_cache=True,**({"logits_to_keep":1} if getattr(self,"last_logits_only",False) else {}));self.synchronize();prefill=time.monotonic()-start
   cache=out.past_key_values;outputs=[[] for _ in rows];done=torch.zeros(len(rows),dtype=torch.bool,device=self.device)
   for step in range(max_new):
    token=out.logits[:,-1].argmax(-1)
@@ -81,7 +84,7 @@ class HostBridge:
    pos=mask.sum(-1,keepdim=True)-1
    out=self.host(input_ids=token[:,None],attention_mask=mask,position_ids=pos,past_key_values=cache,use_cache=True)
    cache=out.past_key_values
-  torch.cuda.synchronize()
+  self.synchronize()
   costs=dict(seconds=time.monotonic()-start,end_to_end_seconds=time.monotonic()-e2e_start,interface_and_pack_seconds=interface_seconds,prefill_seconds=prefill,generated_tokens=sum(map(len,outputs)),
    prompt_tokens=sum(x[2]["prompt_tokens"] for x in items),soft_tokens=sum(x[2]["soft_tokens"] for x in items),
    padded_prefill_tokens=len(rows)*inputs["inputs_embeds"].shape[1],decode_forwards=step,prefill_forwards=1)

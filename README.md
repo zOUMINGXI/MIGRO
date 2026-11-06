@@ -8,6 +8,7 @@
 </p>
 
 <p align="center">
+  <a href="demo/README.md"><strong>Try the demo ↗</strong></a> &nbsp; · &nbsp;
   <a href="#the-continuity-problem">Overview</a> &nbsp; · &nbsp;
   <a href="#system-design">Architecture</a> &nbsp; · &nbsp;
   <a href="#experimental-evidence">Evidence</a> &nbsp; · &nbsp;
@@ -54,6 +55,14 @@ These objectives shape both the architecture and the evaluation. A smaller archi
   <strong>Carry the experience. Keep writing.</strong><br>
   Continued writing after a Qwen 4B → Mistral 7B handoff: answer quality, private memory footprint and quality retained relative to target-side rebuilding.
 </p>
+
+### The Handoff · interactive demo
+
+Qwen remembers where Ada left her recorder. Mistral opens the same memory and learns that the venue has changed. Ask each host where to go, then inspect the notes it retrieved.
+
+[![The Handoff — recorded Qwen to Mistral session](demo/preview.webp)](demo/README.md)
+
+[**Download the offline demo**](https://github.com/zOUMINGXI/MIGRO/raw/refs/heads/main/demo/index.html) · [Run your own session](demo/README.md#run-your-own-session)
 
 ### A persistent substrate with adaptable host connections
 

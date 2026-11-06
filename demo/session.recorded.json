@@ -1,0 +1,101 @@
+{
+  "schema": 1,
+  "case": {
+    "title": "The listening session",
+    "speaker": "Ada",
+    "source": "I left the spare field recorder in locker 12 at North Pier. Our listening session is booked for Harbor Hall.",
+    "update": "The listening session has moved from Harbor Hall to Glasshouse Studio. Please bring the spare field recorder.",
+    "questions": [
+      "Where did Ada leave the spare field recorder?",
+      "Where is Ada’s listening session being held?",
+      "Where should Ada collect the spare recorder, and which venue should she take it to?"
+    ]
+  },
+  "stages": [
+    {
+      "name": "source",
+      "host": "A",
+      "observations": 1,
+      "bytes": 2020,
+      "answers": [
+        {
+          "text": "In locker 12 at North Pier.",
+          "slots": [
+            0
+          ]
+        },
+        {
+          "text": "Harbor Hall",
+          "slots": [
+            0
+          ]
+        },
+        {
+          "text": "Locker 12 at North Pier, then Harbor Hall",
+          "slots": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "handoff",
+      "host": "C",
+      "observations": 1,
+      "bytes": 2020,
+      "answers": [
+        {
+          "text": "North Pier, locker 12",
+          "slots": [
+            0
+          ]
+        },
+        {
+          "text": "Harbor Hall",
+          "slots": [
+            0
+          ]
+        },
+        {
+          "text": "Locker 12 at North Pier, Harbor Hall",
+          "slots": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "append",
+      "host": "C",
+      "observations": 2,
+      "bytes": 2304,
+      "answers": [
+        {
+          "text": "Locker 12 at North Pier",
+          "slots": [
+            0,
+            1
+          ]
+        },
+        {
+          "text": "Glasshouse Studio",
+          "slots": [
+            0,
+            1
+          ]
+        },
+        {
+          "text": "Locker 12 at North Pier, Glasshouse Studio",
+          "slots": [
+            0,
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "device": "cpu",
+  "source_model": "Qwen3-4B-Instruct-2507",
+  "target_model": "Mistral-7B-Instruct-v0.3",
+  "source_bindings_preserved": true
+}

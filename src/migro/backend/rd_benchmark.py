@@ -100,7 +100,7 @@ class BenchmarkBridge(HostBridge):
   history=rows[0]["query"].get("history",[])
   if self.host_name!="A" or not history or any(r["query"].get("history")!=history for r in rows):
    return super().generate(rows,latents=latents,texts=texts,max_new=max_new)
-  torch.cuda.synchronize();e2e=time.monotonic()
+  self.synchronize();e2e=time.monotonic()
   latents=latents if latents is not None else [None]*len(rows)
   texts=texts if texts is not None else [None]*len(rows)
   items=[self.sequence(r["query"],z=z,text=t) for r,z,t in zip(rows,latents,texts)]
@@ -114,7 +114,7 @@ class BenchmarkBridge(HostBridge):
    self.audit=[]
    return super().generate(rows,latents=latents,texts=texts,max_new=max_new)
   miss=getattr(self,"_history_ids",None)!=ids
-  torch.cuda.synchronize();prefill_start=time.monotonic()
+  self.synchronize();prefill_start=time.monotonic()
   if miss:
    self._history_cache=None
    pref=self.host(input_ids=ix[None],attention_mask=torch.ones(1,n,device=self.device,dtype=torch.long),use_cache=True,logits_to_keep=1)
@@ -129,7 +129,7 @@ class BenchmarkBridge(HostBridge):
   inputs["attention_mask"]=mask
   inputs["position_ids"]=(suffix_mask.cumsum(-1)-1).clamp_min(0)+n
   out=self.host(**inputs,past_key_values=cache,use_cache=True,logits_to_keep=1)
-  torch.cuda.synchronize();prefill_seconds=time.monotonic()-prefill_start
+  self.synchronize();prefill_seconds=time.monotonic()-prefill_start
   cache=out.past_key_values;outputs=[[] for _ in rows]
   done=torch.zeros(len(rows),device=self.device,dtype=torch.bool)
   for step in range(max_new):
@@ -144,7 +144,7 @@ class BenchmarkBridge(HostBridge):
     past_key_values=cache,use_cache=True,logits_to_keep=1)
    cache=out.past_key_values
   assert self._history_cache.get_seq_length()==n,"Query mutated reusable history prefix"
-  torch.cuda.synchronize()
+  self.synchronize()
   costs=dict(seconds=time.monotonic()-prefill_start,end_to_end_seconds=time.monotonic()-e2e,
    prefill_seconds=prefill_seconds,interface_and_pack_seconds=prefill_start-e2e,
    prompt_tokens=sum(x[2]["prompt_tokens"] for x in items),soft_tokens=sum(x[2]["soft_tokens"] for x in items),
