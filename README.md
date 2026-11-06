@@ -26,15 +26,6 @@ That history carries the context behind decisions: what a user values, which con
 
 > **The ambition: let improvements in the model build on the experience already accumulated by the agent.**
 
-<p align="center">
-  <a href="assets/joint_frontier.png"><img src="assets/joint_frontier.png" alt="Joint memory frontier: continued writing after Qwen 4B to Mistral 7B handoff, comparing answer quality, private memory footprint and rebuilding quality retained." width="1600"></a>
-</p>
-
-<p align="center">
-  <strong>Carry the experience. Keep writing.</strong><br>
-  Continued writing after a Qwen 4B → Mistral 7B handoff: answer quality, private memory footprint and quality retained relative to target-side rebuilding.
-</p>
-
 ## The continuity problem
 
 Long-lived agents operate on a different timescale from the models that power them. A deployment may change backbone, tokenizer or model family while its history continues to grow. Each change raises a practical question: **what must be carried forward, and what must be rebuilt?**
@@ -53,6 +44,15 @@ These objectives shape both the architecture and the evaluation. A smaller archi
 
 <p align="center">
   <img src="assets/migro-system.svg" alt="MIGRO reference architecture: observed experience enters a source-host writer; persistent memory stores evidence, semantic addresses and encoded state; a transport and calibration interface connects it to receiving hosts." width="1600">
+</p>
+
+<p align="center">
+  <a href="assets/joint_frontier.png"><img src="assets/joint_frontier.png" alt="Joint memory frontier: continued writing after Qwen 4B to Mistral 7B handoff, comparing answer quality, private memory footprint and rebuilding quality retained." width="1600"></a>
+</p>
+
+<p align="center">
+  <strong>Carry the experience. Keep writing.</strong><br>
+  Continued writing after a Qwen 4B → Mistral 7B handoff: answer quality, private memory footprint and quality retained relative to target-side rebuilding.
 </p>
 
 ### A persistent substrate with adaptable host connections
