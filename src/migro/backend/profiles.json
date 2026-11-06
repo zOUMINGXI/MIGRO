@@ -1,0 +1,102 @@
+{
+  "reader_profiles": {
+    "locomo": {
+      "A": {
+        "reader": "bound",
+        "bridge": "standard",
+        "mode": "support",
+        "topk": 16,
+        "source_token_cap": 2000,
+        "max_new_tokens": 50,
+        "answer_policy": "original",
+        "checkpoint": null
+      },
+      "B": {
+        "reader": "support",
+        "bridge": "phi_boundary",
+        "mode": "support_noedges",
+        "topk": 16,
+        "source_token_cap": 2000,
+        "max_new_tokens": 50,
+        "answer_policy": "strict_option_blind",
+        "checkpoint": null,
+        "boundary_checkpoint": "research/decomem_v1_20261028/frozen_interfaces/Phi_boundary.pt"
+      },
+      "C": {
+        "reader": "bound",
+        "bridge": "standard",
+        "mode": "support",
+        "topk": 16,
+        "source_token_cap": 2000,
+        "max_new_tokens": 50,
+        "answer_policy": "original",
+        "checkpoint": "research/decomem_v1_20261028/frozen_interfaces/Mistral_cal64.pt",
+        "calibration_examples": 64
+      }
+    },
+    "longmemeval": {
+      "A": {
+        "reader": "role_coverage",
+        "bridge": "coverage",
+        "mode": "support",
+        "topk": 16,
+        "source_token_cap": 2000,
+        "max_new_tokens": 256,
+        "answer_policy": "original",
+        "checkpoint": null
+      },
+      "B": {
+        "reader": "support",
+        "bridge": "standard",
+        "mode": "support_noedges",
+        "topk": 16,
+        "source_token_cap": 2000,
+        "max_new_tokens": 256,
+        "answer_policy": "strict_recall",
+        "checkpoint": null
+      },
+      "C": {
+        "reader": "bound",
+        "bridge": "standard",
+        "mode": "support",
+        "topk": 16,
+        "source_token_cap": 2000,
+        "max_new_tokens": 256,
+        "answer_policy": "original",
+        "checkpoint": null
+      }
+    },
+    "general": {
+      "A": {
+        "reader": "bound",
+        "bridge": "standard",
+        "mode": "support",
+        "topk": 16,
+        "source_token_cap": 2000,
+        "max_new_tokens": 384,
+        "answer_policy": "original",
+        "checkpoint": null
+      },
+      "B": {
+        "reader": "support",
+        "bridge": "standard",
+        "mode": "support_noedges",
+        "topk": 16,
+        "source_token_cap": 2000,
+        "max_new_tokens": 384,
+        "answer_policy": "original",
+        "checkpoint": null
+      },
+      "C": {
+        "reader": "bound",
+        "bridge": "standard",
+        "mode": "support",
+        "topk": 16,
+        "source_token_cap": 2000,
+        "max_new_tokens": 384,
+        "answer_policy": "original",
+        "checkpoint": null
+      }
+    }
+  }
+}

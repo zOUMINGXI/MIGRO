@@ -65,7 +65,7 @@ MIGRO separates the stored experience from the machinery used to expose it to a 
 
 **The read interface handles the receiving host.** Lexical transport connects source representations to the target vocabulary and embedding interface. Calibration adapts the host connection where the protocol permits it. This factorization makes host-specific adaptation an explicit part of the system.
 
-The diagram describes the research architecture. The current code release exposes selected components of that architecture; the complete state backend and checkpoints are outside this upload.
+The diagram describes the research architecture. The code release includes the persistent state backend, exact coding kernels and benchmark entry points. Shared checkpoints and datasets are supplied separately; see the [runtime setup](docs/runtime.md).
 
 [Architecture and component contracts](docs/system_overview.md) · [Implementation details](docs/implementation.md) · [Ablation configurations](configs/ablations)
 
@@ -145,6 +145,9 @@ The repository provides entry points into the implementation and the evaluation 
 
 |Component|Role|Source|
 |---|---|---|
+|**Persistent state**|Shared anchors and residuals, exact content bindings, save/restore and continued writes.|[`migro.memory`](src/migro/memory.py)|
+|**Exact coding**|Literal and causal content candidates, address/archive coding and native kernels.|[`migro.backend`](src/migro/backend)|
+|**Benchmark runs**|Incremental MAB, matched read budgets, format-aware scoring and post-transfer continuation.|[Running experiments](docs/experiments.md)|
 |**Transport**|Vocabulary-aware piecewise transport, boundary composition and lexical mapping.|[`migro.transport`](src/migro/transport.py)|
 |**Calibration**|Residual and evidence-conditioned host interfaces.|[`migro.calibration`](src/migro/calibration.py)|
 |**Reference writing**|Frozen-host causal writing from observed history.|[`migro.native_writer`](src/migro/native_writer.py)|
@@ -161,7 +164,7 @@ python -m pip install -e .
 python -m pip install -e '.[transport,analysis]'
 ```
 
-Transport and reference writing require application-supplied models and state interfaces. [Component contracts and usage](docs/implementation.md)
+For the memory backend and benchmark entry points, install `.[runtime,benchmarks]`, compile the included kernels and provide the shared model assets. [Runtime setup](docs/runtime.md) · [Running experiments](docs/experiments.md) · [Component contracts](docs/implementation.md)
 
 ### Reporting and paired analysis
 
@@ -198,7 +201,7 @@ tests/                  Component and reporting checks
 
 ## Release status
 
-This repository is being prepared for open-source release. The current upload contains selected implementation modules, experimental contracts and reporting tools. The full compressed-state engine, pretrained core/interface checkpoints, complete benchmark inference runners and datasets are outside this upload.
+This repository is being prepared for open-source release. The upload contains the shared-anchor memory backend, exact coding source, host interfaces, MAB preparation/generation/scoring and MIGRO continued-writing entry points, experimental contracts and reporting tools. Shared core/interface checkpoints and datasets are supplied separately. Complete baseline adapters and the remaining benchmark orchestration are still being prepared; this is not yet a self-contained reproduction bundle.
 
 The tabulated numerical snapshot dates to November 1, 2026. The checked-in evaluation status is a dated record; pending runs have no assigned final score. Larger-read-budget candidates and storage-replica QA scores do not replace the frozen performance table.
 

@@ -4,7 +4,7 @@ MIGRO separates persistent experience from the host-specific interface used to r
 
 ![MIGRO reference architecture](../assets/migro-system.svg)
 
-This document describes the design and the boundaries of the released components. The complete compressed-state engine, shared-core weights, host checkpoints and end-to-end inference harness are outside the current upload.
+This document describes the design and the boundaries of the released components. The upload includes the compressed-state engine and MIGRO experiment entry points. Shared-core weights, host checkpoints and datasets are supplied separately.
 
 ## Architectural boundary
 
@@ -21,7 +21,7 @@ The separation makes the migration operation explicit. State Transfer reuses exi
 
 ### Native reference writing
 
-The released native writer uses a frozen decoder-only host and an application-supplied memory state. It expects that state to expose:
+The released native writer uses a frozen decoder-only host and a memory state, including the packaged MemoryStore implementation. It expects that state to expose:
 
 - `core.codec.tokenizer` for the source codec vocabulary;
 - `meta` for observation metadata;
@@ -30,7 +30,7 @@ The released native writer uses a frozen decoder-only host and an application-su
 
 The bridge supplies the host model, tokenizer, device and context limit. Callers are responsible for freezing the host before writing.
 
-These are interface contracts. The writer module does not bundle the state backend or supply a pretrained memory system on its own.
+These are interface contracts. The writer integrates with the included state backend; pretrained shared assets are supplied separately.
 
 ### Content, addresses and encoding
 
@@ -107,10 +107,14 @@ A whole-system gain does not identify which component caused it. The paired anal
 |[`controls.py`](../src/migro/controls.py)|Construct portable text-memory controls from observations.|
 |[`ablations.py`](../src/migro_eval/ablations.py)|Compare matched, already-scored conditions.|
 
-The installation and examples in [implementation.md](implementation.md) cover these released components. The current package does not include a complete pretrained memory backend or a single-command reproduction of all benchmark runs.
+The installation and examples in [implementation.md](implementation.md) cover these released components. The package includes state-backend source and checkpoint-dependent MAB/continued-writing entry points. It does not provide a single-command reproduction of all benchmark runs.
 
 ## Reading the results
 
 The README presents the frozen repository snapshot. LoCoMo uses a post-hoc all-question custom composite rather than official token F1. Other benchmarks retain their recorded research-harness metrics.
 
 Cross-host interpretation must account for both source trajectory and selected interface. See the [performance protocol](performance_protocol.md), [migration protocol](migration_protocol.md) and [release scope](release_scope.md) before using a table as a controlled model comparison.
+
+## Runtime source availability
+
+The repository now includes the shared-anchor backend and coding kernels under `src/migro/backend`, the public `migro.memory` entry point, and MAB/continued-writing commands. Shared checkpoints and datasets remain external. See [release scope](release_scope.md) and [runtime setup](runtime.md).

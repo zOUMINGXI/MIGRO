@@ -1,18 +1,9 @@
-# Initial release scope
+# Release scope
 
-Included:
-- 19 complete scored aggregate entries with explicit benchmark, model, metric and profile labels.
-- MIGRO LoCoMo on three backbones; Qwen baseline LoCoMo/LongMemEval-S comparisons; completed MIGRO Qwen MemOps and BEAM.
-- Status-only rows for pending Qwen and native-target evaluations, captured at the snapshot time.
-- Independently runnable reporting code and its targeted tests.
+Included: shared-anchor memory and residual addresses; exact source-token bindings and metadata; snapshots, compaction and continued writing; C++ coding kernels and build command; host interfaces and readers; MAB preparation, incremental generation, matched read budgeting and format-aware scoring; MIGRO continued-writing generation with transfer-only and full-history rebuilding controls; reporting, paired analysis and targeted tests.
 
-The full memory model, inference runners, interfaces and experiment orchestration are planned for a later release. This first repository upload must not be described as a complete open-source implementation or a full benchmark reproduction.
+The numerical tables retain their dated snapshots. This code upload does not refresh scores or convert pending entries into results. State Transfer and Full-History Rebuilding retain their per-run meanings.
 
-LoCoMo target-model runs are labeled by operation: **State Transfer** reuses existing memory, with small interface calibration permitted; **Full-History Rebuilding** reprocesses the full history to construct target-model memory. MIGRO, PlugMem and mem0 have completed State Transfer rows. PlugMem/mem0 also have rebuilding controls, alongside the target-built TiMEM/A-Mem rows. These operations are not mixed. See [migration protocol](migration_protocol.md) and [labeled results](../results/migration_snapshot.csv). A cross-model score difference is not automatically a target-relative migration loss.
+Shared weights, calibration checkpoints, benchmark data and third-party upstream packages are supplied separately. No public checkpoint download is attached to this commit. Baseline adapters, the remaining older benchmark launchers and the six-GPU cluster scheduler are outside this upload. The repository is still a staged research release rather than a self-contained full-table reproduction bundle.
 
-The checked-in status JSON is a dated snapshot, not a live dashboard. Unsupported checkpoints and pending evaluations receive no fabricated zero score.
-
-
-## Selected implementation components
-
-This code upload adds standalone interfaces, calibration, native reference writing, simple portable-memory controls and paired analysis, documented in [implementation.md](implementation.md). The compressed state engine, weights, datasets and complete inference harness remain outside this staged upload. Existing numerical snapshots are not refreshed by this code-only update.
+[Runtime assets](runtime.md) · [Experiment commands](experiments.md) · [Component contracts](implementation.md)

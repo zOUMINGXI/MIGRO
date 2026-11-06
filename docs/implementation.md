@@ -1,6 +1,6 @@
 # Implementation components
 
-This staged code upload adds selected implementation components. It is not the complete state engine or an end-to-end benchmark reproduction package. Existing numerical snapshots retain their original dates and values.
+This staged code upload includes the shared-anchor state engine, exact coding kernels and MIGRO benchmark entry points. Shared weights and datasets remain separate. Existing numerical snapshots retain their original dates and values.
 
 ## Included
 
@@ -11,7 +11,7 @@ This staged code upload adds selected implementation components. It is not the c
 - `migro.controls`: portable BM25 and recent-window controls.
 - `migro_eval.ablations`: paired comparisons of already-scored conditions, with whole-conversation bootstrap intervals.
 
-The writer requires an application-supplied state exposing `core.codec.tokenizer`, `meta`, `mem.read_slot` and `append_many`. Its bridge supplies a frozen decoder-only host exposing `host.model.layers`, tokenizer, device and context limit. Callers freeze the host before use. The compressed shared-anchor state backend, shared-core weights, calibration checkpoints and benchmark inference harness are not bundled.
+The writer requires an application-supplied state exposing `core.codec.tokenizer`, `meta`, `mem.read_slot` and `append_many`. Its bridge supplies a frozen decoder-only host exposing `host.model.layers`, tokenizer, device and context limit. Callers freeze the host before use. The shared-anchor backend is available through `migro.memory`; the existing writer can now use this implementation directly. Shared-core weights and calibration checkpoints remain separate. See [runtime setup](runtime.md) and [experiment entry points](experiments.md).
 
 ## Install and check
 
@@ -53,10 +53,16 @@ Defaults require 1,986 matching questions per condition. The LoCoMo cohort has 1
 
 ## Experiment contracts
 
-`configs/ablations/` records predefined groups: core efficacy versus BM25/recency/no memory, with target-native rebuilding as a positive reference; boundary composition crossed with frozen calibration; address representation and its space-quality tradeoff; and exact persistence encoding. These contracts do not replace the omitted backend.
+`configs/ablations/` records predefined groups: core efficacy versus BM25/recency/no memory, with target-native rebuilding as a positive reference; boundary composition crossed with frozen calibration; address representation and its space-quality tradeoff; and exact persistence encoding. These contracts refer to the included backend; they do not replace benchmark-specific runner settings.
 
 `State Transfer` and `Full-History Rebuilding` label actual run operations. Whole-memory gains do not identify one submodule. Native-text reading is a compatibility/fidelity reference: lexical transport often approximates native retokenization. All predefined results are retained regardless of which condition scores higher.
 
 ## Assets and attribution
 
 Supply models, tokenizers, checkpoints and benchmark data separately under their original licenses. This upload contains no benchmark observations, labels, predictions, model artifacts, machine addresses or operational credentials. Attribution remains in `CONTRIBUTORS.md`.
+
+## State backend
+
+`migro.memory.MemoryStore` exposes create, observe, snapshot, save, load, handoff and compact. `MemoryRuntime` connects state to a frozen host and native writer. Internal `DeCoMem`/`rd_*` names retain the research lineage. Filesystem access is relocated through `MIGRO_ASSETS`; persisted formats and coding rules are retained. The compact read core includes the existing frozen semantic encoding method directly, avoiding imports of retired training modules.
+
+The MAB CLI uses chronological one-unit writes, sealed final questions, question-only retrieval intent and 2000/8000 source-token read caps. The continuation CLI implements source-prefix writing, state transfer plus receiver suffix, transfer-only and target-native full-history rebuilding. Outputs must be scored against final complete-history labels.

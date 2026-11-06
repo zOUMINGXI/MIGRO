@@ -1,17 +1,30 @@
 [build-system]
-requires = ["setuptools"]
+requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "migro-eval"
 version = "0.0.1"
-description = "MIGRO portable-memory interfaces, controls and evaluation utilities"
+description = "MIGRO persistent memory, host interfaces and evaluation tools"
 requires-python = ">=3.10"
 authors = [{name = "Mingxi Zou"}, {name = "Codex (AI-assisted implementation)"}]
 
 [project.optional-dependencies]
 analysis = ["numpy>=1.24"]
 transport = ["torch>=2.1", "tokenizers>=0.15", "numpy>=1.24"]
+runtime = ["torch>=2.5", "transformers==5.3.0", "numpy>=1.24", "nltk", "zstandard", "pyppmd", "brotli"]
+benchmarks = ["pyarrow", "pyyaml", "tiktoken", "nltk", "editdistance", "rouge-score"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[project.scripts]
+migro-build-native = "migro.backend.build_native:main"
+migro-mab-prepare = "migro.benchmarks.mab_prepare:main"
+migro-mab-units = "migro.benchmarks.mab_units:main"
+migro-mab-run = "migro.benchmarks.mab_run:main"
+migro-mab-score = "migro.benchmarks.mab_score:main"
+migro-continue = "migro.benchmarks.continue_write:main"
+
+[tool.setuptools.package-data]
+"migro.backend" = ["profiles.json", "native/*.cpp"]
