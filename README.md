@@ -58,7 +58,7 @@ These objectives shape both the architecture and the evaluation. A smaller archi
 
 ### The Handoff · interactive demo
 
-A kitchen supplier asks for sign-off just as Leah changes assistants. The new quote, drawing and delivery options are in the latest emails; her spending cap, site measurements and building restrictions are in April’s correspondence. Open the decision desk to compare the actual answers from five memory conditions. A second case reconstructs our own demo-download support issue from the release commits.
+A kitchen supplier asks for sign-off just as Leah changes assistants. The new quote, drawing and delivery options are in the latest emails; her spending cap, site measurements and building restrictions are in April’s correspondence. Take over the decision desk: make your own call, recover the earlier context and reconsider. Then compare the actual answers from five memory conditions. A second case reconstructs our own demo-download support issue from the release commits.
 
 [![The Handoff — recorded Qwen to Mistral session](demo/preview.webp)](https://migro-handoff.lucentsole3.chatgpt.site)
 

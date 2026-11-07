@@ -139,6 +139,56 @@ select option{background:#111c26;color:#e9f1ec}.primary{box-shadow:inset 3px 0 #
 .record-note{margin:0 0 12px!important;border-left:2px solid var(--gold);padding:5px 10px;color:#e6cea0;background:#29261e;font-size:16px}
 .response p{white-space:pre-line;font-size:clamp(18px,1.38vw,21px);line-height:1.36}
 @media(min-width:681px){.instrument{align-self:start;position:sticky;top:12px;height:clamp(365px,40vw,470px)}}
+[hidden]{display:none!important}
+.experience-switch{display:flex;align-items:center;gap:8px;padding-bottom:18px;flex-wrap:wrap}
+.experience-switch button,.try-again{background:transparent;border:1px solid var(--rule);border-radius:8px 4px;color:var(--muted);padding:6px 15px}
+.experience-switch button[aria-pressed=true]{color:var(--gold);border-color:#b19855;background:#28271d}
+.experience-switch span{margin-left:auto;color:var(--muted);font-size:15px}
+.takeover{margin:0 0 28px;border:1px solid #46616a;border-radius:9px 25px 8px 19px;overflow:hidden;background:#101c25}
+.takeover-heading{padding:24px 30px 18px;background:radial-gradient(ellipse at 90% 0,#1d3b3d,transparent 65%);border-bottom:1px solid var(--rule)}
+.takeover-heading h2{font-size:clamp(32px,3.7vw,52px);line-height:1.15;letter-spacing:-.035em;margin:9px 0;color:var(--gold)}
+.takeover-heading p{color:#c8d9d7;max-width:780px;font-size:19px}
+.trial-route{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:15px;flex-wrap:wrap}
+.trial-route span[aria-current=step]{color:var(--lime)}
+.trial-route b{font-weight:400;color:#557980}
+.trial-tabs{display:flex;gap:8px;overflow-x:auto;padding:16px 30px 0;scrollbar-width:thin}
+.trial-tabs button{flex:none;border:0;border-bottom:2px solid transparent;padding:5px 6px;background:transparent;color:var(--muted);font-size:16px}
+.trial-tabs button[aria-pressed=true]{border-color:var(--gold);color:var(--gold)}
+.trial-tabs button[data-complete=true]:after{content:' ✓';color:var(--lime)}
+.trial-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:30px;padding:24px 30px 28px;align-items:start}
+.trial-inbox h3,.trial-action h3{margin:0 0 12px;font-size:23px;line-height:1.25}
+.trial-message{margin:0 0 12px;padding:15px 18px;border:1px solid #40555e;border-radius:5px 13px 4px 9px;background:repeating-linear-gradient(transparent,transparent 29px,#8bb2b20b 30px),#14232c}
+.trial-message small{display:block;color:var(--muted);font-size:14px;margin-bottom:7px}
+.trial-message p{font-size:19px;line-height:1.4}
+.trial-memory{border-top:1px dashed #548680;margin-top:20px;padding-top:16px}
+.trial-memory h3{color:var(--lime)}
+.trial-memory .trial-message{border-color:#41726e;background-color:#112d31;animation:memory-arrive .3s ease-out both}
+.memory-seal{border:1px dashed #52716f;border-radius:5px;padding:15px;color:#b2cbc7;font-size:17px;margin-top:18px}
+.memory-seal strong{display:block;color:var(--lime);font-size:20px;margin-bottom:3px}
+.trial-action{position:sticky;top:20px}
+.trial-action fieldset{border:0;padding:0;margin:0;min-width:0}
+.trial-action legend{font-size:23px;margin-bottom:12px;line-height:1.25}
+.trial-option{display:flex;align-items:start;gap:12px;cursor:pointer;border:1px solid #425a64;border-radius:10px 4px 11px 4px;margin-bottom:10px;padding:13px 15px;color:#dbe5df;background:#101e28;transition:background .15s,border-color .15s}
+.trial-option:hover{background:#1c3038;border-color:#76948b}
+.trial-option:has(input:checked){background:#2a2b20;border-color:var(--gold);color:#fff3cf}
+.trial-option input{margin:5px 0 0;accent-color:var(--gold);flex-shrink:0;width:17px;height:17px}
+.trial-option:focus-within{outline:2px solid var(--gold);outline-offset:3px}
+.trial-primary{width:100%;margin-top:8px;background:var(--gold);color:#162022;border:1px solid var(--gold);border-radius:6px 13px 5px 11px;padding:12px 16px;font-weight:700;font-size:21px;cursor:pointer}
+.trial-primary:disabled{cursor:default;opacity:.45}
+.trial-hint{color:var(--muted);font-size:15px;line-height:1.4;margin-top:10px}
+.trial-feedback{padding:20px;border:1px solid #4e897c;border-radius:8px 17px 6px 12px;background:#16332f}
+.trial-feedback h3{color:var(--lime);font-size:27px;margin:0 0 9px}
+.trial-feedback p+p{margin-top:12px}
+.trial-feedback .first-call{color:#c2d4cb;font-size:16px;padding-top:12px;border-top:1px dashed #4a7066}
+.trial-feedback .ref-link{display:inline-block;margin-top:10px}
+.trial-actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.trial-actions button{background:transparent;border:1px solid #688581;border-radius:5px 11px;color:var(--ink);padding:7px 12px}
+.trial-actions button:first-child{color:var(--lime);border-color:var(--lime)}
+.trial-foot{border-top:1px solid var(--rule);padding:12px 30px;display:flex;justify-content:space-between;align-items:center;gap:15px;color:var(--muted);font-size:14px}
+.trial-foot button{font-size:14px;padding:4px 9px}
+@keyframes memory-arrive{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.trial-memory .trial-message{animation:none}.trial-option{transition:none}}
+@media(max-width:680px){.trial-grid{grid-template-columns:1fr;gap:18px;padding:18px}.takeover-heading{padding:20px 18px 16px}.trial-tabs{padding:12px 18px 0}.trial-action{position:static}.experience-switch span{margin-left:0;width:100%}.trial-foot{padding:12px 18px;align-items:start}.trial-message p{font-size:18px}.trial-route{font-size:13px;gap:5px}.takeover-heading p{font-size:17px}}
 </style></head><body>
 <header><nav class="frame"><a class="brand" href="https://github.com/zOUMINGXI/MIGRO" aria-label="MIGRO repository"><svg viewBox="0 0 680 140" role="img" aria-label="MIGRO"><g transform="translate(-26,-31) scale(1.28)"><g id="handwritten-migro" fill="#F3C54E" transform="matrix(1 0 -0.035 1 3.7 0)">
     <path id="pressure-stroke-M" d="M43.5 147.1 C45.1 125.9 44.1 95.9 47.2 69.4 C47.6 65.6 50.8 66.1 54.5 69.0 C70.6 83.4 88.7 103.3 106.3 120.3 C123.6 104.2 143.5 81.2 157.4 62.5 L166.7 70.7 C150.1 96.3 128.3 122.7 111.2 141.5 C108.9 144.5 106.4 145.8 103.4 143.8 C87.4 130.6 75.9 115.5 63.2 103.5 C62.1 117.1 63.6 131.5 61.4 145.9 C57.4 148 50.5 147.4 43.5 147.1 Z"/>
@@ -148,6 +198,17 @@ select option{background:#111c26;color:#e9f1ec}.primary{box-shadow:inset 3px 0 #
 </g><g transform="translate(182,12)" fill="#ecefe4"><g id="handwritten-wordmark-letters"><path d="M90 -14Q80 -14 59 -11Q43 6 30.5 35.5Q18 65 11.5 98.5Q5 132 5.5 165.5Q6 199 17 225Q17 226 26.5 249.0Q36 272 51.0 307.5Q66 343 85.0 386.5Q104 430 123.0 472.0Q142 514 159.5 548.5Q177 583 190 602Q199 616 206.5 629.0Q214 642 221 653Q232 671 241.5 686.5Q251 702 262.5 714.5Q274 727 288.0 736.5Q302 746 322 753Q334 748 343.0 742.5Q352 737 359 729L362 715Q364 708 368.5 705.5Q373 703 376 703Q389 700 398.5 696.5Q408 693 419 692Q423 686 426.5 680.0Q430 674 434 669Q454 640 467.0 613.0Q480 586 467 554L468 543Q473 536 473.0 530.0Q473 524 471 513Q470 505 469.5 495.5Q469 486 472 475L479 467Q495 459 510 459Q530 459 546.0 468.0Q562 477 576 486Q587 494 596.5 499.0Q606 504 615 506Q636 526 653.5 541.5Q671 557 690 573Q726 602 760.0 635.5Q794 669 814 719Q825 726 839 726Q853 726 867.0 720.5Q881 715 895 708Q898 706 900.5 705.0Q903 704 906 702Q906 691 915 682Q920 678 922.0 677.0Q924 676 926 675Q934 670 939.5 666.0Q945 662 948 655Q957 628 978 613Q976 602 979.0 591.5Q982 581 986 571Q988 567 989.0 563.5Q990 560 992 555L970 557L973 535Q976 518 970.5 497.0Q965 476 958 464Q960 434 960.0 416.5Q960 399 958.0 384.0Q956 369 951.5 355.5Q947 342 940 327Q944 251 922.5 188.0Q901 125 876 70Q873 63 870.0 57.0Q867 51 865 45Q854 42 845.0 38.0Q836 34 828 29Q817 22 806.0 17.5Q795 13 783 13Q735 48 733.5 134.0Q732 220 770 353Q777 358 776 368V379L766 380Q761 380 757.0 379.0Q753 378 751 370Q719 347 681.5 322.5Q644 298 604.0 277.5Q564 257 522.5 243.5Q481 230 442 230Q342 230 291 332L282 350L272 334Q269 329 261.5 314.5Q254 300 246.5 281.0Q239 262 233.5 242.0Q228 222 230 207Q218 196 206.5 182.0Q195 168 190 150Q188 145 189.0 140.5Q190 136 192 131Q191 124 188.0 121.0Q185 118 181 115Q176 110 171.0 104.5Q166 99 162 92Q160 86 159.0 79.5Q158 73 157 68Q157 57 154 53Q144 32 136.5 18.5Q129 5 122.0 -2.0Q115 -9 107.5 -11.5Q100 -14 90 -14ZM1024 -12Q1010 -3 1001.5 11.0Q993 25 987.5 41.0Q982 57 978.5 74.5Q975 92 971 108Q971 122 977.0 128.5Q983 135 990 141Q1014 142 1033.0 145.0Q1052 148 1070.0 151.0Q1088 154 1106.0 156.5Q1124 159 1145 159Q1160 190 1173.0 218.5Q1186 247 1198 273Q1204 298 1213.5 319.5Q1223 341 1232.0 360.5Q1241 380 1248.0 399.5Q1255 419 1257 441Q1269 476 1278.5 505.5Q1288 535 1293 576Q1255 570 1232.0 564.5Q1209 559 1199 554Q1179 555 1167.5 562.0Q1156 569 1149.0 579.0Q1142 589 1137.0 602.0Q1132 615 1125 629Q1129 638 1127.0 655.5Q1125 673 1115 681Q1123 683 1127.0 694.5Q1131 706 1128 712Q1145 717 1164.0 718.5Q1183 720 1201.5 721.5Q1220 723 1237.0 725.5Q1254 728 1266 736Q1318 738 1374.5 740.0Q1431 742 1479 745Q1497 739 1520.5 739.0Q1544 739 1567.5 736.0Q1591 733 1609.5 723.0Q1628 713 1635 688Q1650 686 1657.5 680.0Q1665 674 1667.0 665.5Q1669 657 1668.5 646.5Q1668 636 1668 626Q1652 614 1627.5 606.5Q1603 599 1574.0 594.5Q1545 590 1513.5 588.5Q1482 587 1452 586Q1447 553 1434.5 508.5Q1422 464 1409.0 421.5Q1396 379 1386.5 345.5Q1377 312 1378 302Q1368 279 1361.5 263.0Q1355 247 1349.5 233.0Q1344 219 1338.5 205.5Q1333 192 1325 175H1393Q1395 164 1402.0 160.0Q1409 156 1417.0 153.0Q1425 150 1431.5 145.5Q1438 141 1438 131Q1457 126 1462.0 116.0Q1467 106 1464.5 94.5Q1462 83 1454.5 71.0Q1447 59 1440 50Q1431 52 1423.0 45.5Q1415 39 1408 31Q1379 35 1351.0 32.0Q1323 29 1299 27Q1294 26 1295.0 21.5Q1296 17 1293 15Q1262 25 1229.5 23.0Q1197 21 1163.5 13.5Q1130 6 1095.0 -2.5Q1060 -11 1024 -12ZM1545 237Q1545 248 1548.0 257.0Q1551 266 1549 280Q1580 346 1619.5 402.5Q1659 459 1714 502Q1723 509 1728.5 516.5Q1734 524 1739.5 531.0Q1745 538 1752.0 543.5Q1759 549 1770 551Q1795 580 1830.0 604.0Q1865 628 1903.0 650.0Q1941 672 1979.5 695.0Q2018 718 2049 745Q2060 738 2066.5 740.5Q2073 743 2080 741Q2089 722 2103.5 714.5Q2118 707 2133.5 699.5Q2149 692 2162.5 681.5Q2176 671 2183 653Q2176 653 2176.5 648.0Q2177 643 2179.0 637.0Q2181 631 2181.0 626.0Q2181 621 2172 621Q2172 614 2179.0 614.0Q2186 614 2186 607Q2186 601 2183.5 597.5Q2181 594 2183 586Q2159 570 2129.5 555.5Q2100 541 2067.5 525.0Q2035 509 2001.5 490.5Q1968 472 1935 448Q1902 424 1868.5 395.0Q1835 366 1804.0 333.5Q1773 301 1746.0 266.5Q1719 232 1700 199Q1702 194 1705.5 190.0Q1709 186 1711 181Q1749 179 1782.0 181.5Q1815 184 1848 177Q1852 180 1853.0 185.0Q1854 190 1859 192Q1927 199 1986.0 214.5Q2045 230 2106 246Q2088 253 2074 257Q2068 263 2074.5 267.5Q2081 272 2085 277Q2069 286 2058.5 301.0Q2048 316 2046 340Q2053 346 2053.0 354.0Q2053 362 2046 367Q2041 369 2040.0 367.0Q2039 365 2038.5 363.0Q2038 361 2036.5 359.0Q2035 357 2031 359Q2032 370 2036.0 377.0Q2040 384 2042 394L2125 449Q2138 439 2157.0 428.0Q2176 417 2197.0 406.0Q2218 395 2240.0 383.5Q2262 372 2281 361Q2299 353 2312.0 341.5Q2325 330 2337.0 317.5Q2349 305 2361.0 293.0Q2373 281 2390 273Q2388 257 2392.0 247.0Q2396 237 2394 223Q2375 189 2348.0 165.5Q2321 142 2287.5 125.0Q2254 108 2216.0 96.5Q2178 85 2138.0 74.5Q2098 64 2057.5 52.5Q2017 41 1978 26Q1961 26 1949.0 25.0Q1937 24 1926.0 22.0Q1915 20 1904.0 18.0Q1893 16 1880 15Q1875 16 1873.5 13.0Q1872 10 1869 8Q1849 5 1833.0 5.0Q1817 5 1806 5Q1792 5 1777.0 1.0Q1762 -3 1749 -2Q1659 2 1608.0 62.0Q1557 122 1552 227Q1553 232 1550.0 233.5Q1547 235 1545 237ZM2391 86Q2386 85 2382.0 93.5Q2378 102 2373 110H2384Q2377 132 2380.5 150.5Q2384 169 2389.0 186.5Q2394 204 2397.5 220.5Q2401 237 2394 255Q2399 252 2401.5 257.5Q2404 263 2405.5 271.5Q2407 280 2406.5 289.5Q2406 299 2405 305Q2418 336 2425.5 369.0Q2433 402 2439.0 434.5Q2445 467 2452.5 497.5Q2460 528 2472 555Q2486 557 2501.5 551.5Q2517 546 2522 538Q2553 562 2577.0 596.0Q2601 630 2625.5 662.5Q2650 695 2681.0 720.0Q2712 745 2758 750Q2782 733 2812.0 713.5Q2842 694 2861 665Q2869 660 2876.5 654.5Q2884 649 2892 644V629Q2906 616 2915.5 598.5Q2925 581 2932.5 561.5Q2940 542 2947.0 522.0Q2954 502 2963 485Q2961 479 2961.5 474.5Q2962 470 2963.5 465.5Q2965 461 2966.0 455.5Q2967 450 2967 442Q2963 389 2932.5 356.5Q2902 324 2858.5 303.5Q2815 283 2766.0 268.5Q2717 254 2677 237Q2677 233 2681.5 233.0Q2686 233 2684 227Q2714 209 2730.5 198.0Q2747 187 2761.5 179.5Q2776 172 2793.5 167.0Q2811 162 2842 155Q2873 148 2890.5 143.5Q2908 139 2922.0 136.5Q2936 134 2952.0 132.0Q2968 130 2995 127Q3006 116 3013.0 101.0Q3020 86 3023.0 71.0Q3026 56 3024.5 42.5Q3023 29 3016 21Q3017 17 3021.5 17.5Q3026 18 3031 17Q3024 12 3019.0 5.0Q3014 -2 3009.0 -9.0Q3004 -16 2997.5 -22.0Q2991 -28 2981 -29Q2945 -43 2889.0 -30.0Q2833 -17 2746 16Q2703 32 2676.0 45.0Q2649 58 2629.0 70.5Q2609 83 2592.0 97.5Q2575 112 2553 132Q2550 131 2549.5 128.0Q2549 125 2546 124Q2541 84 2530.5 59.0Q2520 34 2500 8Q2484 11 2478.5 5.0Q2473 -1 2465 -6Q2455 -8 2450.0 -5.5Q2445 -3 2441.0 0.0Q2437 3 2432.0 6.0Q2427 9 2416 8Q2413 17 2410.0 25.5Q2407 34 2394 33Q2397 42 2396.0 48.5Q2395 55 2393.0 60.5Q2391 66 2389.5 72.0Q2388 78 2391 86ZM2725 543Q2712 524 2696.0 508.5Q2680 493 2664.5 476.5Q2649 460 2637.0 440.5Q2625 421 2620 394Q2662 399 2708.0 417.5Q2754 436 2795 453Q2790 490 2769.0 512.5Q2748 535 2725 543ZM3276 -4Q3232 -10 3196.0 0.0Q3160 10 3131.5 31.0Q3103 52 3082.5 81.0Q3062 110 3049 143Q3040 211 3054.0 266.5Q3068 322 3095.0 369.0Q3122 416 3156.5 457.0Q3191 498 3223 536Q3230 533 3234.5 536.0Q3239 539 3242.5 544.0Q3246 549 3250.5 554.0Q3255 559 3261 561Q3265 570 3271.5 576.0Q3278 582 3285.5 587.5Q3293 593 3299.5 599.0Q3306 605 3311 614Q3321 616 3328.5 621.0Q3336 626 3342.5 632.0Q3349 638 3356.0 643.0Q3363 648 3373 651V664Q3395 674 3405.0 686.0Q3415 698 3429 717Q3440 718 3446.5 718.0Q3453 718 3467 720Q3476 737 3484.0 745.0Q3492 753 3507 763Q3522 755 3539.0 753.5Q3556 752 3570 738Q3571 726 3577.0 719.5Q3583 713 3590.0 707.5Q3597 702 3604.0 696.0Q3611 690 3613 679Q3618 679 3619.5 681.0Q3621 683 3626 682Q3628 674 3630.0 669.0Q3632 664 3634.5 660.0Q3637 656 3639.5 651.0Q3642 646 3644 639Q3639 627 3635.0 613.5Q3631 600 3619 595Q3619 587 3625.0 586.5Q3631 586 3632 579Q3633 570 3629 564Q3657 517 3680.0 465.5Q3703 414 3732 367Q3730 353 3733.5 339.5Q3737 326 3742.5 313.0Q3748 300 3753.0 287.0Q3758 274 3760 261Q3762 244 3760.0 224.5Q3758 205 3752.0 187.0Q3746 169 3736.0 153.5Q3726 138 3713 130Q3697 110 3673.0 97.5Q3649 85 3629 68Q3615 60 3599.0 56.5Q3583 53 3566 49Q3553 41 3535.0 33.5Q3517 26 3498.0 20.0Q3479 14 3460.0 10.5Q3441 7 3426 9Q3390 -4 3356.0 -9.0Q3322 -14 3276 -4ZM3289 360Q3279 337 3265.5 318.5Q3252 300 3239.0 281.0Q3226 262 3216.5 240.5Q3207 219 3206 190Q3226 173 3253.5 169.5Q3281 166 3310.0 168.5Q3339 171 3368.0 176.0Q3397 181 3420 181Q3420 190 3428 190Q3470 194 3506.0 213.5Q3542 233 3581 253Q3586 265 3594.0 274.0Q3602 283 3603 300Q3598 309 3596.5 315.0Q3595 321 3595 333Q3569 369 3550.0 411.5Q3531 454 3506 492Q3504 487 3498.0 482.0Q3492 477 3485 484Q3482 474 3476.0 470.5Q3470 467 3462.5 467.0Q3455 467 3447.5 470.0Q3440 473 3434 478Q3399 450 3364.5 424.0Q3330 398 3302 363Q3297 360 3296.0 361.0Q3295 362 3289 360Z" transform="matrix(0.13739718 0 0 -0.13739718 -0.75078 104.83404)" /></g></g></svg></a><span class="navtag">Field notebook</span><a class="star" href="https://github.com/zOUMINGXI/MIGRO">☆ Star on GitHub ↗</a></nav></header>
 <main class="frame">
 <div class="mast"><div><p class="route">Qwen 4B <span>⟶</span> Mistral 7B</p><h1>The <em>handoff.</em></h1></div><p id="brief" class="brief"></p><div class="casepick"><label for="caseSelect">Open a case</label><select id="caseSelect"></select></div></div>
+<div class="experience-switch" role="group" aria-label="Demo experience"><button id="tryExperience" aria-pressed="true">Your turn ↗</button><button id="exploreExperience" aria-pressed="false">Explore model runs</button><span>Read. Decide. Bring the memory back.</span></div>
+<section id="takeover" class="takeover" aria-labelledby="trialTitle">
+  <div class="takeover-heading"><div class="trial-route"><span id="trialStep0">Make the call</span><b>→</b><span id="trialStep1">Recover the context</span><b>→</b><span id="trialStep2">See what changes</span></div><h2 id="trialTitle" tabindex="-1">You’re taking over.</h2><p id="trialIntro"></p></div>
+  <div id="trialTabs" class="trial-tabs" role="group" aria-label="Choose a decision to try"></div>
+  <div class="trial-grid">
+    <div class="trial-inbox"><h3>The latest messages</h3><div id="trialLatest"></div><div id="trialSeal" class="memory-seal"><strong>9 earlier messages live in the old assistant’s memory.</strong>The measurements, budget and commitments were agreed before the handoff.</div><div id="trialMemory" class="trial-memory" hidden><h3>Earlier context, recovered</h3><div id="trialEarlier"></div></div></div>
+    <div class="trial-action"><fieldset id="trialChoices"><legend id="trialPrompt"></legend><div id="trialOptions"></div></fieldset><button id="trialContinue" class="trial-primary" disabled>Bring back earlier history →</button><p id="trialHint" class="trial-hint"></p><div id="trialFeedback" class="trial-feedback" role="status" hidden></div><div id="trialActions" class="trial-actions" hidden><button id="trialModels">Compare model answers ↗</button><button id="trialNext">Try another decision →</button></div></div>
+  </div>
+  <div class="trial-foot"><span id="trialProgress">Six decisions. One ongoing project.</span><button id="trialReset" class="try-again">Start over ↺</button></div>
+</section>
+<div id="recordings" hidden>
 <aside class="casefile"><div><strong id="caseHeading"></strong><p id="caseContext"></p></div><span id="caseOrigin"></span></aside>
 <div id="docket" class="docket" role="group" aria-label="Open project decisions" hidden></div>
 <section class="spread" aria-label="Handoff lab">
@@ -164,7 +225,7 @@ select option{background:#111c26;color:#e9f1ec}.primary{box-shadow:inset 3px 0 #
 <div id="evidence" hidden></div><details id="check"><summary>Check this decision against the complete record</summary><div id="checkBody"></div></details></article></section>
 <section class="ledger"><div class="ledger-head"><div><span class="eyebrow">Chronological record</span><h2>Project correspondence</h2></div><div class="ledger-tools"><p id="ledgerCaption"></p><button id="filter" type="button" aria-pressed="false">Show decision references</button></div></div>
 <div class="timeline"><section><h3>Before handoff <span id="nSource"></span></h3><ol id="oldNotes"></ol></section><section><h3>After handoff <span id="nTarget"></span></h3><ol id="newNotes"></ol></section></div></section>
-<footer>Native MIGRO · <span id="models"></span><span>Snapshot size excludes shared model assets.</span></footer></main>
+</div><footer>Native MIGRO · <span id="models"></span><span>Snapshot size excludes shared model assets.</span></footer></main>
 <dialog id="editor"><form id="caseForm"><h2>Edit the field notes</h2><p id="editHelp"></p>
 <label for="sNote">Earlier correspondence · one message per line</label><textarea id="sNote" rows="4" required></textarea>
 <label for="tNote">Later correspondence · one message per line</label><textarea id="tNote" rows="3" required></textarea>
@@ -1968,6 +2029,171 @@ const opt = (value, label) => new Option(label,value);
 const noteCount = n => n+' note'+(n===1?'':'s');
 const stepButtons = [...document.querySelectorAll('.rail button')];
 const byName = name => trace.stages.find(s=>s.name===name);
+let experience = 'try';
+const trialAttempts = new Map();
+const trialOrder = [2, 1, 0, 3, 4, 5];
+const trialDecisions = [
+  {
+    title: 'A delivery slot needs an answer.',
+    latest: [11],
+    choices: ['Take Thursday at 14:00 and ask the concierge to sign.', 'Take Wednesday at 10:00, subject to arranging a receiver and the lift.', 'Keep the original Tuesday delivery.'],
+    correct: 1,
+    success: 'The slot works when the people and building rules line up.'
+  },
+  {
+    title: 'Would you approve this invoice?',
+    latest: [10],
+    choices: ['Approve it. The cabinet subtotal is £4,790.', 'Approve it once the deposit is deducted from the total.', 'Hold approval until the full delivered price is checked against the agreed cap.'],
+    correct: 2,
+    success: 'You caught the £110 overrun.'
+  },
+  {
+    title: 'Would you sign this drawing?',
+    latest: [12],
+    choices: ['Approve D3. The supplier has listed a standard pantry and plain handles.', 'Hold cutting and check the pantry against the earlier site measurements.', 'Approve the pantry, but ask for the brass handles.'],
+    correct: 1,
+    success: 'You caught the cabinet that would block the doorway.'
+  },
+  {
+    title: 'Can the plumber have a firm date?',
+    latest: [13, 14, 15],
+    choices: ['Keep 1 June provisional until the worktop fitting is confirmed.', 'Confirm 1 June. The Friday template appointment settles the schedule.', 'Book the sink connection before the worktop is fitted.'],
+    correct: 0,
+    success: 'You kept a tentative date from becoming a broken promise.'
+  },
+  {
+    title: 'Who can receive the delivery?',
+    latest: [11],
+    choices: ['Have the concierge sign and leave the pallet in the lobby.', 'Ask Leah to receive it on Thursday afternoon.', 'Contact Noor for Wednesday morning and confirm the service-lift booking with Mara.'],
+    correct: 2,
+    success: 'The handover now includes the person and the access arrangements.'
+  },
+  {
+    title: 'Is the lift actually reserved?',
+    latest: [11],
+    choices: ['Yes. The supplier’s Wednesday offer confirms the lift too.', 'Check with Mara and request the reservation before confirming access.', 'No reservation is needed for a morning delivery.'],
+    correct: 1,
+    success: 'You checked the missing confirmation.'
+  }
+];
+function trialAttempt() {
+  if (!trialAttempts.has(qi)) trialAttempts.set(qi, {phase: 0, initial: null, revised: null});
+  return trialAttempts.get(qi);
+}
+function trialMessage(number) {
+  const note = allNotes()[number - 1];
+  const article = document.createElement('article');
+  article.className = 'trial-message';
+  const byline = document.createElement('small');
+  byline.textContent = 'N' + number + ' · ' + note.date + ' · ' + note.speaker;
+  const text = document.createElement('p');
+  text.textContent = note.body;
+  article.append(byline, text);
+  return article;
+}
+function focusTrial() {
+  $('trialTitle').focus({preventScroll: true});
+  $('takeover').scrollIntoView({behavior: 'auto', block: 'start'});
+}
+function renderParticipation() {
+  const active = experience === 'try' && trace === library[0];
+  $('takeover').hidden = !active;
+  $('recordings').hidden = active;
+  $('tryExperience').setAttribute('aria-pressed', String(active));
+  $('exploreExperience').setAttribute('aria-pressed', String(!active));
+  if (!active) return;
+  const decision = trialDecisions[qi];
+  const check = guides[0].checks[qi];
+  const attempt = trialAttempt();
+  const finished = attempt.phase === 2;
+  $('trialTitle').textContent = decision.title;
+  $('trialIntro').textContent = 'You’re helping Leah finish a kitchen refit. Her assistant has changed. Make a tentative call from the latest messages, then bring the earlier context into the decision.';
+  for (let step = 0; step < 3; step++) {
+    const marker = $('trialStep' + step);
+    if (step === attempt.phase) marker.setAttribute('aria-current', 'step');
+    else marker.removeAttribute('aria-current');
+  }
+  $('trialTabs').replaceChildren(...trialOrder.map(index => {
+    const button = document.createElement('button');
+    button.textContent = trace.case.labels[index];
+    button.setAttribute('aria-pressed', String(index === qi));
+    button.dataset.complete = String(trialAttempts.get(index)?.phase === 2);
+    button.onclick = () => { qi = index; render(); focusTrial(); };
+    return button;
+  }));
+  $('trialLatest').replaceChildren(...decision.latest.map(trialMessage));
+  $('trialSeal').hidden = attempt.phase > 0;
+  $('trialMemory').hidden = attempt.phase === 0;
+  const earlier = check.notes.filter(number => number <= trace.case.source.length);
+  $('trialEarlier').replaceChildren(...earlier.map(trialMessage));
+  $('trialChoices').hidden = finished;
+  $('trialContinue').hidden = finished;
+  $('trialPrompt').textContent = attempt.phase === 0 ? 'What would you do first?' : 'With the earlier context, what would you do?';
+  const choiceKey = attempt.phase === 0 ? 'initial' : 'revised';
+  $('trialOptions').replaceChildren(...decision.choices.map((choice, index) => {
+    const label = document.createElement('label');
+    label.className = 'trial-option';
+    const input = document.createElement('input');
+    input.type = 'radio';
+    input.name = 'trial-choice';
+    input.value = String(index);
+    input.checked = attempt[choiceKey] === index;
+    input.onchange = () => { attempt[choiceKey] = index; $('trialContinue').disabled = false; };
+    const text = document.createElement('span');
+    text.textContent = choice;
+    label.append(input, text);
+    return label;
+  }));
+  $('trialContinue').disabled = attempt[choiceKey] === null;
+  $('trialContinue').textContent = attempt.phase === 0 ? 'Bring back earlier history →' : 'Check my decision →';
+  $('trialHint').textContent = attempt.phase === 0 ? 'Pick a tentative action. The earlier messages will open next.' : 'Decision feedback follows the authored case notes. You can compare the recorded model answers after your choice.';
+  $('trialFeedback').hidden = !finished;
+  $('trialActions').hidden = !finished;
+  if (finished) {
+    const title = document.createElement('h3');
+    title.textContent = attempt.revised === decision.correct ? decision.success : 'There’s a detail to revisit.';
+    const points = check.points.map(point => {
+      const paragraph = document.createElement('p');
+      paragraph.textContent = point;
+      return paragraph;
+    });
+    const first = document.createElement('p');
+    first.className = 'first-call';
+    const changed = attempt.initial !== attempt.revised;
+    first.textContent = (changed ? 'You changed your decision after opening the earlier history.' : 'You kept your first decision after reviewing the earlier history.') + ' Your first call: ' + decision.choices[attempt.initial];
+    $('trialFeedback').replaceChildren(title, ...points, first);
+  }
+  const completed = [...trialAttempts.values()].filter(item => item.phase === 2).length;
+  $('trialProgress').textContent = completed + ' of 6 decisions explored · Illustrative household case';
+}
+$('tryExperience').onclick = () => {
+  experience = 'try';
+  if (trace !== library[0]) selectCase(0);
+  else render();
+};
+$('exploreExperience').onclick = () => { experience = 'explore'; render(); };
+$('trialContinue').onclick = () => {
+  const attempt = trialAttempt();
+  const key = attempt.phase === 0 ? 'initial' : 'revised';
+  if (attempt[key] === null || attempt.phase === 2) return;
+  attempt.phase += 1;
+  render();
+  focusTrial();
+};
+$('trialModels').onclick = () => {
+  experience = 'explore'; stage = 2; compare = 'new_only';
+  render();
+  document.querySelector('.sheet').scrollIntoView({behavior: 'auto', block: 'start'});
+};
+$('trialNext').onclick = () => {
+  const current = trialOrder.indexOf(qi);
+  qi = trialOrder[(current + 1) % trialOrder.length];
+  render(); focusTrial();
+};
+$('trialReset').onclick = () => {
+  trialAttempts.clear(); qi = landing(library[0]);
+  render(); focusTrial();
+};
 function refreshCases(){
   $('caseSelect').replaceChildren(...library.map((t,i)=>opt(i,t.case.title)));
   $('caseSelect').value=String(library.indexOf(trace));
@@ -2070,9 +2296,11 @@ function render(){
   $('evidence').hidden=!expanded;$('inspect').setAttribute('aria-expanded',String(expanded));
   $('inspect').textContent=expanded?'Hide retrieved notes ↑':'Show retrieved notes ↓';
   $('models').textContent=trace.source_model+' → '+trace.target_model;
+  renderParticipation();
   draw();
 }
 function selectCase(index){
+  if (index !== 0) experience = 'explore';
   trace=library[index];qi=landing(trace);stage=2;compare='new_only';expanded=false;referencesOnly=false;$('check').open=false;
   refreshCases();render();
 }
@@ -2221,6 +2449,7 @@ function openLinkedDecision(){
   const hash=new URLSearchParams(location.hash.slice(1));
   const idx=['renovation','release','field','starter'].indexOf(hash.get('case'));
   if(idx<0)return;
+  experience = hash.get('mode') === 'try' ? 'try' : 'explore';
   selectCase(idx);
   const n=Number(hash.get('task'));
   if(Number.isInteger(n)&&n>0&&n<=trace.case.questions.length)qi=n-1;

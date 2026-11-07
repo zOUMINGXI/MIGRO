@@ -1,6 +1,6 @@
 # The Handoff
 
-[**Open the interactive demo ↗**](https://migro-handoff.lucentsole3.chatgpt.site) — works directly in your browser, with no download or installation. Switch cases, compare recorded model answers and inspect the source evidence. The online demo is public; the research repository remains private.
+[**Open the interactive demo ↗**](https://migro-handoff.lucentsole3.chatgpt.site) — works directly in your browser, with no download or installation. Make a decision from the latest messages, open the earlier memory and try again. Then compare the recorded model answers and inspect their evidence. The online demo is public; the research repository remains private.
 
 For offline playback, [download MIGRO-Handoff.zip](https://github.com/zOUMINGXI/MIGRO/raw/refs/heads/main/demo/MIGRO-Handoff.zip), unzip it and open **MIGRO-Handoff.html**. The handwritten interface, cases, source correspondence and recorded answers are bundled for offline use.
 
@@ -10,7 +10,9 @@ For offline playback, [download MIGRO-Handoff.zip](https://github.com/zOUMINGXI/
 
 Leah is living in her flat during a kitchen renovation. Her building manager, family, trades and supplier leave nine messages in April. Her assistant changes hosts. In May, a cabinet quote is replaced, delivery moves, a drawing arrives for sign-off and the plumber wants a confirmed date.
 
-The notebook opens at the drawing sign-off. Choose any of the six decisions in the inbox. Compare **Transfer + append** with **Only later messages**, **Transfer only** or **Full history rebuild** using the same question. For example, quote B supplies the new subtotal and delivery fee; the hard spending limit and deposit are in earlier correspondence. The delivery question requires the supplier’s revised options, the lift rules and Noor’s availability. For plumbing, a proposed template date is distinct from a confirmed worktop fitting.
+The notebook opens in **Your turn** at the drawing sign-off. Choose a tentative action from the latest messages, select **Bring back earlier history**, then reconsider with the earlier correspondence visible. **Check my decision** explains the relevant constraints and tracks whether you changed your choice. Try all six decisions or use **Start over** to reset your session. These choices are checked against authored case notes. **Compare model answers** opens the actual recorded generations for the same question.
+
+In **Explore model runs**, choose any of the six decisions in the inbox. Compare **Transfer + append** with **Only later messages**, **Transfer only** or **Full history rebuild** using the same question. For example, quote B supplies the new subtotal and delivery fee; the hard spending limit and deposit are in earlier correspondence. The delivery question requires the supplier’s revised options, the lift rules and Noor’s availability. For plumbing, a proposed template date is distinct from a confirmed worktop fitting.
 
 **Show retrieved notes** displays the slots returned to each model. **Check this decision against the complete record** opens an authored checklist with links to the dated messages. **Show decision references** filters the ledger to those messages. The checklist is separate from the generator and is only used for reading the demo.
 
