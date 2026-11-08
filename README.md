@@ -3,6 +3,12 @@
 </p>
 
 <p align="center">
+  <a href="https://migro-handoff.lucentsole3.chatgpt.site">
+    <img src="assets/migro-demo-entry.svg" alt="Try the MIGRO demo — make a call, recover the context, and see what changes. Click to play in your browser; no setup." width="1600">
+  </a>
+</p>
+
+<p align="center">
   <strong>Persistent memory across language models</strong><br>
   A shared substrate for accumulated experience. Adaptable interfaces for the models that use it.
 </p>
