@@ -313,5 +313,5 @@
       "expected": 1986
     }
   ],
-  "scope_note": "Dated aggregate update; unsupplied 4B externally assigned results excluded. Full pending details in latest/status.json."
+  "scope_note": "Dated run-progress snapshot. The primary performance tables include the author-reported manuscript results; a pending run here does not imply a missing reported primary score. Full run details in latest/status.json."
 }

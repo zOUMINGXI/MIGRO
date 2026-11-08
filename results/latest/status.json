@@ -105,8 +105,8 @@
     }
   ],
   "notes": [
-    "Pending rows carry no final aggregate.",
+    "Pending rows carry no final aggregate for that individual run.",
     "Doc-to-LoRA storage radar complete; optional dense remaining curve canceled.",
-    "4B missing performance cells assigned to external cards; no unsupplied scores inferred."
+    "The primary performance snapshot includes the author-reported manuscript results, including the externally completed 4B cells. This file retains the dated progress of individual runs."
   ]
 }

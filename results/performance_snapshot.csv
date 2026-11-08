@@ -28,3 +28,8 @@ LoCoMo,MIGRO,Phi-3-mini-4k-instruct,49.76853774508424,custom_all_question_compos
 LoCoMo,MIGRO,Mistral-7B-Instruct-v0.3,45.68894111198901,custom_all_question_composite,1986,complete,frozen_2000_source_tokens_50_output_tokens,AB write trajectory; host-specific frozen interface
 BEAM-1M,TiMEM,Qwen3-4B-Instruct-2507,51.898580189651625,native_category_aggregate,700,complete,full_35_histories_resumed,Auxiliary gpt-5.4-mini where required; original progress retained
 BEAM-1M,mem0,Qwen3-4B-Instruct-2507,52.432042362399514,native_category_aggregate,700,complete,full_35_histories_resumed,Auxiliary gpt-5.4-mini where required; original progress retained
+MemOps,mem0,Qwen3-4B-Instruct-2507,52.13,longitudinal_answer_accuracy,,complete,,Manuscript Table 1; author-reported result at two-decimal precision.
+MemOps,TiMEM,Qwen3-4B-Instruct-2507,50.66,longitudinal_answer_accuracy,,complete,,Manuscript Table 1; author-reported result at two-decimal precision.
+MemOps,A-Mem,Qwen3-4B-Instruct-2507,39.78,longitudinal_answer_accuracy,,complete,,Manuscript Table 1; author-reported result at two-decimal precision.
+BEAM-1M,A-Mem,Qwen3-4B-Instruct-2507,33.25,native_category_aggregate,,complete,,Manuscript Table 1; author-reported result at two-decimal precision.
+LongMemEval-S,A-Mem,Qwen3-4B-Instruct-2507,35.1,auxiliary_judge_accuracy,,complete,,Manuscript Table 1; author-reported result at two-decimal precision.

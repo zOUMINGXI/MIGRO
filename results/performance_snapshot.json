@@ -118,7 +118,7 @@
       "benchmark": "LongMemEval-S",
       "method": "LSTmem",
       "backbone": "Qwen3-4B-Instruct-2507",
-      "score": 26.0,
+      "score": 26,
       "metric": "auxiliary_judge_accuracy",
       "questions": 500,
       "status": "complete",
@@ -322,6 +322,61 @@
       "status": "complete",
       "setting": "full_35_histories_resumed",
       "notes": "Auxiliary gpt-5.4-mini where required; original progress retained"
+    },
+    {
+      "benchmark": "MemOps",
+      "method": "mem0",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 52.13,
+      "metric": "longitudinal_answer_accuracy",
+      "questions": null,
+      "status": "complete",
+      "setting": "",
+      "notes": "Manuscript Table 1; author-reported result at two-decimal precision."
+    },
+    {
+      "benchmark": "MemOps",
+      "method": "TiMEM",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 50.66,
+      "metric": "longitudinal_answer_accuracy",
+      "questions": null,
+      "status": "complete",
+      "setting": "",
+      "notes": "Manuscript Table 1; author-reported result at two-decimal precision."
+    },
+    {
+      "benchmark": "MemOps",
+      "method": "A-Mem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 39.78,
+      "metric": "longitudinal_answer_accuracy",
+      "questions": null,
+      "status": "complete",
+      "setting": "",
+      "notes": "Manuscript Table 1; author-reported result at two-decimal precision."
+    },
+    {
+      "benchmark": "BEAM-1M",
+      "method": "A-Mem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 33.25,
+      "metric": "native_category_aggregate",
+      "questions": null,
+      "status": "complete",
+      "setting": "",
+      "notes": "Manuscript Table 1; author-reported result at two-decimal precision."
+    },
+    {
+      "benchmark": "LongMemEval-S",
+      "method": "A-Mem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 35.1,
+      "metric": "auxiliary_judge_accuracy",
+      "questions": null,
+      "status": "complete",
+      "setting": "",
+      "notes": "Manuscript Table 1; author-reported result at two-decimal precision."
     }
   ],
   "locomo_metric": {
@@ -337,5 +392,6 @@
     "LoCoMo host write trajectories differ; not a strict model ranking",
     "Auxiliary judging is not the official LongMemEval/MemOps/BEAM leaderboard protocol",
     "Storage-replica QA scores are not mixed into this performance snapshot"
-  ]
+  ],
+  "updated_at": "2026-11-08T03:58:51.974Z"
 }

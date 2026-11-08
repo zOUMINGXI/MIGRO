@@ -109,14 +109,14 @@ An upgrade should retain useful history and leave room for the next experience. 
 |---|---:|---:|---:|---:|---:|
 |MIGRO|54.13|68.40|66.30|55.83|35.14|
 |PlugMem|41.89|43.20|35.09|34.11|7.76|
-|mem0|52.12|56.80|—|52.43|32.82|
-|TiMEM|49.13|48.40|—|51.90|18.90|
-|A-Mem|36.20|—|—|—|16.72|
+|mem0|52.12|56.80|52.13|52.43|32.82|
+|TiMEM|49.13|48.40|50.66|51.90|18.90|
+|A-Mem|36.20|35.10|39.78|33.25|16.72|
 |LSTmem|40.64|26.00|52.59|28.44|10.47|
 |TransMem|45.85|37.40|62.51|28.76|22.88|
 |Doc-to-LoRA|14.96|12.80|15.35|30.20|11.62|
 
-Scores are on a 0–100 scale. LoCoMo uses the custom all-question composite (1,986 questions); LongMemEval-S uses auxiliary accuracy (500); MemOps uses longitudinal answer accuracy (2,006); BEAM uses its category aggregate (700). MAB uses a custom four-ability macro (2,071). These metrics are not interchangeable. A dash means no completed score is included.
+Scores are on a 0–100 scale. LoCoMo uses the custom all-question composite (1,986 questions); LongMemEval-S uses auxiliary accuracy (500); MemOps uses longitudinal answer accuracy (2,006); BEAM uses its category aggregate (700). MAB uses a custom four-ability macro (2,071). These metrics are not interchangeable.
 
 **MAB budget sensitivity:** at the same 2,000-source-token cap, MIGRO scores **35.14** and TransMem **22.88**; at 8,000, **40.30** and **28.99**. Other methods retain their native read paths; equal source caps do not equalize inference compute.
 

@@ -2,7 +2,7 @@
 
 Snapshot: 2026-11-08T03:15:51.047178+00:00
 
-- [Performance](../performance_snapshot.csv): complete LoCoMo, LongMemEval-S, MemOps and BEAM cohorts. Missing results are omitted, never scored as zero.
+- [Performance](../performance_snapshot.csv): all eight methods on LoCoMo, LongMemEval-S, MemOps and BEAM, including the author-reported Table 1 results.
 - [MAB](memoryagentbench.csv), [task and ability scores](memoryagentbench_tasks.json): 130 contexts / 2,071 questions per entry. The four-ability macro is a project summary, not an official aggregate. Original task metrics are retained with format-only answer extraction; auxiliary judging uses gpt-5.4-mini. MIGRO and TransMem have matched 2,000 and 8,000 observed-source-token caps; other methods retain native read paths. Equal caps do not imply equal FLOPs.
 - [LoCoMo scale-up](locomo_scaleup.csv): native rebuilding and 4B state transfer are separate. MIGRO 32B uses the previously accepted two_round_v4 reader; its original values remain in original_score.
 - [Original three-host migration](../migration_snapshot.csv): historical MIGRO AB trajectories are retained. [New heterogeneous scale-up](heterogeneous_scaleup.csv) separates sequential MIGRO handoff, baseline source-state transfer, target-side rebuilding, and pending adapter qualification.
