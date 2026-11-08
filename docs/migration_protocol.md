@@ -1,38 +1,41 @@
 # Migration operations
 
-The migration line distinguishes the operation performed by each run. Use these exact labels in result tables and figure legends.
-
-| Operation | Existing memory reused? | Full history processed again? | Small read-interface calibration |
+| Operation | Existing memory reused? | Full history processed again? | Read-interface calibration |
 |---|---|---|---|
-| **State Transfer** | Yes | No full-history reconstruction | Allowed; report the calibration budget |
-| **Full-History Rebuilding** | No | Yes, to reconstruct target-model memory | Report separately when used |
+| State Transfer | Yes | No full-history reconstruction | Allowed under the declared budget |
+| Full-History Rebuilding | No | Yes | Recorded separately when used |
 
-A rebuilding run may involve memory construction or training model-specific memory components. It does not automatically imply backbone fine-tuning. The currently admitted target-native controls freeze the backbone.
+The primary comparisons use State Transfer for MIGRO, PlugMem and Mem0. TiMem, A-MEM, LSTMem, TransMem and Doc-to-LoRA use target-side rebuilding. Backbone fine-tuning is separate from memory construction or refitting.
 
-Classify runs rather than making a blanket claim about a method's intrinsic capabilities. In particular, PlugMem and mem0 have both State Transfer runs and Full-History Rebuilding controls.
+## Receiving-host results
 
-## Completed State Transfer results
+The Qwen chain follows 4B → 8B → 14B → 32B. The first cross-family path follows Qwen 4B → Mistral 7B → Phi. LoCoMo reports the custom all-question composite.
 
-Snapshot: 2026-11-01T22:54:24+08:00. Metric: LoCoMo all-question custom composite, 0–100, higher is better. Each result covers 1,986 questions.
+| Method | Operation | Mistral 7B | Phi |
+|---|---:|---:|---:|
+| MIGRO | State Transfer | 45.69 | 49.77 |
+| PlugMem | State Transfer | 38.60 | 36.30 |
+| Mem0 | State Transfer | 44.06 | 44.72 |
+| TiMem | Full-History Rebuilding | 41.22 | 28.03 |
+| A-MEM | Full-History Rebuilding | 37.73 | 29.57 |
+| LSTMem | Full-History Rebuilding | 11.31 | 16.84 |
+| TransMem | Full-History Rebuilding | 7.04 | 18.79 |
+| Doc-to-LoRA | Full-History Rebuilding | 11.32 | 14.07 |
 
-| Method | Operation | Phi-3-mini-4k-instruct | Mistral-7B-Instruct-v0.3 |
-|---|---|---:|---:|
-| MIGRO | State Transfer | 49.77 | 45.69 |
-| PlugMem | State Transfer | 36.30 | 38.60 |
-| mem0 | State Transfer | 44.72 | 44.06 |
+LSTMem, TransMem and Doc-to-LoRA have completed Phi/Mistral rebuilding results. The separate Ministral 14B → Gemma 26B-A4B extension retains pending entries where the manuscript has no final score.
 
-MIGRO uses existing AB memory states: a Qwen-written prefix followed by Phi continuation. Phi uses the selected step-0 identity interface; trained candidates were inspected but not selected. Mistral uses a read interface with 131,072 parameters, calibrated on 64 unique public human-QA examples for 64 optimizer updates. The backbones and shared memory core are frozen, and LoCoMo answers were not calibration targets.
+[Selected migration CSV](../results/migration_snapshot.csv) · [JSON](../results/migration_snapshot.json) · [Same-host scale-up](../results/quality_scaling.csv)
 
-PlugMem/mem0 State Transfer reuses their Qwen-built source state. These source trajectories differ from MIGRO's AB reference and must remain visible in interpretation.
+## Interfaces and trajectories
 
-## Full-History Rebuilding controls
+The retained MIGRO Phi/Mistral reference uses the AB memory trajectory: a Qwen-written prefix followed by Phi continuation. Phi uses the selected step-0 identity interface. Mistral uses a 131,072-parameter read interface calibrated on 64 unique public human-QA examples for 64 optimizer updates. The backbones and shared memory core are frozen, and LoCoMo answers are not calibration targets.
 
-Independent Phi/Mistral memory construction for PlugMem, mem0, TiMEM and A-Mem is labeled **Full-History Rebuilding**. PlugMem/mem0 controls provide target-built references for their transferred-state results; TiMEM/A-Mem controls report performance with memory built by the target backbone.
+PlugMem and Mem0 transfer their Qwen-built source states. A migration-loss comparison requires a matched target-backbone rebuilding reference. The chain stage and execution mode identify each summary row; rebuilding does not carry source-host state.
 
-See [the per-run CSV](../results/migration_snapshot.csv) and [JSON](../results/migration_snapshot.json) for operation, progress, calibration and score. Pending rows have no final score.
+The second heterogeneous chain reuses the same immutable Qwen-built state across Ministral and Gemma, with no writes between receiving stages and no new calibration examples. Gemma 26B-A4B denotes total/active MoE size.
 
-## Unsupported configurations and reporting
+## Continued writing and mechanisms
 
-LSTMem, TransMem and Doc-to-LoRA target cells that lack a matching released checkpoint remain unsupported and unscored. Their requested rebuilding operation is not evidence that reconstruction or training has been executed.
+The [README summaries](../README.md#keep-writing-after-the-handoff) report continued writing under Mistral against final-history labels. Target-built prefixes and rebuilding on append are distinguished from inherited-state continuation.
 
-The migration-loss comparison requires a matched target-backbone rebuilding reference. Subtracting a source-backbone score from a target-backbone score does not isolate migration loss. These are previously inspected research results; the composite reporting choice is post hoc and is not official LoCoMo F1.
+Local mechanism controls use separately evaluated full-interface states. They compare direct reuse against simple history access and target rebuilding, then remove boundary composition while holding the evidence and host fixed.

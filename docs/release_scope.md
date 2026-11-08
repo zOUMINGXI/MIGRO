@@ -4,7 +4,7 @@ Included code: shared-anchor memory and residual addresses; exact source-token b
 
 The [runtime asset release](https://github.com/zOUMINGXI/MIGRO/releases/tag/runtime-assets-20261108) adds the shared core, coding parameters, tokenizer/config files and frozen Phi/Mistral interface checkpoints. See [runtime setup](runtime.md). Backbone and reranker models, datasets and third-party packages are obtained separately. The release follows repository access: it is not an anonymous public download while this repository is private.
 
-The [November 8 aggregate update](../results/latest/README.md) includes complete primary benchmark scores, Qwen scale-up, MAB budget comparisons, heterogeneous host results, continued writing and storage measurements. Pending runs have no final score. Historical November 1 tables remain archived. State Transfer and Full-History Rebuilding retain their per-experiment meanings.
+The [selected result summaries](../results/README.md) include primary benchmarks, same-host scale-up, migration and matched-state storage. README tables follow the current manuscript. Detailed experimental data, intermediate artifacts and run-status exports are reserved for a later release.
 
 Complete baseline adapters, remaining older benchmark launchers and the six-GPU cluster scheduler remain outside this upload. This is not yet a self-contained full-table reproduction bundle. The shared asset download does not alter licensing of third-party models or data.
 

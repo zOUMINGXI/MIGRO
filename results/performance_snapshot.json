@@ -1,8 +1,7 @@
 {
-  "schema_version": 1,
-  "created_at": "2026-11-08T03:15:51.047178+00:00",
-  "status": "preliminary_private_snapshot",
-  "score_scale": "0-100",
+  "source": "Current manuscript summary tables",
+  "score_scale": "0–100",
+  "scope": "Eight methods across the five primary benchmarks",
   "results": [
     {
       "benchmark": "LoCoMo",
@@ -11,86 +10,7 @@
       "score": 54.13261788868366,
       "metric": "custom_all_question_composite",
       "questions": 1986,
-      "status": "complete",
-      "setting": "frozen_2000_source_tokens_50_output_tokens",
-      "notes": "AA write trajectory"
-    },
-    {
-      "benchmark": "LoCoMo",
-      "method": "PlugMem",
-      "backbone": "Qwen3-4B-Instruct-2507",
-      "score": 41.88574578771847,
-      "metric": "custom_all_question_composite",
-      "questions": 1986,
-      "status": "complete",
-      "setting": "matched_host_native_method",
-      "notes": "Native method-specific read path; compute budgets differ"
-    },
-    {
-      "benchmark": "LoCoMo",
-      "method": "LSTmem",
-      "backbone": "Qwen3-4B-Instruct-2507",
-      "score": 40.636627840023586,
-      "metric": "custom_all_question_composite",
-      "questions": 1986,
-      "status": "complete",
-      "setting": "native_retained_history",
-      "notes": "Native method-specific read path; compute budgets differ"
-    },
-    {
-      "benchmark": "LoCoMo",
-      "method": "mem0",
-      "backbone": "Qwen3-4B-Instruct-2507",
-      "score": 52.11734474448081,
-      "metric": "custom_all_question_composite",
-      "questions": 1986,
-      "status": "complete",
-      "setting": "matched_host_native_method",
-      "notes": "Native method-specific read path; compute budgets differ"
-    },
-    {
-      "benchmark": "LoCoMo",
-      "method": "TiMEM",
-      "backbone": "Qwen3-4B-Instruct-2507",
-      "score": 49.128455778988524,
-      "metric": "custom_all_question_composite",
-      "questions": 1986,
-      "status": "complete",
-      "setting": "matched_host_native_method",
-      "notes": "Native method-specific read path; compute budgets differ"
-    },
-    {
-      "benchmark": "LoCoMo",
-      "method": "A-Mem",
-      "backbone": "Qwen3-4B-Instruct-2507",
-      "score": 36.202468153840194,
-      "metric": "custom_all_question_composite",
-      "questions": 1986,
-      "status": "complete",
-      "setting": "matched_host_native_method",
-      "notes": "Native method-specific read path; compute budgets differ"
-    },
-    {
-      "benchmark": "LoCoMo",
-      "method": "TransMem",
-      "backbone": "Qwen3-4B-Instruct-2507",
-      "score": 45.84515949430611,
-      "metric": "custom_all_question_composite",
-      "questions": 1986,
-      "status": "complete",
-      "setting": "matched_host_native_method",
-      "notes": "Native method-specific read path; compute budgets differ"
-    },
-    {
-      "benchmark": "LoCoMo",
-      "method": "Doc-to-LoRA",
-      "backbone": "Qwen3-4B-Instruct-2507",
-      "score": 14.963378130123877,
-      "metric": "custom_all_question_composite",
-      "questions": 1986,
-      "status": "complete",
-      "setting": "native_window_norm_v1",
-      "notes": "Post hoc stabilized native-window1/N variant; not vanilla published preset"
+      "status": "complete"
     },
     {
       "benchmark": "LongMemEval-S",
@@ -99,75 +19,7 @@
       "score": 68.4,
       "metric": "auxiliary_judge_accuracy",
       "questions": 500,
-      "status": "complete",
-      "setting": "frozen_role_coverage_reader",
-      "notes": "Auxiliary judge; not official leaderboard evaluation"
-    },
-    {
-      "benchmark": "LongMemEval-S",
-      "method": "PlugMem",
-      "backbone": "Qwen3-4B-Instruct-2507",
-      "score": 43.2,
-      "metric": "auxiliary_judge_accuracy",
-      "questions": 500,
-      "status": "complete",
-      "setting": "matched_host_native_method",
-      "notes": "Auxiliary judge; native method-specific read path"
-    },
-    {
-      "benchmark": "LongMemEval-S",
-      "method": "LSTmem",
-      "backbone": "Qwen3-4B-Instruct-2507",
-      "score": 26,
-      "metric": "auxiliary_judge_accuracy",
-      "questions": 500,
-      "status": "complete",
-      "setting": "native_retained_history",
-      "notes": "Auxiliary judge; native method-specific read path"
-    },
-    {
-      "benchmark": "LongMemEval-S",
-      "method": "mem0",
-      "backbone": "Qwen3-4B-Instruct-2507",
-      "score": 56.8,
-      "metric": "auxiliary_judge_accuracy",
-      "questions": 500,
-      "status": "complete",
-      "setting": "matched_host_native_method",
-      "notes": "Auxiliary judge; native method-specific read path"
-    },
-    {
-      "benchmark": "LongMemEval-S",
-      "method": "TiMEM",
-      "backbone": "Qwen3-4B-Instruct-2507",
-      "score": 48.4,
-      "metric": "auxiliary_judge_accuracy",
-      "questions": 500,
-      "status": "complete",
-      "setting": "matched_host_native_method",
-      "notes": "Auxiliary judge; native method-specific read path"
-    },
-    {
-      "benchmark": "LongMemEval-S",
-      "method": "TransMem",
-      "backbone": "Qwen3-4B-Instruct-2507",
-      "score": 37.4,
-      "metric": "auxiliary_judge_accuracy",
-      "questions": 500,
-      "status": "complete",
-      "setting": "matched_host_native_method",
-      "notes": "Auxiliary judge; native method-specific read path"
-    },
-    {
-      "benchmark": "LongMemEval-S",
-      "method": "Doc-to-LoRA",
-      "backbone": "Qwen3-4B-Instruct-2507",
-      "score": 12.8,
-      "metric": "auxiliary_judge_accuracy",
-      "questions": 500,
-      "status": "complete",
-      "setting": "native_window_norm_v1",
-      "notes": "Auxiliary judge; D2L is a stabilized variant"
+      "status": "complete"
     },
     {
       "benchmark": "MemOps",
@@ -176,9 +28,7 @@
       "score": 66.3010967098704,
       "metric": "longitudinal_answer_accuracy",
       "questions": 2006,
-      "status": "complete",
-      "setting": "longitudinal_operation",
-      "notes": "Auxiliary gpt-5.4-mini judge; answer accuracy is separate from operation/state diagnostics"
+      "status": "complete"
     },
     {
       "benchmark": "BEAM-1M",
@@ -187,9 +37,259 @@
       "score": 55.83433312719027,
       "metric": "native_category_aggregate",
       "questions": 700,
-      "status": "complete",
-      "setting": "full_35_histories",
-      "notes": "Auxiliary judge where required;35history cluster95%CI54.0559–57.9045;100questions previously inspected"
+      "status": "complete"
+    },
+    {
+      "benchmark": "MemoryAgentBench",
+      "method": "MIGRO",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 35.16,
+      "metric": "four_competency_macro_average",
+      "questions": 2071,
+      "status": "complete"
+    },
+    {
+      "benchmark": "LoCoMo",
+      "method": "PlugMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 41.88574578771847,
+      "metric": "custom_all_question_composite",
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "benchmark": "LongMemEval-S",
+      "method": "PlugMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 43.2,
+      "metric": "auxiliary_judge_accuracy",
+      "questions": 500,
+      "status": "complete"
+    },
+    {
+      "benchmark": "MemOps",
+      "method": "PlugMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 35.09,
+      "metric": "longitudinal_answer_accuracy",
+      "questions": 2006,
+      "status": "complete"
+    },
+    {
+      "benchmark": "BEAM-1M",
+      "method": "PlugMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 34.11,
+      "metric": "native_category_aggregate",
+      "questions": 700,
+      "status": "complete"
+    },
+    {
+      "benchmark": "MemoryAgentBench",
+      "method": "PlugMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 7.76,
+      "metric": "four_competency_macro_average",
+      "questions": 2071,
+      "status": "complete"
+    },
+    {
+      "benchmark": "LoCoMo",
+      "method": "Mem0",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 52.11734474448081,
+      "metric": "custom_all_question_composite",
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "benchmark": "LongMemEval-S",
+      "method": "Mem0",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 56.8,
+      "metric": "auxiliary_judge_accuracy",
+      "questions": 500,
+      "status": "complete"
+    },
+    {
+      "benchmark": "MemOps",
+      "method": "Mem0",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 52.13,
+      "metric": "longitudinal_answer_accuracy",
+      "questions": 2006,
+      "status": "complete"
+    },
+    {
+      "benchmark": "BEAM-1M",
+      "method": "Mem0",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 52.43,
+      "metric": "native_category_aggregate",
+      "questions": 700,
+      "status": "complete"
+    },
+    {
+      "benchmark": "MemoryAgentBench",
+      "method": "Mem0",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 32.82,
+      "metric": "four_competency_macro_average",
+      "questions": 2071,
+      "status": "complete"
+    },
+    {
+      "benchmark": "LoCoMo",
+      "method": "TiMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 49.128455778988524,
+      "metric": "custom_all_question_composite",
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "benchmark": "LongMemEval-S",
+      "method": "TiMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 48.4,
+      "metric": "auxiliary_judge_accuracy",
+      "questions": 500,
+      "status": "complete"
+    },
+    {
+      "benchmark": "MemOps",
+      "method": "TiMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 50.66,
+      "metric": "longitudinal_answer_accuracy",
+      "questions": 2006,
+      "status": "complete"
+    },
+    {
+      "benchmark": "BEAM-1M",
+      "method": "TiMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 51.9,
+      "metric": "native_category_aggregate",
+      "questions": 700,
+      "status": "complete"
+    },
+    {
+      "benchmark": "MemoryAgentBench",
+      "method": "TiMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 18.9,
+      "metric": "four_competency_macro_average",
+      "questions": 2071,
+      "status": "complete"
+    },
+    {
+      "benchmark": "LoCoMo",
+      "method": "A-MEM",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 36.202468153840194,
+      "metric": "custom_all_question_composite",
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "benchmark": "LongMemEval-S",
+      "method": "A-MEM",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 35.1,
+      "metric": "auxiliary_judge_accuracy",
+      "questions": 500,
+      "status": "complete"
+    },
+    {
+      "benchmark": "MemOps",
+      "method": "A-MEM",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 39.78,
+      "metric": "longitudinal_answer_accuracy",
+      "questions": 2006,
+      "status": "complete"
+    },
+    {
+      "benchmark": "BEAM-1M",
+      "method": "A-MEM",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 33.25,
+      "metric": "native_category_aggregate",
+      "questions": 700,
+      "status": "complete"
+    },
+    {
+      "benchmark": "MemoryAgentBench",
+      "method": "A-MEM",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 16.72,
+      "metric": "four_competency_macro_average",
+      "questions": 2071,
+      "status": "complete"
+    },
+    {
+      "benchmark": "LoCoMo",
+      "method": "LSTMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 40.636627840023586,
+      "metric": "custom_all_question_composite",
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "benchmark": "LongMemEval-S",
+      "method": "LSTMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 26.0,
+      "metric": "auxiliary_judge_accuracy",
+      "questions": 500,
+      "status": "complete"
+    },
+    {
+      "benchmark": "MemOps",
+      "method": "LSTMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 52.59,
+      "metric": "longitudinal_answer_accuracy",
+      "questions": 2006,
+      "status": "complete"
+    },
+    {
+      "benchmark": "BEAM-1M",
+      "method": "LSTMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 28.44,
+      "metric": "native_category_aggregate",
+      "questions": 700,
+      "status": "complete"
+    },
+    {
+      "benchmark": "MemoryAgentBench",
+      "method": "LSTMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 6.56,
+      "metric": "four_competency_macro_average",
+      "questions": 2071,
+      "status": "complete"
+    },
+    {
+      "benchmark": "LoCoMo",
+      "method": "TransMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 45.84515949430611,
+      "metric": "custom_all_question_composite",
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "benchmark": "LongMemEval-S",
+      "method": "TransMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 37.4,
+      "metric": "auxiliary_judge_accuracy",
+      "questions": 500,
+      "status": "complete"
     },
     {
       "benchmark": "MemOps",
@@ -198,9 +298,7 @@
       "score": 62.51246261216351,
       "metric": "longitudinal_answer_accuracy",
       "questions": 2006,
-      "status": "complete",
-      "setting": "A_full",
-      "notes": "Auxiliary judge; not official leaderboard evaluation"
+      "status": "complete"
     },
     {
       "benchmark": "BEAM-1M",
@@ -209,9 +307,34 @@
       "score": 28.75807823129251,
       "metric": "native_category_aggregate",
       "questions": 700,
-      "status": "complete",
-      "setting": "A_full",
-      "notes": "Auxiliary judge; not official leaderboard evaluation"
+      "status": "complete"
+    },
+    {
+      "benchmark": "MemoryAgentBench",
+      "method": "TransMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 22.8,
+      "metric": "four_competency_macro_average",
+      "questions": 2071,
+      "status": "complete"
+    },
+    {
+      "benchmark": "LoCoMo",
+      "method": "Doc-to-LoRA",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 14.963378130123877,
+      "metric": "custom_all_question_composite",
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "benchmark": "LongMemEval-S",
+      "method": "Doc-to-LoRA",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 12.8,
+      "metric": "auxiliary_judge_accuracy",
+      "questions": 500,
+      "status": "complete"
     },
     {
       "benchmark": "MemOps",
@@ -220,9 +343,7 @@
       "score": 15.353938185443669,
       "metric": "longitudinal_answer_accuracy",
       "questions": 2006,
-      "status": "complete",
-      "setting": "A_native_window_norm_v1",
-      "notes": "Auxiliary judge; declared stabilized native-window1/N configuration, not vanilla published preset"
+      "status": "complete"
     },
     {
       "benchmark": "BEAM-1M",
@@ -231,167 +352,16 @@
       "score": 30.195848794063078,
       "metric": "native_category_aggregate",
       "questions": 700,
-      "status": "complete",
-      "setting": "A_native_window_norm_v1",
-      "notes": "Auxiliary judge; declared stabilized native-window1/N configuration, not vanilla published preset"
+      "status": "complete"
     },
     {
-      "benchmark": "MemOps",
-      "method": "PlugMem",
+      "benchmark": "MemoryAgentBench",
+      "method": "Doc-to-LoRA",
       "backbone": "Qwen3-4B-Instruct-2507",
-      "score": 35.09471585244267,
-      "metric": "longitudinal_answer_accuracy",
-      "questions": 2006,
-      "status": "complete",
-      "setting": "matched_host_native_method",
-      "notes": "Auxiliary judge; complete native result previously omitted from curated aggregate"
-    },
-    {
-      "benchmark": "BEAM-1M",
-      "method": "PlugMem",
-      "backbone": "Qwen3-4B-Instruct-2507",
-      "score": 34.11470057720057,
-      "metric": "native_category_aggregate",
-      "questions": 700,
-      "status": "complete",
-      "setting": "matched_host_native_method",
-      "notes": "Auxiliary judge; complete native result previously omitted from curated aggregate"
-    },
-    {
-      "benchmark": "MemOps",
-      "method": "LSTmem",
-      "backbone": "Qwen3-4B-Instruct-2507",
-      "score": 52.59222333000997,
-      "metric": "longitudinal_answer_accuracy",
-      "questions": 2006,
-      "status": "complete",
-      "setting": "native_retained_history",
-      "notes": "Auxiliary judge; complete native result previously omitted from curated aggregate"
-    },
-    {
-      "benchmark": "BEAM-1M",
-      "method": "LSTmem",
-      "backbone": "Qwen3-4B-Instruct-2507",
-      "score": 28.444890228818803,
-      "metric": "native_category_aggregate",
-      "questions": 700,
-      "status": "complete",
-      "setting": "native_retained_history",
-      "notes": "Auxiliary judge; complete native result previously omitted from curated aggregate"
-    },
-    {
-      "benchmark": "LoCoMo",
-      "method": "MIGRO",
-      "backbone": "Phi-3-mini-4k-instruct",
-      "score": 49.76853774508424,
-      "metric": "custom_all_question_composite",
-      "questions": 1986,
-      "status": "complete",
-      "setting": "frozen_2000_source_tokens_50_output_tokens",
-      "notes": "AB write trajectory; host-specific frozen interface"
-    },
-    {
-      "benchmark": "LoCoMo",
-      "method": "MIGRO",
-      "backbone": "Mistral-7B-Instruct-v0.3",
-      "score": 45.68894111198901,
-      "metric": "custom_all_question_composite",
-      "questions": 1986,
-      "status": "complete",
-      "setting": "frozen_2000_source_tokens_50_output_tokens",
-      "notes": "AB write trajectory; host-specific frozen interface"
-    },
-    {
-      "benchmark": "BEAM-1M",
-      "method": "TiMEM",
-      "backbone": "Qwen3-4B-Instruct-2507",
-      "score": 51.898580189651625,
-      "metric": "native_category_aggregate",
-      "questions": 700,
-      "status": "complete",
-      "setting": "full_35_histories_resumed",
-      "notes": "Auxiliary gpt-5.4-mini where required; original progress retained"
-    },
-    {
-      "benchmark": "BEAM-1M",
-      "method": "mem0",
-      "backbone": "Qwen3-4B-Instruct-2507",
-      "score": 52.432042362399514,
-      "metric": "native_category_aggregate",
-      "questions": 700,
-      "status": "complete",
-      "setting": "full_35_histories_resumed",
-      "notes": "Auxiliary gpt-5.4-mini where required; original progress retained"
-    },
-    {
-      "benchmark": "MemOps",
-      "method": "mem0",
-      "backbone": "Qwen3-4B-Instruct-2507",
-      "score": 52.13,
-      "metric": "longitudinal_answer_accuracy",
-      "questions": null,
-      "status": "complete",
-      "setting": "",
-      "notes": "Manuscript Table 1; author-reported result at two-decimal precision."
-    },
-    {
-      "benchmark": "MemOps",
-      "method": "TiMEM",
-      "backbone": "Qwen3-4B-Instruct-2507",
-      "score": 50.66,
-      "metric": "longitudinal_answer_accuracy",
-      "questions": null,
-      "status": "complete",
-      "setting": "",
-      "notes": "Manuscript Table 1; author-reported result at two-decimal precision."
-    },
-    {
-      "benchmark": "MemOps",
-      "method": "A-Mem",
-      "backbone": "Qwen3-4B-Instruct-2507",
-      "score": 39.78,
-      "metric": "longitudinal_answer_accuracy",
-      "questions": null,
-      "status": "complete",
-      "setting": "",
-      "notes": "Manuscript Table 1; author-reported result at two-decimal precision."
-    },
-    {
-      "benchmark": "BEAM-1M",
-      "method": "A-Mem",
-      "backbone": "Qwen3-4B-Instruct-2507",
-      "score": 33.25,
-      "metric": "native_category_aggregate",
-      "questions": null,
-      "status": "complete",
-      "setting": "",
-      "notes": "Manuscript Table 1; author-reported result at two-decimal precision."
-    },
-    {
-      "benchmark": "LongMemEval-S",
-      "method": "A-Mem",
-      "backbone": "Qwen3-4B-Instruct-2507",
-      "score": 35.1,
-      "metric": "auxiliary_judge_accuracy",
-      "questions": null,
-      "status": "complete",
-      "setting": "",
-      "notes": "Manuscript Table 1; author-reported result at two-decimal precision."
+      "score": 11.62,
+      "metric": "four_competency_macro_average",
+      "questions": 2071,
+      "status": "complete"
     }
-  ],
-  "locomo_metric": {
-    "name": "all-question custom composite",
-    "formula": "(1540*main_F1+446*category5_score)/1986",
-    "custom": true,
-    "chosen_post_hoc": true,
-    "official_f1": false,
-    "total_questions": 1986
-  },
-  "limits": [
-    "Historical development exposure and selected reader/interface profiles",
-    "LoCoMo host write trajectories differ; not a strict model ranking",
-    "Auxiliary judging is not the official LongMemEval/MemOps/BEAM leaderboard protocol",
-    "Storage-replica QA scores are not mixed into this performance snapshot"
-  ],
-  "updated_at": "2026-11-08T03:58:51.974Z"
+  ]
 }

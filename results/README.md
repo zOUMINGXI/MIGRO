@@ -1,9 +1,16 @@
-# Experiment results
+# Selected result summaries
 
-The current [result index](latest/README.md) links primary performance, MAB, scale-up, migration, continued writing, storage and mechanism ablations. Snapshot: 2026-11-08T03:15:51.047178+00:00
+The repository publishes four compact groups of manuscript results.
 
-performance_snapshot.json and performance_snapshot.csv contain the same complete scored entries, including the author-reported Table 1 results. migration_snapshot.json and migration_snapshot.csv carry the same 20 operation-labeled entries, including explicitly failed/unsupported controls with no score.
+| Summary | CSV | JSON |
+|---|---|---|
+| Eight methods × five primary benchmarks | [Download](performance_snapshot.csv) | [Download](performance_snapshot.json) |
+| Same-host LoCoMo scale-up, Qwen 4B / 8B / 14B / 32B | [Download](quality_scaling.csv) | [Download](quality_scaling.json) |
+| Qwen upgrades and cross-family migration | [Download](migration_snapshot.csv) | [Download](migration_snapshot.json) |
+| Matched-state quality, storage and shared deployment | [Download](storage_summary.csv) | [Download](storage_summary.json) |
 
-evaluation_status.json records the dated state of individual outstanding runs; those run snapshots are separate from the reported primary scores. Historical November 1 tables and status remain in archive/2026-11-01/. Scores use a 0–100 scale, but benchmark metrics differ. Storage-replica quality is reported separately from the main performance table.
+The [main README](../README.md#memory-utility) presents these results alongside continued-writing and mechanism summaries. Detailed results, task-level exports, run status and intermediate data are reserved for a later release.
 
-No benchmark conversations, raw predictions, credentials or experiment logs are included.
+Scores follow the manuscript's adopted values and metric definitions. The primary MAB macro and the separately displayed budget-sensitivity runs are distinct series. State Transfer and Full-History Rebuilding retain their per-comparison meanings. Storage quality is paired with its measured state, independently of primary benchmark quality.
+
+Storage uses decimal MB. LoCoMo footprints sum ten conversation states; BEAM uses five million-token histories. Growth rates use the common 500K–1M window. Shared deployment estimates combine one required resource bundle with 100–100,000 independent memories.

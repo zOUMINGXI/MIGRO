@@ -1,7 +1,0 @@
-experiment,arm,score,questions
-evidence_selection,full,54.206702063861,1986
-evidence_selection,no_native_bindings,53.47693087307744,1986
-evidence_selection,semantic_topk,44.82270667449303,1986
-address_representation,anchor_residual,54.206702063861,1986
-address_representation,anchor_only,53.73355825461379,1986
-address_representation,full_float32,54.67081090048678,1986

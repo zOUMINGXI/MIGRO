@@ -1,7 +1,0 @@
-experiment,arm,score,questions
-host_interface_phi,full,49.72513613725707,1986
-host_interface_phi,transport_no_calibration,49.72513613725707,1986
-host_interface_phi,target_tokenizer_direct,49.81657107811437,1986
-host_interface_mistral,full,45.475925641815394,1986
-host_interface_mistral,transport_no_calibration,44.696889824201804,1986
-host_interface_mistral,target_tokenizer_direct,44.70734458284951,1986

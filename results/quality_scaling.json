@@ -1,0 +1,294 @@
+{
+  "source": "Current manuscript summary tables",
+  "scope": "Fresh construction and reading under each Qwen host",
+  "results": [
+    {
+      "method": "MIGRO",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 54.13261788868366,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "PlugMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 41.88574578771847,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "LSTMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 40.636627840023586,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "Mem0",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 52.11734474448081,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "TiMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 49.128455778988524,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "A-MEM",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 36.202468153840194,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "PlugMem",
+      "backbone": "Qwen3-14B",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 40.1,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "Mem0",
+      "backbone": "Qwen3-14B",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 54.36,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "TiMem",
+      "backbone": "Qwen3-14B",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 50.25,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "TiMem",
+      "backbone": "Qwen3-32B",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 49.24,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "A-MEM",
+      "backbone": "Qwen3-8B",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 44.7,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "TiMem",
+      "backbone": "Qwen3-8B",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 46.19,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "TransMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 45.84515949430611,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "Doc-to-LoRA",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 14.963378130123877,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "PlugMem",
+      "backbone": "Qwen3-32B",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 44.66,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "Doc-to-LoRA",
+      "backbone": "Qwen3-8B",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 12.77,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "Doc-to-LoRA",
+      "backbone": "Qwen3-14B",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 12.3,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "LSTMem",
+      "backbone": "Qwen3-8B",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 19.7,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "LSTMem",
+      "backbone": "Qwen3-14B",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 16.58,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "Mem0",
+      "backbone": "Qwen3-32B",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 57.16,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "A-MEM",
+      "backbone": "Qwen3-32B",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 45.38,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "MIGRO",
+      "backbone": "Qwen3-8B",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 55.68,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "MIGRO",
+      "backbone": "Qwen3-14B",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 60.32,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "MIGRO",
+      "backbone": "Qwen3-32B",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 61.83,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "Doc-to-LoRA",
+      "backbone": "Qwen3-32B",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 13.18,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "PlugMem",
+      "backbone": "Qwen3-8B",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 34.86,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "Mem0",
+      "backbone": "Qwen3-8B",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 54.88,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "LSTMem",
+      "backbone": "Qwen3-32B",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 14.35,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "A-MEM",
+      "backbone": "Qwen3-14B",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 40.88,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "TransMem",
+      "backbone": "Qwen3-8B",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 46.39,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "TransMem",
+      "backbone": "Qwen3-14B",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 49.83,
+      "questions": 1986,
+      "status": "complete"
+    },
+    {
+      "method": "TransMem",
+      "backbone": "Qwen3-32B",
+      "benchmark": "LoCoMo",
+      "operation": "Same-Host Construction",
+      "score": 48.03,
+      "questions": 1986,
+      "status": "complete"
+    }
+  ]
+}

@@ -1,21 +1,57 @@
-method,operation,backbone,trajectory,interface_calibration,generated,expected,stage,score,metric
-MIGRO,State Transfer,Phi-3-mini-4k-instruct,AB: Qwen prefix followed by Phi continuation,Selected step0 identity interface,1986,1986,complete,49.76853774508424,custom_all_question_composite
-MIGRO,State Transfer,Mistral-7B-Instruct-v0.3,AB: Qwen prefix followed by Phi continuation,64 public human-QA examples; 131072 interface parameters; 64 optimizer updates,1986,1986,complete,45.68894111198901,custom_all_question_composite
-PlugMem,State Transfer,Phi-3-mini-4k-instruct,Qwen source state,No learned target read-interface calibration,1986,1986,complete,36.30129963158289,custom_all_question_composite
-PlugMem,State Transfer,Mistral-7B-Instruct-v0.3,Qwen source state,No learned target read-interface calibration,1986,1986,complete,38.602438512932984,custom_all_question_composite
-mem0,State Transfer,Phi-3-mini-4k-instruct,Qwen source state,No learned target read-interface calibration,1986,1986,complete,44.72447005554733,custom_all_question_composite
-mem0,State Transfer,Mistral-7B-Instruct-v0.3,Qwen source state,No learned target read-interface calibration,1986,1986,complete,44.058128559606914,custom_all_question_composite
-PlugMem,Full-History Rebuilding,Phi-3-mini-4k-instruct,Independent target-native construction from full history,No learned target read-interface calibration,1986,1986,complete,34.41840066665699,custom_all_question_composite
-PlugMem,Full-History Rebuilding,Mistral-7B-Instruct-v0.3,Independent target-native construction from full history,No learned target read-interface calibration,1986,1986,complete,36.954616891838356,custom_all_question_composite
-mem0,Full-History Rebuilding,Phi-3-mini-4k-instruct,Independent target-native construction from full history,"Actual native Mem0 v3 first-observation extraction prompt is9556 Phi tokens before generation, exceeding the frozen Phi-3-mini-4k4096 window. No history or native prompt was silently truncated. Requires a separately declared context-compatible profile.",0,1986,unsupported_context_window,,custom_all_question_composite
-mem0,Full-History Rebuilding,Mistral-7B-Instruct-v0.3,Independent target-native construction from full history,"User accepts repeated extraction failure; exclude score, do not retry",0,1986,failed,,custom_all_question_composite
-TiMEM,Full-History Rebuilding,Phi-3-mini-4k-instruct,Independent target-native construction from full history,No learned target read-interface calibration,1986,1986,complete,28.032440187903834,custom_all_question_composite
-TiMEM,Full-History Rebuilding,Mistral-7B-Instruct-v0.3,Independent target-native construction from full history,No learned target read-interface calibration,1986,1986,complete,41.22343366442078,custom_all_question_composite
-A-Mem,Full-History Rebuilding,Phi-3-mini-4k-instruct,Independent target-native construction from full history,No learned target read-interface calibration,1986,1986,complete,29.568830654157534,custom_all_question_composite
-A-Mem,Full-History Rebuilding,Mistral-7B-Instruct-v0.3,Independent target-native construction from full history,No learned target read-interface calibration,1986,1986,complete,37.726229754456,custom_all_question_composite
-LSTmem,Full-History Rebuilding,Phi-3-mini-4k-instruct,Independent target-native construction from full history,native_target_refit_full_history_state_only_v2,1986,1986,complete,16.83523443983212,custom_all_question_composite
-LSTmem,Full-History Rebuilding,Mistral-7B-Instruct-v0.3,Independent target-native construction from full history,native_target_refit_full_history_state_only_v2,1986,1986,complete,11.307905693128209,custom_all_question_composite
-TransMem,Full-History Rebuilding,Phi-3-mini-4k-instruct,Independent target-native construction from full history,native_target_D4_humanQA_refit_v1,1986,1986,complete,18.79020993917272,custom_all_question_composite
-TransMem,Full-History Rebuilding,Mistral-7B-Instruct-v0.3,Independent target-native construction from full history,native_target_D4_humanQA_refit_v1,1986,1986,complete,7.037292287647718,custom_all_question_composite
-Doc-to-LoRA,Full-History Rebuilding,Phi-3-mini-4k-instruct,Independent target-native construction from full history,native_target_down_projection_humanQA_refit_v2,1986,1986,complete,14.073509889769355,custom_all_question_composite
-Doc-to-LoRA,Full-History Rebuilding,Mistral-7B-Instruct-v0.3,Independent target-native construction from full history,native_mistral_v03_humanQA_refit_v1,1986,1986,complete,11.324747334876657,custom_all_question_composite
+chain,method,operation,backbone,receiving_stage,reported_path,score,benchmark,questions,status
+Qwen scale-up,MIGRO,State Transfer,Qwen 8B,1,4B->8B,55.52,LoCoMo,1986,complete
+Qwen scale-up,MIGRO,State Transfer,Qwen 14B,2,4B->8B->14B,60.37,LoCoMo,1986,complete
+Qwen scale-up,MIGRO,State Transfer,Qwen 32B,3,4B->8B->14B->32B,62.33,LoCoMo,1986,complete
+Qwen scale-up,PlugMem,State Transfer,Qwen 8B,1,4B->8B,44.41,LoCoMo,1986,complete
+Qwen scale-up,PlugMem,State Transfer,Qwen 14B,2,4B->8B->14B,46.1,LoCoMo,1986,complete
+Qwen scale-up,PlugMem,State Transfer,Qwen 32B,3,4B->8B->14B->32B,49.15,LoCoMo,1986,complete
+Qwen scale-up,Mem0,State Transfer,Qwen 8B,1,4B->8B,53.18,LoCoMo,1986,complete
+Qwen scale-up,Mem0,State Transfer,Qwen 14B,2,4B->8B->14B,57.07,LoCoMo,1986,complete
+Qwen scale-up,Mem0,State Transfer,Qwen 32B,3,4B->8B->14B->32B,57.17,LoCoMo,1986,complete
+Qwen scale-up,A-MEM,Full-History Rebuilding,Qwen 8B,1,4B->8B,44.7,LoCoMo,1986,complete
+Qwen scale-up,TiMem,Full-History Rebuilding,Qwen 14B,2,4B->8B->14B,50.25,LoCoMo,1986,complete
+Qwen scale-up,TiMem,Full-History Rebuilding,Qwen 32B,3,4B->8B->14B->32B,49.24,LoCoMo,1986,complete
+Qwen scale-up,TiMem,Full-History Rebuilding,Qwen 8B,1,4B->8B,46.19,LoCoMo,1986,complete
+Qwen scale-up,Doc-to-LoRA,Full-History Rebuilding,Qwen 8B,1,4B->8B,12.77,LoCoMo,1986,complete
+Qwen scale-up,Doc-to-LoRA,Full-History Rebuilding,Qwen 14B,2,4B->8B->14B,12.3,LoCoMo,1986,complete
+Qwen scale-up,LSTMem,Full-History Rebuilding,Qwen 8B,1,4B->8B,19.7,LoCoMo,1986,complete
+Qwen scale-up,LSTMem,Full-History Rebuilding,Qwen 14B,2,4B->8B->14B,16.58,LoCoMo,1986,complete
+Qwen scale-up,A-MEM,Full-History Rebuilding,Qwen 32B,3,4B->8B->14B->32B,45.38,LoCoMo,1986,complete
+Qwen scale-up,Doc-to-LoRA,Full-History Rebuilding,Qwen 32B,3,4B->8B->14B->32B,13.18,LoCoMo,1986,complete
+Qwen scale-up,LSTMem,Full-History Rebuilding,Qwen 32B,3,4B->8B->14B->32B,14.35,LoCoMo,1986,complete
+Qwen scale-up,A-MEM,Full-History Rebuilding,Qwen 14B,2,4B->8B->14B,40.88,LoCoMo,1986,complete
+Qwen–Mistral–Phi,MIGRO,State Transfer,Mistral 7B,1,Qwen 4B->Mistral 7B,45.69,LoCoMo,1986,complete
+Qwen–Mistral–Phi,MIGRO,State Transfer,Phi,2,Qwen 4B->Mistral 7B->Phi,49.77,LoCoMo,1986,complete
+Qwen–Mistral–Phi,Mem0,State Transfer,Mistral 7B,1,Qwen 4B->Mistral 7B,44.06,LoCoMo,1986,complete
+Qwen–Mistral–Phi,Mem0,State Transfer,Phi,2,Qwen 4B->Mistral 7B->Phi,44.72,LoCoMo,1986,complete
+Qwen–Mistral–Phi,PlugMem,State Transfer,Mistral 7B,1,Qwen 4B->Mistral 7B,38.6,LoCoMo,1986,complete
+Qwen–Mistral–Phi,PlugMem,State Transfer,Phi,2,Qwen 4B->Mistral 7B->Phi,36.3,LoCoMo,1986,complete
+Qwen–Mistral–Phi,LSTMem,Full-History Rebuilding,Mistral 7B,1,Qwen 4B->Mistral 7B,11.31,LoCoMo,1986,complete
+Qwen–Mistral–Phi,LSTMem,Full-History Rebuilding,Phi,2,Qwen 4B->Mistral 7B->Phi,16.84,LoCoMo,1986,complete
+Qwen–Mistral–Phi,Doc-to-LoRA,Full-History Rebuilding,Mistral 7B,1,Qwen 4B->Mistral 7B,11.32,LoCoMo,1986,complete
+Qwen–Mistral–Phi,Doc-to-LoRA,Full-History Rebuilding,Phi,2,Qwen 4B->Mistral 7B->Phi,14.07,LoCoMo,1986,complete
+Qwen–Mistral–Phi,TiMem,Full-History Rebuilding,Mistral 7B,1,Qwen 4B->Mistral 7B,41.22,LoCoMo,1986,complete
+Qwen–Mistral–Phi,TiMem,Full-History Rebuilding,Phi,2,Qwen 4B->Mistral 7B->Phi,28.03,LoCoMo,1986,complete
+Qwen–Mistral–Phi,A-MEM,Full-History Rebuilding,Mistral 7B,1,Qwen 4B->Mistral 7B,37.73,LoCoMo,1986,complete
+Qwen–Mistral–Phi,A-MEM,Full-History Rebuilding,Phi,2,Qwen 4B->Mistral 7B->Phi,29.57,LoCoMo,1986,complete
+Qwen–Mistral–Phi,TransMem,Full-History Rebuilding,Mistral 7B,1,Qwen 4B->Mistral 7B,7.04,LoCoMo,1986,complete
+Qwen–Mistral–Phi,TransMem,Full-History Rebuilding,Phi,2,Qwen 4B->Mistral 7B->Phi,18.79,LoCoMo,1986,complete
+Qwen–Ministral–Gemma,MIGRO,State Transfer,Ministral 14B,1,Qwen 4B->Ministral 14B,57.41,LoCoMo,1986,complete
+Qwen–Ministral–Gemma,MIGRO,State Transfer,Gemma 26B-A4B,2,Qwen 4B->Ministral 14B->Gemma 26B-A4B,66.28,LoCoMo,1986,complete
+Qwen–Ministral–Gemma,Mem0,State Transfer,Ministral 14B,1,Qwen 4B->Ministral 14B,47.55,LoCoMo,1986,complete
+Qwen–Ministral–Gemma,PlugMem,State Transfer,Ministral 14B,1,Qwen 4B->Ministral 14B,46.19,LoCoMo,1986,complete
+Qwen–Ministral–Gemma,TiMem,Full-History Rebuilding,Ministral 14B,1,Qwen 4B->Ministral 14B,41.6,LoCoMo,1986,complete
+Qwen–Ministral–Gemma,A-MEM,Full-History Rebuilding,Ministral 14B,1,Qwen 4B->Ministral 14B,,LoCoMo,,pending
+Qwen–Ministral–Gemma,Mem0,State Transfer,Gemma 26B-A4B,2,Qwen 4B->Ministral 14B->Gemma 26B-A4B,56.83,LoCoMo,1986,complete
+Qwen–Ministral–Gemma,PlugMem,State Transfer,Gemma 26B-A4B,2,Qwen 4B->Ministral 14B->Gemma 26B-A4B,,LoCoMo,,pending
+Qwen–Ministral–Gemma,TiMem,Full-History Rebuilding,Gemma 26B-A4B,2,Qwen 4B->Ministral 14B->Gemma 26B-A4B,57.29,LoCoMo,1986,complete
+Qwen–Ministral–Gemma,A-MEM,Full-History Rebuilding,Gemma 26B-A4B,2,Qwen 4B->Ministral 14B->Gemma 26B-A4B,,LoCoMo,,pending
+Qwen–Ministral–Gemma,TransMem,Full-History Rebuilding,Ministral 14B,1,Qwen 4B->Ministral 14B,,LoCoMo,,pending
+Qwen–Ministral–Gemma,TransMem,Full-History Rebuilding,Gemma 26B-A4B,2,Qwen 4B->Ministral 14B->Gemma 26B-A4B,,LoCoMo,,pending
+Qwen–Ministral–Gemma,Doc-to-LoRA,Full-History Rebuilding,Ministral 14B,1,Qwen 4B->Ministral 14B,,LoCoMo,,pending
+Qwen–Ministral–Gemma,Doc-to-LoRA,Full-History Rebuilding,Gemma 26B-A4B,2,Qwen 4B->Ministral 14B->Gemma 26B-A4B,,LoCoMo,,pending
+Qwen–Ministral–Gemma,LSTMem,Full-History Rebuilding,Ministral 14B,1,Qwen 4B->Ministral 14B,,LoCoMo,,pending
+Qwen–Ministral–Gemma,LSTMem,Full-History Rebuilding,Gemma 26B-A4B,2,Qwen 4B->Ministral 14B->Gemma 26B-A4B,,LoCoMo,,pending
+Qwen scale-up,TransMem,Full-History Rebuilding,Qwen 8B,1,4B->8B,46.39,LoCoMo,1986,complete
+Qwen scale-up,TransMem,Full-History Rebuilding,Qwen 14B,2,4B->8B->14B,49.83,LoCoMo,1986,complete
+Qwen scale-up,TransMem,Full-History Rebuilding,Qwen 32B,3,4B->8B->14B->32B,48.03,LoCoMo,1986,complete

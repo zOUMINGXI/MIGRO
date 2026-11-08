@@ -1,35 +1,41 @@
-benchmark,method,backbone,score,metric,questions,status,setting,notes
-LoCoMo,MIGRO,Qwen3-4B-Instruct-2507,54.13261788868366,custom_all_question_composite,1986,complete,frozen_2000_source_tokens_50_output_tokens,AA write trajectory
-LoCoMo,PlugMem,Qwen3-4B-Instruct-2507,41.88574578771847,custom_all_question_composite,1986,complete,matched_host_native_method,Native method-specific read path; compute budgets differ
-LoCoMo,LSTmem,Qwen3-4B-Instruct-2507,40.636627840023586,custom_all_question_composite,1986,complete,native_retained_history,Native method-specific read path; compute budgets differ
-LoCoMo,mem0,Qwen3-4B-Instruct-2507,52.11734474448081,custom_all_question_composite,1986,complete,matched_host_native_method,Native method-specific read path; compute budgets differ
-LoCoMo,TiMEM,Qwen3-4B-Instruct-2507,49.128455778988524,custom_all_question_composite,1986,complete,matched_host_native_method,Native method-specific read path; compute budgets differ
-LoCoMo,A-Mem,Qwen3-4B-Instruct-2507,36.202468153840194,custom_all_question_composite,1986,complete,matched_host_native_method,Native method-specific read path; compute budgets differ
-LoCoMo,TransMem,Qwen3-4B-Instruct-2507,45.84515949430611,custom_all_question_composite,1986,complete,matched_host_native_method,Native method-specific read path; compute budgets differ
-LoCoMo,Doc-to-LoRA,Qwen3-4B-Instruct-2507,14.963378130123877,custom_all_question_composite,1986,complete,native_window_norm_v1,Post hoc stabilized native-window1/N variant; not vanilla published preset
-LongMemEval-S,MIGRO,Qwen3-4B-Instruct-2507,68.4,auxiliary_judge_accuracy,500,complete,frozen_role_coverage_reader,Auxiliary judge; not official leaderboard evaluation
-LongMemEval-S,PlugMem,Qwen3-4B-Instruct-2507,43.2,auxiliary_judge_accuracy,500,complete,matched_host_native_method,Auxiliary judge; native method-specific read path
-LongMemEval-S,LSTmem,Qwen3-4B-Instruct-2507,26.0,auxiliary_judge_accuracy,500,complete,native_retained_history,Auxiliary judge; native method-specific read path
-LongMemEval-S,mem0,Qwen3-4B-Instruct-2507,56.8,auxiliary_judge_accuracy,500,complete,matched_host_native_method,Auxiliary judge; native method-specific read path
-LongMemEval-S,TiMEM,Qwen3-4B-Instruct-2507,48.4,auxiliary_judge_accuracy,500,complete,matched_host_native_method,Auxiliary judge; native method-specific read path
-LongMemEval-S,TransMem,Qwen3-4B-Instruct-2507,37.4,auxiliary_judge_accuracy,500,complete,matched_host_native_method,Auxiliary judge; native method-specific read path
-LongMemEval-S,Doc-to-LoRA,Qwen3-4B-Instruct-2507,12.8,auxiliary_judge_accuracy,500,complete,native_window_norm_v1,Auxiliary judge; D2L is a stabilized variant
-MemOps,MIGRO,Qwen3-4B-Instruct-2507,66.3010967098704,longitudinal_answer_accuracy,2006,complete,longitudinal_operation,Auxiliary gpt-5.4-mini judge; answer accuracy is separate from operation/state diagnostics
-BEAM-1M,MIGRO,Qwen3-4B-Instruct-2507,55.83433312719027,native_category_aggregate,700,complete,full_35_histories,Auxiliary judge where required;35history cluster95%CI54.0559–57.9045;100questions previously inspected
-MemOps,TransMem,Qwen3-4B-Instruct-2507,62.51246261216351,longitudinal_answer_accuracy,2006,complete,A_full,Auxiliary judge; not official leaderboard evaluation
-BEAM-1M,TransMem,Qwen3-4B-Instruct-2507,28.75807823129251,native_category_aggregate,700,complete,A_full,Auxiliary judge; not official leaderboard evaluation
-MemOps,Doc-to-LoRA,Qwen3-4B-Instruct-2507,15.353938185443669,longitudinal_answer_accuracy,2006,complete,A_native_window_norm_v1,"Auxiliary judge; declared stabilized native-window1/N configuration, not vanilla published preset"
-BEAM-1M,Doc-to-LoRA,Qwen3-4B-Instruct-2507,30.195848794063078,native_category_aggregate,700,complete,A_native_window_norm_v1,"Auxiliary judge; declared stabilized native-window1/N configuration, not vanilla published preset"
-MemOps,PlugMem,Qwen3-4B-Instruct-2507,35.09471585244267,longitudinal_answer_accuracy,2006,complete,matched_host_native_method,Auxiliary judge; complete native result previously omitted from curated aggregate
-BEAM-1M,PlugMem,Qwen3-4B-Instruct-2507,34.11470057720057,native_category_aggregate,700,complete,matched_host_native_method,Auxiliary judge; complete native result previously omitted from curated aggregate
-MemOps,LSTmem,Qwen3-4B-Instruct-2507,52.59222333000997,longitudinal_answer_accuracy,2006,complete,native_retained_history,Auxiliary judge; complete native result previously omitted from curated aggregate
-BEAM-1M,LSTmem,Qwen3-4B-Instruct-2507,28.444890228818803,native_category_aggregate,700,complete,native_retained_history,Auxiliary judge; complete native result previously omitted from curated aggregate
-LoCoMo,MIGRO,Phi-3-mini-4k-instruct,49.76853774508424,custom_all_question_composite,1986,complete,frozen_2000_source_tokens_50_output_tokens,AB write trajectory; host-specific frozen interface
-LoCoMo,MIGRO,Mistral-7B-Instruct-v0.3,45.68894111198901,custom_all_question_composite,1986,complete,frozen_2000_source_tokens_50_output_tokens,AB write trajectory; host-specific frozen interface
-BEAM-1M,TiMEM,Qwen3-4B-Instruct-2507,51.898580189651625,native_category_aggregate,700,complete,full_35_histories_resumed,Auxiliary gpt-5.4-mini where required; original progress retained
-BEAM-1M,mem0,Qwen3-4B-Instruct-2507,52.432042362399514,native_category_aggregate,700,complete,full_35_histories_resumed,Auxiliary gpt-5.4-mini where required; original progress retained
-MemOps,mem0,Qwen3-4B-Instruct-2507,52.13,longitudinal_answer_accuracy,,complete,,Manuscript Table 1; author-reported result at two-decimal precision.
-MemOps,TiMEM,Qwen3-4B-Instruct-2507,50.66,longitudinal_answer_accuracy,,complete,,Manuscript Table 1; author-reported result at two-decimal precision.
-MemOps,A-Mem,Qwen3-4B-Instruct-2507,39.78,longitudinal_answer_accuracy,,complete,,Manuscript Table 1; author-reported result at two-decimal precision.
-BEAM-1M,A-Mem,Qwen3-4B-Instruct-2507,33.25,native_category_aggregate,,complete,,Manuscript Table 1; author-reported result at two-decimal precision.
-LongMemEval-S,A-Mem,Qwen3-4B-Instruct-2507,35.1,auxiliary_judge_accuracy,,complete,,Manuscript Table 1; author-reported result at two-decimal precision.
+benchmark,method,backbone,score,metric,questions,status
+LoCoMo,MIGRO,Qwen3-4B-Instruct-2507,54.13261788868366,custom_all_question_composite,1986,complete
+LongMemEval-S,MIGRO,Qwen3-4B-Instruct-2507,68.4,auxiliary_judge_accuracy,500,complete
+MemOps,MIGRO,Qwen3-4B-Instruct-2507,66.3010967098704,longitudinal_answer_accuracy,2006,complete
+BEAM-1M,MIGRO,Qwen3-4B-Instruct-2507,55.83433312719027,native_category_aggregate,700,complete
+MemoryAgentBench,MIGRO,Qwen3-4B-Instruct-2507,35.16,four_competency_macro_average,2071,complete
+LoCoMo,PlugMem,Qwen3-4B-Instruct-2507,41.88574578771847,custom_all_question_composite,1986,complete
+LongMemEval-S,PlugMem,Qwen3-4B-Instruct-2507,43.2,auxiliary_judge_accuracy,500,complete
+MemOps,PlugMem,Qwen3-4B-Instruct-2507,35.09,longitudinal_answer_accuracy,2006,complete
+BEAM-1M,PlugMem,Qwen3-4B-Instruct-2507,34.11,native_category_aggregate,700,complete
+MemoryAgentBench,PlugMem,Qwen3-4B-Instruct-2507,7.76,four_competency_macro_average,2071,complete
+LoCoMo,Mem0,Qwen3-4B-Instruct-2507,52.11734474448081,custom_all_question_composite,1986,complete
+LongMemEval-S,Mem0,Qwen3-4B-Instruct-2507,56.8,auxiliary_judge_accuracy,500,complete
+MemOps,Mem0,Qwen3-4B-Instruct-2507,52.13,longitudinal_answer_accuracy,2006,complete
+BEAM-1M,Mem0,Qwen3-4B-Instruct-2507,52.43,native_category_aggregate,700,complete
+MemoryAgentBench,Mem0,Qwen3-4B-Instruct-2507,32.82,four_competency_macro_average,2071,complete
+LoCoMo,TiMem,Qwen3-4B-Instruct-2507,49.128455778988524,custom_all_question_composite,1986,complete
+LongMemEval-S,TiMem,Qwen3-4B-Instruct-2507,48.4,auxiliary_judge_accuracy,500,complete
+MemOps,TiMem,Qwen3-4B-Instruct-2507,50.66,longitudinal_answer_accuracy,2006,complete
+BEAM-1M,TiMem,Qwen3-4B-Instruct-2507,51.9,native_category_aggregate,700,complete
+MemoryAgentBench,TiMem,Qwen3-4B-Instruct-2507,18.9,four_competency_macro_average,2071,complete
+LoCoMo,A-MEM,Qwen3-4B-Instruct-2507,36.202468153840194,custom_all_question_composite,1986,complete
+LongMemEval-S,A-MEM,Qwen3-4B-Instruct-2507,35.1,auxiliary_judge_accuracy,500,complete
+MemOps,A-MEM,Qwen3-4B-Instruct-2507,39.78,longitudinal_answer_accuracy,2006,complete
+BEAM-1M,A-MEM,Qwen3-4B-Instruct-2507,33.25,native_category_aggregate,700,complete
+MemoryAgentBench,A-MEM,Qwen3-4B-Instruct-2507,16.72,four_competency_macro_average,2071,complete
+LoCoMo,LSTMem,Qwen3-4B-Instruct-2507,40.636627840023586,custom_all_question_composite,1986,complete
+LongMemEval-S,LSTMem,Qwen3-4B-Instruct-2507,26.0,auxiliary_judge_accuracy,500,complete
+MemOps,LSTMem,Qwen3-4B-Instruct-2507,52.59,longitudinal_answer_accuracy,2006,complete
+BEAM-1M,LSTMem,Qwen3-4B-Instruct-2507,28.44,native_category_aggregate,700,complete
+MemoryAgentBench,LSTMem,Qwen3-4B-Instruct-2507,6.56,four_competency_macro_average,2071,complete
+LoCoMo,TransMem,Qwen3-4B-Instruct-2507,45.84515949430611,custom_all_question_composite,1986,complete
+LongMemEval-S,TransMem,Qwen3-4B-Instruct-2507,37.4,auxiliary_judge_accuracy,500,complete
+MemOps,TransMem,Qwen3-4B-Instruct-2507,62.51246261216351,longitudinal_answer_accuracy,2006,complete
+BEAM-1M,TransMem,Qwen3-4B-Instruct-2507,28.75807823129251,native_category_aggregate,700,complete
+MemoryAgentBench,TransMem,Qwen3-4B-Instruct-2507,22.8,four_competency_macro_average,2071,complete
+LoCoMo,Doc-to-LoRA,Qwen3-4B-Instruct-2507,14.963378130123877,custom_all_question_composite,1986,complete
+LongMemEval-S,Doc-to-LoRA,Qwen3-4B-Instruct-2507,12.8,auxiliary_judge_accuracy,500,complete
+MemOps,Doc-to-LoRA,Qwen3-4B-Instruct-2507,15.353938185443669,longitudinal_answer_accuracy,2006,complete
+BEAM-1M,Doc-to-LoRA,Qwen3-4B-Instruct-2507,30.195848794063078,native_category_aggregate,700,complete
+MemoryAgentBench,Doc-to-LoRA,Qwen3-4B-Instruct-2507,11.62,four_competency_macro_average,2071,complete

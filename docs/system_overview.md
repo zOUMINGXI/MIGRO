@@ -111,7 +111,7 @@ The installation and examples in [implementation.md](implementation.md) cover th
 
 ## Reading the results
 
-The README presents the frozen repository snapshot. LoCoMo uses a post-hoc all-question custom composite rather than official token F1. Other benchmarks retain their recorded research-harness metrics.
+The README presents the current manuscript's selected result summaries. LoCoMo uses a post-hoc all-question custom composite rather than official token F1. Other benchmarks retain their recorded research-harness metrics.
 
 Cross-host interpretation must account for both source trajectory and selected interface. See the [performance protocol](performance_protocol.md), [migration protocol](migration_protocol.md) and [release scope](release_scope.md) before using a table as a controlled model comparison.
 

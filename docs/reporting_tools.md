@@ -5,7 +5,7 @@ From the repository root:
 
     python scripts/render_results.py
 
-The command reads results/performance_snapshot.json and prints a Markdown table of complete entries.
+The command reads results/performance_snapshot.json and prints the selected primary benchmark summaries. The [result index](../results/README.md) links the four published CSV/JSON groups.
 
 ## Aggregate scored LoCoMo records
 Each input record contains:

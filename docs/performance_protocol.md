@@ -27,7 +27,7 @@ Operation is a property of each run. A method that supports State Transfer can a
 
 For MIGRO, the Phi result uses the selected step-0 identity interface; the Mistral result uses a 131,072-parameter read interface calibrated on 64 unique public human-QA examples (64 optimizer updates). Both backbones and the shared memory core remain frozen. The stored memory is transferred rather than rebuilt for these rows.
 
-See [the migration protocol](migration_protocol.md) for trajectories and [the labeled snapshot](../results/migration_snapshot.csv) for per-run operations.
+See [the migration protocol](migration_protocol.md) for trajectories and [the labeled snapshot](../results/migration_snapshot.csv) for the selected operation-labeled comparisons.
 
 ## Baseline execution differences
 - PlugMem retains its native planning/reasoning stages.
@@ -50,3 +50,7 @@ Output budgets differ by benchmark: LoCoMo 50, LongMemEval 256, MemOps 1024 and 
 This is a frozen research snapshot after historical development and interface selection. It does not correct for all prior choices. No statistical-significance or quality-constrained Pareto claim follows solely from these aggregate tables.
 
 The detailed experiments retain their matched question IDs and appropriate conversation/history/identity clustering. Bootstrap intervals and full per-question scoring artifacts are not reimplemented by the initial reporting utility.
+
+## Published summaries
+
+The [selected result files](../results/README.md) follow the current manuscript's primary benchmark, scaling, migration and storage tables. MemoryAgentBench reports a four-competency macro in the primary table; the README's separate matched-budget series retains its own reader/budget operating points. Detailed task-level results and intermediate artifacts are reserved for a later release.
