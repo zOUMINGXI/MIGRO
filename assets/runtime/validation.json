@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-08",
+  "tests": 23,
+  "passed": 23,
+  "skipped": 0,
+  "native_kernels_compiled": 3,
+  "assets_from": "freshly extracted release archive",
+  "device": "cpu",
+  "checks": [
+    "exact source bindings",
+    "state handoff",
+    "append after handoff",
+    "compact and restore",
+    "metadata and Unicode restoration"
+  ],
+  "full_gpu_benchmark_rerun": false
+}

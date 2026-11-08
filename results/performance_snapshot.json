@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "created_at": "2026-11-01T20:54:02.611462+08:00",
+  "created_at": "2026-11-08T03:15:51.047178+00:00",
   "status": "preliminary_private_snapshot",
   "score_scale": "0-100",
   "results": [
@@ -14,28 +14,6 @@
       "status": "complete",
       "setting": "frozen_2000_source_tokens_50_output_tokens",
       "notes": "AA write trajectory"
-    },
-    {
-      "benchmark": "LoCoMo",
-      "method": "MIGRO",
-      "backbone": "Phi-3-mini-4k-instruct",
-      "score": 49.76853774508424,
-      "metric": "custom_all_question_composite",
-      "questions": 1986,
-      "status": "complete",
-      "setting": "frozen_2000_source_tokens_50_output_tokens",
-      "notes": "AB write trajectory; host-specific frozen interface"
-    },
-    {
-      "benchmark": "LoCoMo",
-      "method": "MIGRO",
-      "backbone": "Mistral-7B-Instruct-v0.3",
-      "score": 45.68894111198901,
-      "metric": "custom_all_question_composite",
-      "questions": 1986,
-      "status": "complete",
-      "setting": "frozen_2000_source_tokens_50_output_tokens",
-      "notes": "AB write trajectory; host-specific frozen interface"
     },
     {
       "benchmark": "LoCoMo",
@@ -212,6 +190,138 @@
       "status": "complete",
       "setting": "full_35_histories",
       "notes": "Auxiliary judge where required;35history cluster95%CI54.0559–57.9045;100questions previously inspected"
+    },
+    {
+      "benchmark": "MemOps",
+      "method": "TransMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 62.51246261216351,
+      "metric": "longitudinal_answer_accuracy",
+      "questions": 2006,
+      "status": "complete",
+      "setting": "A_full",
+      "notes": "Auxiliary judge; not official leaderboard evaluation"
+    },
+    {
+      "benchmark": "BEAM-1M",
+      "method": "TransMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 28.75807823129251,
+      "metric": "native_category_aggregate",
+      "questions": 700,
+      "status": "complete",
+      "setting": "A_full",
+      "notes": "Auxiliary judge; not official leaderboard evaluation"
+    },
+    {
+      "benchmark": "MemOps",
+      "method": "Doc-to-LoRA",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 15.353938185443669,
+      "metric": "longitudinal_answer_accuracy",
+      "questions": 2006,
+      "status": "complete",
+      "setting": "A_native_window_norm_v1",
+      "notes": "Auxiliary judge; declared stabilized native-window1/N configuration, not vanilla published preset"
+    },
+    {
+      "benchmark": "BEAM-1M",
+      "method": "Doc-to-LoRA",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 30.195848794063078,
+      "metric": "native_category_aggregate",
+      "questions": 700,
+      "status": "complete",
+      "setting": "A_native_window_norm_v1",
+      "notes": "Auxiliary judge; declared stabilized native-window1/N configuration, not vanilla published preset"
+    },
+    {
+      "benchmark": "MemOps",
+      "method": "PlugMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 35.09471585244267,
+      "metric": "longitudinal_answer_accuracy",
+      "questions": 2006,
+      "status": "complete",
+      "setting": "matched_host_native_method",
+      "notes": "Auxiliary judge; complete native result previously omitted from curated aggregate"
+    },
+    {
+      "benchmark": "BEAM-1M",
+      "method": "PlugMem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 34.11470057720057,
+      "metric": "native_category_aggregate",
+      "questions": 700,
+      "status": "complete",
+      "setting": "matched_host_native_method",
+      "notes": "Auxiliary judge; complete native result previously omitted from curated aggregate"
+    },
+    {
+      "benchmark": "MemOps",
+      "method": "LSTmem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 52.59222333000997,
+      "metric": "longitudinal_answer_accuracy",
+      "questions": 2006,
+      "status": "complete",
+      "setting": "native_retained_history",
+      "notes": "Auxiliary judge; complete native result previously omitted from curated aggregate"
+    },
+    {
+      "benchmark": "BEAM-1M",
+      "method": "LSTmem",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 28.444890228818803,
+      "metric": "native_category_aggregate",
+      "questions": 700,
+      "status": "complete",
+      "setting": "native_retained_history",
+      "notes": "Auxiliary judge; complete native result previously omitted from curated aggregate"
+    },
+    {
+      "benchmark": "LoCoMo",
+      "method": "MIGRO",
+      "backbone": "Phi-3-mini-4k-instruct",
+      "score": 49.76853774508424,
+      "metric": "custom_all_question_composite",
+      "questions": 1986,
+      "status": "complete",
+      "setting": "frozen_2000_source_tokens_50_output_tokens",
+      "notes": "AB write trajectory; host-specific frozen interface"
+    },
+    {
+      "benchmark": "LoCoMo",
+      "method": "MIGRO",
+      "backbone": "Mistral-7B-Instruct-v0.3",
+      "score": 45.68894111198901,
+      "metric": "custom_all_question_composite",
+      "questions": 1986,
+      "status": "complete",
+      "setting": "frozen_2000_source_tokens_50_output_tokens",
+      "notes": "AB write trajectory; host-specific frozen interface"
+    },
+    {
+      "benchmark": "BEAM-1M",
+      "method": "TiMEM",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 51.898580189651625,
+      "metric": "native_category_aggregate",
+      "questions": 700,
+      "status": "complete",
+      "setting": "full_35_histories_resumed",
+      "notes": "Auxiliary gpt-5.4-mini where required; original progress retained"
+    },
+    {
+      "benchmark": "BEAM-1M",
+      "method": "mem0",
+      "backbone": "Qwen3-4B-Instruct-2507",
+      "score": 52.432042362399514,
+      "metric": "native_category_aggregate",
+      "questions": 700,
+      "status": "complete",
+      "setting": "full_35_histories_resumed",
+      "notes": "Auxiliary gpt-5.4-mini where required; original progress retained"
     }
   ],
   "locomo_metric": {

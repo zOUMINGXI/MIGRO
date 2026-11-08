@@ -1,0 +1,66 @@
+{
+  "name": "MIGRO shared runtime assets",
+  "date": "2026-11-08",
+  "runtime_commit": "d1f84460d286a21c66a9bdc7aec2bc22ab6d2a04",
+  "files": [
+    {
+      "path": "research/rd_shared_pages_20261025/deployment/minimal_core.pt",
+      "bytes": 199454500
+    },
+    {
+      "path": "research/rd_shared_pages_20261025/deployment/semantic_config/config.json",
+      "bytes": 788
+    },
+    {
+      "path": "research/rd_shared_pages_20261025/deployment/semantic_tokenizer/tokenizer_config.json",
+      "bytes": 413
+    },
+    {
+      "path": "research/rd_shared_pages_20261025/deployment/semantic_tokenizer/tokenizer.json",
+      "bytes": 711396
+    },
+    {
+      "path": "research/rd_shared_pages_20261025/deployment/source_tokenizer/tokenizer_config.json",
+      "bytes": 2351
+    },
+    {
+      "path": "research/rd_shared_pages_20261025/deployment/source_tokenizer/tokenizer.json",
+      "bytes": 2424069
+    },
+    {
+      "path": "research/rd_shared_pages_20261025/model/csr_codec.npz",
+      "bytes": 2150181
+    },
+    {
+      "path": "research/rd_shared_pages_20261025/model/pca128.pt",
+      "bytes": 197719
+    },
+    {
+      "path": "research/rd_semantic_factor_20261025/packed/model/basis.pt",
+      "bytes": 590930
+    },
+    {
+      "path": "research/rd_semantic_factor_20261025/packed/model/global_codec.npz",
+      "bytes": 6584257
+    },
+    {
+      "path": "research/rd_semantic_factor_20261025/model/codec.npz",
+      "bytes": 40045505
+    },
+    {
+      "path": "research/decomem_v1_20261028/frozen_interfaces/Phi_boundary.pt",
+      "bytes": 395590
+    },
+    {
+      "path": "research/decomem_v1_20261028/frozen_interfaces/Mistral_cal64.pt",
+      "bytes": 525778
+    }
+  ],
+  "excludes": [
+    "backbone and reranker model weights",
+    "benchmark histories and answers",
+    "per-user memory states",
+    "native binaries"
+  ],
+  "notes": "Includes optional legacy factor codec and shared packed codec; not a universal interface for every backbone."
+}

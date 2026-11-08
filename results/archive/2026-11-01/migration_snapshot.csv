@@ -1,0 +1,15 @@
+method,operation,backbone,trajectory,interface_calibration,generated,expected,stage,score,metric
+MIGRO,State Transfer,Phi-3-mini-4k-instruct,AB: Qwen prefix followed by Phi continuation,Selected step0 identity interface,1986,1986,complete,49.76853774508424,custom_all_question_composite
+MIGRO,State Transfer,Mistral-7B-Instruct-v0.3,AB: Qwen prefix followed by Phi continuation,64 public human-QA examples; 131072 interface parameters; 64 optimizer updates,1986,1986,complete,45.68894111198901,custom_all_question_composite
+PlugMem,State Transfer,Phi-3-mini-4k-instruct,Qwen source state,No learned target read-interface calibration,1986,1986,complete,36.30129963158289,custom_all_question_composite
+PlugMem,State Transfer,Mistral-7B-Instruct-v0.3,Qwen source state,No learned target read-interface calibration,1986,1986,complete,38.602438512932984,custom_all_question_composite
+mem0,State Transfer,Phi-3-mini-4k-instruct,Qwen source state,No learned target read-interface calibration,1986,1986,complete,44.72447005554733,custom_all_question_composite
+mem0,State Transfer,Mistral-7B-Instruct-v0.3,Qwen source state,No learned target read-interface calibration,1986,1986,complete,44.058128559606914,custom_all_question_composite
+PlugMem,Full-History Rebuilding,Phi-3-mini-4k-instruct,Independent target-native construction from full history,No learned target read-interface calibration,539,1986,answer,,custom_all_question_composite
+PlugMem,Full-History Rebuilding,Mistral-7B-Instruct-v0.3,Independent target-native construction from full history,No learned target read-interface calibration,94,1986,answer,,custom_all_question_composite
+mem0,Full-History Rebuilding,Phi-3-mini-4k-instruct,Independent target-native construction from full history,No learned target read-interface calibration,0,1986,queued,,custom_all_question_composite
+mem0,Full-History Rebuilding,Mistral-7B-Instruct-v0.3,Independent target-native construction from full history,No learned target read-interface calibration,0,1986,queued,,custom_all_question_composite
+TiMEM,Full-History Rebuilding,Phi-3-mini-4k-instruct,Independent target-native construction from full history,No learned target read-interface calibration,0,1986,queued,,custom_all_question_composite
+TiMEM,Full-History Rebuilding,Mistral-7B-Instruct-v0.3,Independent target-native construction from full history,No learned target read-interface calibration,0,1986,queued,,custom_all_question_composite
+A-Mem,Full-History Rebuilding,Phi-3-mini-4k-instruct,Independent target-native construction from full history,No learned target read-interface calibration,0,1986,queued,,custom_all_question_composite
+A-Mem,Full-History Rebuilding,Mistral-7B-Instruct-v0.3,Independent target-native construction from full history,No learned target read-interface calibration,0,1986,queued,,custom_all_question_composite

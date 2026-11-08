@@ -10,7 +10,20 @@ python -m migro.backend.build_native
 
 The build uses CXX or c++ and writes three binaries to $MIGRO_ASSETS/native. MIGRO_NATIVE_DIR overrides that directory. Build before importing migro.memory. Source for all three research coding kernels is included.
 
-The frozen generation path uses CUDA and local model directories. Supply the following assets separately:
+## Download the shared runtime assets
+
+The [runtime asset release](https://github.com/zOUMINGXI/MIGRO/releases/tag/runtime-assets-20261108) contains the shared core, coding parameters, semantic/source tokenizers and frozen Phi/Mistral read interfaces (159.6 MB compressed). Download through the release page or GitHub CLI:
+
+~~~bash
+gh release download runtime-assets-20261108 --repo zOUMINGXI/MIGRO --pattern 'migro-runtime-assets-20261108.tar.gz'
+tar -xzf migro-runtime-assets-20261108.tar.gz
+export MIGRO_ASSETS="$(pwd)/migro-assets"
+python -m migro.backend.build_native
+~~~
+
+While the repository is private, downloads require an account with repository access. The bundle's ASSETS.json lists all 13 payload files. The Phi checkpoint is the selected step-0 identity interface; the Mistral checkpoint is the calibrated 64-example interface. This is the shared bundle for the published runtime, not target-trained weights for every evaluated backbone or baseline.
+
+The frozen generation path uses CUDA and local model directories. Backbone and reranker model directories are obtained separately; the resulting layout is:
 
 ~~~text
 $MIGRO_ASSETS/
@@ -25,6 +38,8 @@ $MIGRO_ASSETS/
       model/csr_codec.npz
     rd_semantic_factor_20261025/
       packed/model/basis.pt
+      packed/model/global_codec.npz
+      model/codec.npz
     decomem_v1_20261028/
       frozen_interfaces/
         Phi_boundary.pt
@@ -38,7 +53,7 @@ $MIGRO_ASSETS/
 
 Relative names preserve existing snapshot/configuration contracts. MIGRO_ASSETS relocates access without rewriting stored state fields. MIGRO_QWEN_MODEL, MIGRO_PHI_MODEL, MIGRO_MISTRAL_MODEL and MIGRO_RERANKER_MODEL override model directories; set them before importing. MIGRO_PROFILES can point to a JSON containing reader_profiles; bundled profiles retain frozen reference settings.
 
-Shared checkpoints are not included and have no public download attached to this commit. Existing research deployments can supply matching files. Legacy factor-format states may additionally require research/rd_semantic_factor_20261025/model/codec.npz. Causal neural archives require the original model, dtype, attention backend, page size and batch contract for exact decoding.
+Shared checkpoints are distributed as a Release attachment rather than Git blobs. The bundle also includes the optional legacy research/rd_semantic_factor_20261025/model/codec.npz and packed global codec. Causal neural archives require the original model, dtype, attention backend, page size and batch contract for exact decoding.
 
 ## Python API
 
@@ -64,6 +79,6 @@ python -m unittest discover -s tests -v
 MIGRO_TEST_ASSETS=1 python -m unittest discover -s tests -p test_persistence.py -v
 ~~~
 
-The optional shared-checkpoint test performs CPU write/restore/handoff/append, not a complete benchmark. Generated binaries, models, observations, predictions and credentials are outside this upload.
+The optional shared-checkpoint test performs CPU write/restore/handoff/append, not a complete benchmark. Generated binaries, external backbone/reranker models, benchmark observations, predictions and credentials are outside this upload.
 
 The packaged runtime was checked with PyTorch 2.5.1, Transformers 5.3.0, NumPy 2.2.6 and tokenizers 0.22.1. The runtime extra pins the exercised Transformers API. CPU tests and CLI starts were run; complete CUDA benchmarks were not rerun for this publication.

@@ -1,0 +1,3 @@
+method,composite_score,composite_ci_low,composite_ci_high,composite_questions,conversations,native_private_bytes,quality_state,custom_metric
+transmem,45.96238552285471,44.8044369564694,47.262072361865734,1986,10,899968,saved measured snapshot reloaded before all answers,True
+doctolora,14.9633781301239,13.826070787089026,16.241450304760907,1986,10,283137480,saved measured snapshot reloaded before all answers,True

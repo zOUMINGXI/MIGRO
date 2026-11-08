@@ -95,20 +95,44 @@ The label belongs to the run. A method can have both transferred-state results a
 
 ## Experimental evidence
 
-The checked-in results examine memory use within a host and access across model families. Tables below retain the frozen repository snapshot; metric definitions and source trajectories are part of their interpretation.
+An upgrade should retain useful history and leave room for the next experience. The current results test memory utility, larger hosts, continued writing and persistent footprint. Completed cohorts are shown below; the [dated result index](results/latest/README.md) records protocols and pending work.
 
-### Memory across conversations and long histories
+### Memory utility
 
-|Evaluation|MIGRO score|Questions|Reported metric|
-|---|---:|---:|---|
-|**LoCoMo** · Qwen3-4B-Instruct-2507|**54.13**|1,986|All-question custom composite|
-|**LongMemEval-S**|**68.40**|500|Auxiliary judge accuracy|
-|**MemOps**|**66.30**|2,006|Longitudinal answer accuracy|
-|**BEAM-1M**|**55.83**|700|Native category aggregate|
+|Method|LoCoMo|LongMemEval-S|MemOps|BEAM-1M|MAB · primary|
+|---|---:|---:|---:|---:|---:|
+|MIGRO|54.13|68.40|66.30|55.83|35.14|
+|PlugMem|41.89|43.20|35.09|34.11|7.76|
+|mem0|52.12|56.80|—|52.43|32.82|
+|TiMEM|49.13|48.40|—|51.90|18.90|
+|A-Mem|36.20|—|—|—|16.72|
+|LSTmem|40.64|26.00|52.59|28.44|10.47|
+|TransMem|45.85|37.40|62.51|28.76|22.88|
+|Doc-to-LoRA|14.96|12.80|15.35|30.20|11.62|
 
-**Each row uses its recorded benchmark-specific protocol.** LoCoMo reports a custom composite on a 0–100 scale, not official token F1. The other benchmarks use their respective scoring procedures; their scores are not interchangeable.
+Scores are on a 0–100 scale. LoCoMo uses the custom all-question composite (1,986 questions); LongMemEval-S uses auxiliary accuracy (500); MemOps uses longitudinal answer accuracy (2,006); BEAM uses its category aggregate (700). MAB uses a custom four-ability macro (2,071). These metrics are not interchangeable. A dash means no completed score is included.
 
-[Complete performance snapshot](results/performance_snapshot.csv) · [Scoring definitions and evaluation profiles](docs/performance_protocol.md)
+**MAB budget sensitivity:** at the same 2,000-source-token cap, MIGRO scores **35.14** and TransMem **22.88**; at 8,000, **40.30** and **28.99**. Other methods retain their native read paths; equal source caps do not equalize inference compute.
+
+[Complete performance table](results/performance_snapshot.csv) · [MAB task scores](results/latest/memoryagentbench_tasks.json) · [Scoring definitions](docs/performance_protocol.md)
+
+### Larger hosts, existing memory
+
+|Receiving Qwen host|MIGRO · State Transfer from 4B|MIGRO · Full-History Rebuilding|
+|---|---:|---:|
+|8B|55.52|55.68|
+|14B|60.37|60.32|
+|32B|62.33|61.83|
+
+The separate heterogeneous chain **Qwen 4B → Ministral 14B → Gemma 26B-A4B** scores **57.41 → 66.28** on the two receiving hosts, with a 2,000-source-token budget and no new calibration examples. Both hops reuse the same immutable state, with no writes between hops. Gemma 26B-A4B denotes total/active MoE size. This chain differs from the historical Phi/Mistral experiment below.
+
+[All scale-up methods and operation labels](results/latest/locomo_scaleup.csv) · [Heterogeneous scale-up and pending entries](results/latest/heterogeneous_scaleup.csv)
+
+### Keep writing after the handoff
+
+In the Qwen 4B → Mistral 7B continuation study, MIGRO scores **45.13** after appending the second half, versus **36.94** with transfer alone and **45.19** with full-history target rebuilding. All three are scored against the same final history. Old-history, new-history and cross-boundary questions are reported separately for all eight methods.
+
+[Continued-writing conditions and subgroup results](results/latest/continued_writing.csv) · [Storage accounting and shared-cost scenarios](results/latest/README.md#storage-interpretation)
 
 ### Access across model families
 
@@ -212,9 +236,9 @@ tests/                  Component and reporting checks
 
 ## Release status
 
-This repository is being prepared for open-source release. The upload contains the shared-anchor memory backend, exact coding source, host interfaces, MAB preparation/generation/scoring and MIGRO continued-writing entry points, experimental contracts and reporting tools. Shared core/interface checkpoints and datasets are supplied separately. Complete baseline adapters and the remaining benchmark orchestration are still being prepared; this is not yet a self-contained reproduction bundle.
+This repository is being prepared for open-source release. The upload contains the shared-anchor memory backend, exact coding source, host interfaces, MAB preparation/generation/scoring and MIGRO continued-writing entry points, experimental contracts and reporting tools. Shared core/interface checkpoints are available in the [runtime asset release](https://github.com/zOUMINGXI/MIGRO/releases/tag/runtime-assets-20261108); backbone models and datasets are obtained separately. Complete baseline adapters and the remaining benchmark orchestration are still being prepared; this is not yet a self-contained reproduction bundle.
 
-The tabulated numerical snapshot dates to November 1, 2026. The checked-in evaluation status is a dated record; pending runs have no assigned final score. Larger-read-budget candidates and storage-replica QA scores do not replace the frozen performance table.
+The aggregate results were refreshed on November 8, 2026; the earlier November 1 tables remain in results/archive/. The checked-in evaluation status is a dated record; pending runs have no assigned final score. MAB budget pairs are reported separately; storage-replica QA scores do not replace the main performance table.
 
 Public licensing and full reproduction instructions will be specified for the open-source release. Third-party methods and datasets retain their respective licenses.
 

@@ -1,9 +1,9 @@
-# Aggregate performance snapshot
+# Experiment results
 
-performance_snapshot.json and performance_snapshot.csv contain the same 19 complete scored entries. Scores use a 0–100 scale, but metric definitions differ across benchmarks. Consult each row's metric, setting and notes.
+The current [result index](latest/README.md) links primary performance, MAB, scale-up, migration, continued writing, storage and mechanism ablations. Snapshot: 2026-11-08T03:15:51.047178+00:00
 
-evaluation_status.json records pending runs at snapshot time. Counts in that file are generated answers, not final quality results.
+performance_snapshot.json and performance_snapshot.csv contain the same 29 complete scored entries. migration_snapshot.json and migration_snapshot.csv carry the same 20 operation-labeled entries, including explicitly failed/unsupported controls with no score.
 
-LoCoMo's final reporting metric is the explicitly defined custom all-question composite. Scores in this directory belong to the independent performance line; storage replicas have separate exact-state QA values.
+evaluation_status.json records the dated state of outstanding runs. Historical November 1 tables and status remain in archive/2026-11-01/. Scores use a 0–100 scale, but benchmark metrics differ. Storage-replica quality is reported separately from the main performance table.
 
-No benchmark conversations, raw predictions, keys, machine addresses or experiment log files are included.
+No benchmark conversations, raw predictions, credentials or experiment logs are included.

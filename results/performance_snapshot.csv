@@ -1,7 +1,5 @@
 benchmark,method,backbone,score,metric,questions,status,setting,notes
 LoCoMo,MIGRO,Qwen3-4B-Instruct-2507,54.13261788868366,custom_all_question_composite,1986,complete,frozen_2000_source_tokens_50_output_tokens,AA write trajectory
-LoCoMo,MIGRO,Phi-3-mini-4k-instruct,49.76853774508424,custom_all_question_composite,1986,complete,frozen_2000_source_tokens_50_output_tokens,AB write trajectory; host-specific frozen interface
-LoCoMo,MIGRO,Mistral-7B-Instruct-v0.3,45.68894111198901,custom_all_question_composite,1986,complete,frozen_2000_source_tokens_50_output_tokens,AB write trajectory; host-specific frozen interface
 LoCoMo,PlugMem,Qwen3-4B-Instruct-2507,41.88574578771847,custom_all_question_composite,1986,complete,matched_host_native_method,Native method-specific read path; compute budgets differ
 LoCoMo,LSTmem,Qwen3-4B-Instruct-2507,40.636627840023586,custom_all_question_composite,1986,complete,native_retained_history,Native method-specific read path; compute budgets differ
 LoCoMo,mem0,Qwen3-4B-Instruct-2507,52.11734474448081,custom_all_question_composite,1986,complete,matched_host_native_method,Native method-specific read path; compute budgets differ
@@ -18,3 +16,15 @@ LongMemEval-S,TransMem,Qwen3-4B-Instruct-2507,37.4,auxiliary_judge_accuracy,500,
 LongMemEval-S,Doc-to-LoRA,Qwen3-4B-Instruct-2507,12.8,auxiliary_judge_accuracy,500,complete,native_window_norm_v1,Auxiliary judge; D2L is a stabilized variant
 MemOps,MIGRO,Qwen3-4B-Instruct-2507,66.3010967098704,longitudinal_answer_accuracy,2006,complete,longitudinal_operation,Auxiliary gpt-5.4-mini judge; answer accuracy is separate from operation/state diagnostics
 BEAM-1M,MIGRO,Qwen3-4B-Instruct-2507,55.83433312719027,native_category_aggregate,700,complete,full_35_histories,Auxiliary judge where required;35history cluster95%CI54.0559–57.9045;100questions previously inspected
+MemOps,TransMem,Qwen3-4B-Instruct-2507,62.51246261216351,longitudinal_answer_accuracy,2006,complete,A_full,Auxiliary judge; not official leaderboard evaluation
+BEAM-1M,TransMem,Qwen3-4B-Instruct-2507,28.75807823129251,native_category_aggregate,700,complete,A_full,Auxiliary judge; not official leaderboard evaluation
+MemOps,Doc-to-LoRA,Qwen3-4B-Instruct-2507,15.353938185443669,longitudinal_answer_accuracy,2006,complete,A_native_window_norm_v1,"Auxiliary judge; declared stabilized native-window1/N configuration, not vanilla published preset"
+BEAM-1M,Doc-to-LoRA,Qwen3-4B-Instruct-2507,30.195848794063078,native_category_aggregate,700,complete,A_native_window_norm_v1,"Auxiliary judge; declared stabilized native-window1/N configuration, not vanilla published preset"
+MemOps,PlugMem,Qwen3-4B-Instruct-2507,35.09471585244267,longitudinal_answer_accuracy,2006,complete,matched_host_native_method,Auxiliary judge; complete native result previously omitted from curated aggregate
+BEAM-1M,PlugMem,Qwen3-4B-Instruct-2507,34.11470057720057,native_category_aggregate,700,complete,matched_host_native_method,Auxiliary judge; complete native result previously omitted from curated aggregate
+MemOps,LSTmem,Qwen3-4B-Instruct-2507,52.59222333000997,longitudinal_answer_accuracy,2006,complete,native_retained_history,Auxiliary judge; complete native result previously omitted from curated aggregate
+BEAM-1M,LSTmem,Qwen3-4B-Instruct-2507,28.444890228818803,native_category_aggregate,700,complete,native_retained_history,Auxiliary judge; complete native result previously omitted from curated aggregate
+LoCoMo,MIGRO,Phi-3-mini-4k-instruct,49.76853774508424,custom_all_question_composite,1986,complete,frozen_2000_source_tokens_50_output_tokens,AB write trajectory; host-specific frozen interface
+LoCoMo,MIGRO,Mistral-7B-Instruct-v0.3,45.68894111198901,custom_all_question_composite,1986,complete,frozen_2000_source_tokens_50_output_tokens,AB write trajectory; host-specific frozen interface
+BEAM-1M,TiMEM,Qwen3-4B-Instruct-2507,51.898580189651625,native_category_aggregate,700,complete,full_35_histories_resumed,Auxiliary gpt-5.4-mini where required; original progress retained
+BEAM-1M,mem0,Qwen3-4B-Instruct-2507,52.432042362399514,native_category_aggregate,700,complete,full_35_histories_resumed,Auxiliary gpt-5.4-mini where required; original progress retained
