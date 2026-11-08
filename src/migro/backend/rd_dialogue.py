@@ -98,7 +98,7 @@ class DialogueReader:
     normalized=parts[0]+" said: "+bind_person_references(parts[1],author,other[0] if len(other)==1 else None)
    else:normalized=original
    self.canonical_ids.append(self.core.codec.tokenizer.encode(normalized,add_special_tokens=False))
-  self.lens=np.array([sum(t.values()) for t in self.tf]);self.avg=float(self.lens.mean())
+  self.lens=np.array([sum(t.values()) for t in self.tf]);self.avg=float(self.lens.mean()) if len(self.lens) else 0.
   # Reconstructed address workspace; no original histories or host KV loaded.
   self.keys=F.normalize(self.mem.coordinates()@self.mem.full_basis.T+self.mem.mean,dim=-1)
  def packet(self,slots,structured=False,canonical_person=False):

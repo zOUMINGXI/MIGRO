@@ -75,6 +75,10 @@ class ContinuationFlowTests(unittest.TestCase):
                     with patch.object(sys,"argv",["migro-continue","--manifest",str(manifest),
                                                   "--output",str(output),"--phase",phase]):
                         cli.main()
+                with self.assertRaisesRegex(ValueError, "Different"):
+                    with patch.object(sys, "argv", ["migro-continue", "--manifest", str(manifest),
+                                      "--output", str(output), "--phase", "target", "--target-host", "B"]):
+                        cli.main()
             expected={"transfer_only":2,"transfer_continue":5,"target_rebuild":5}
             for arm, size in expected.items():
                 state=json.loads((output/arm/"states/case/state.bin").read_bytes())

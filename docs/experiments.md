@@ -13,15 +13,15 @@ migro-mab-run --work-dir runs/mab --output runs/mab/migro2000 --source-token-cap
 migro-mab-score --work-dir runs/mab --upstream-root /path/to/MemoryAgentBench --output runs/mab/migro2000 --method migro
 ~~~
 
-Preparation selects fourteen recorded task profiles and separates observations, questions and labels. Oversized official chunks are split without dropping text. Internal memory units target 448 source-token body spans and must fit 512 formatted source tokens; original turn order and IDs remain linked.
+Preparation selects fourteen recorded task profiles and separates observations, questions and labels. Original question IDs are retained for the LongMemEval abstention rubric. Oversized official chunks are split without dropping text. Internal memory units target 448 source-token body spans and must fit 512 formatted source tokens; original turn order and IDs remain linked.
 
 Generation opens memory units first, writes chronologically with native window 4 and checkpoints every 32 units. Final questions open after the history is complete; labels are not loaded by writer or generator. Retrieval intent removes demonstrations only for the two recorded long-range profiles; the final host prompt stays intact. Reranker query cap is 128; pair cap is 384. Output limits come from each upstream task profile.
 
-Use --source-token-cap 8000 with a separate output directory for the larger evidence budget. Split independent histories across GPUs with --shards N --shard-index I and separate output directories. Concatenate completed shard JSONL files into the chosen scoring output's predictions.jsonl. Scoring rejects missing or duplicate IDs.
+Use --source-token-cap 8000 with a separate output directory for the larger evidence budget. Split independent histories across GPUs with --shards N --shard-index I and separate output directories. Concatenate completed shard JSONL files into the chosen scoring output's predictions.jsonl. Scoring rejects missing or duplicate IDs and mixed read budgets. Run settings are saved with each output directory; use a new directory when changing the budget, shard, input manifest or receiving host. Interrupted checkpoints retain the last complete snapshot.
 
 matched_read_budget.py wraps TransMem's native suffix planner. It counts the raw suffix with MIGRO's source tokenizer while retaining native overflow state. This equalizes source-token evidence, not all computation or model state.
 
-Scoring retains strict outputs and exports RESULTS_FORMAT_CORRECTED.json: complete ICL numeric labels and valid DetectiveQA JSON.answer extraction, followed by unchanged upstream task metrics. LongMemEval and summary tasks use the disclosed auxiliary judge, default gpt-5.4-mini. Set OPENAI_API_KEY and optionally OPENAI_BASE_URL; --judge-model, --base-url and --api-key-env are configurable. No account profile is embedded. The four-ability macro is custom, not an official MAB total. Provide upstream's Recsys entity2id.json at runs/mab/assets/entity2id.json if absent from its processed-data directory.
+Scoring retains strict outputs and exports RESULTS_FORMAT_CORRECTED.json: complete ICL numeric labels and valid DetectiveQA JSON.answer extraction, followed by unchanged upstream task metrics. LongMemEval and summary tasks use the disclosed auxiliary judge, default gpt-5.4-mini. Set OPENAI_API_KEY and optionally OPENAI_BASE_URL; --judge-model, --base-url and --api-key-env are configurable. Completed judgments are reused only for the selected judge model. No account profile is embedded. The four-ability macro is custom, not an official MAB total. Provide upstream's Recsys entity2id.json at runs/mab/assets/entity2id.json if absent from its processed-data directory.
 
 ## Continued writing after handoff
 

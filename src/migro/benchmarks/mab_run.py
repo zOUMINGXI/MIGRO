@@ -1,7 +1,7 @@
 """Incremental MIGRO MemoryAgentBench generation from a prepared work directory."""
 import argparse, copy, gc, time
 from pathlib import Path
-from .io import read, write, predictions, append
+from .io import read, write, predictions, append, ensure_run_config, atomic_write_bytes
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
@@ -24,7 +24,8 @@ def main() -> None:
     manifest = read(args.work_dir / "MANIFEST.json")
     cases = [row for i, row in enumerate(manifest) if i % args.shards == args.shard_index]
     args.output.mkdir(parents=True, exist_ok=True)
-    write(args.output / "RUN_CONFIG.json", {
+    ensure_run_config(args.output, {
+        "work_dir": str(args.work_dir.resolve()), "manifest": manifest,
         "source_token_cap": args.source_token_cap, "shard_index": args.shard_index,
         "shards": args.shards, "writer_window": 4, "incremental_turn_batch": 1,
         "retrieval_query_limit": 128, "full_generation_prompt_unchanged": True,
@@ -40,7 +41,7 @@ def main() -> None:
             ids = self.tokenizer.encode(query, add_special_tokens=False, truncation=True, max_length=128)
             return super().score(self.tokenizer.decode(ids, skip_special_tokens=True), passages)
     ranker = BoundedQueryRanker()
-    output = args.output / "predictions.jsonl"; saved = predictions(output); expected = set()
+    output = args.output / "predictions.jsonl"; saved = predictions(output, recover_incomplete=True); expected = set()
     for meta in cases:
         cid = meta["case_id"]; folder = args.work_dir / "cases" / cid
         destination = args.output / "states" / cid; destination.mkdir(parents=True, exist_ok=True)
@@ -56,8 +57,8 @@ def main() -> None:
             write(args.output / "progress.json", {"stage": "write", "case_id": cid,
                   "done": i+1, "total": len(observations), "at": time.time()})
             if (i+1) % 32 == 0:
-                snapshot.write_bytes(store.state.serialize())
-        snapshot.write_bytes(store.state.serialize())
+                atomic_write_bytes(snapshot, store.state.serialize())
+        atomic_write_bytes(snapshot, store.state.serialize())
         write(destination / "WRITE.json", {"completed": True, "observations": store.observations,
               "questions_or_labels_seen_by_writer": False, "writer_window": 4})
         del observations

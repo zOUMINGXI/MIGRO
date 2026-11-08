@@ -63,5 +63,24 @@ class PersistenceTests(unittest.TestCase):
             self.assertTrue(torch.equal(restored.state.mem.read_slot(i, False),
                                         receiver.state.mem.read_slot(i, False)))
 
+    @unittest.skipUnless(os.environ.get("MIGRO_TEST_ASSETS") == "1", "Shared checkpoint required")
+    def test_empty_compaction_can_handoff_and_accept_the_first_write(self):
+        import torch
+        from migro.memory import MemoryStore, load_core
+        torch.set_num_threads(4); torch.set_grad_enabled(False)
+        core = load_core("cpu")
+        empty = MemoryStore.create(core)
+        empty.compact()
+        restored = empty.handoff()
+        self.assertEqual(restored.observations, 0)
+        restored.observe([{"speaker":"Ada", "role":"observed_human", "body":"I live in 京都.",
+                           "session":"s1", "date":"1 January, 2026", "dialogue_id":"s1:0"}])
+        again = restored.handoff()
+        self.assertEqual(again.observations, 1)
+        self.assertEqual(empty.observations, 0)
+        self.assertEqual(again.state.meta, restored.state.meta)
+        self.assertTrue(torch.equal(again.state.mem.read_slot(0,False),
+                                    restored.state.mem.read_slot(0,False)))
+
 if __name__ == "__main__":
     unittest.main()

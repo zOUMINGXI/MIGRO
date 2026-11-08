@@ -1,7 +1,7 @@
 """MIGRO source-prefix transfer, receiver continuation and full-history rebuilding."""
 import argparse, gc, shutil, time
 from pathlib import Path
-from .io import read, write, predictions, append
+from .io import read, write, predictions, append, ensure_run_config, atomic_write_bytes
 
 ARMS = ("transfer_only", "transfer_continue", "target_rebuild")
 
@@ -18,6 +18,11 @@ def main() -> None:
     from ..backend.rd_evidence_reader import EvidenceRanker
     torch.set_num_threads(4); torch.manual_seed(7); torch.set_grad_enabled(False)
     manifest = read(args.manifest); root = args.manifest.resolve().parent
+    ensure_run_config(args.output, {"manifest": manifest, "manifest_path": str(args.manifest.resolve()),
+                                   "source_host": "A", "writer_window": 4, "writer_batch": 8},
+                      artifacts=("source", *ARMS))
+    if args.phase == "target":
+        ensure_run_config(args.output, {"target_host": args.target_host}, name="TARGET_CONFIG.json", artifacts=ARMS)
     core = load_core("cuda"); host = "A" if args.phase == "source" else args.target_host
     bridge = make_bridge(core, "locomo", host)
     bridge.host.eval().requires_grad_(False); bridge.last_logits_only = True
@@ -43,14 +48,14 @@ def main() -> None:
         writer = NativeBindingWriter(store.state, bridge, host, window=4)
         for i in range(done, len(values), 8):
             writer.observe(values[i:i+8])
-            snapshot.write_bytes(store.state.serialize())
+            atomic_write_bytes(snapshot, store.state.serialize())
             write(args.output / "progress.json", {"stage": "write", "host": host,
                   "case": str(path.name), "done": min(i+8, len(values)), "total": len(values), "at": time.time()})
         if store.observations != offset + len(values) or store.state.meta[:offset] != metadata:
             raise RuntimeError("Continuation changed the prefix metadata")
         if before != [store.state.mem.read_slot(i, False).tolist() for i in range(offset)]:
             raise RuntimeError("Continuation changed prior source-token bindings")
-        snapshot.write_bytes(store.state.serialize())
+        atomic_write_bytes(snapshot, store.state.serialize())
         write(path / "WRITE.json", {"completed": True, "host": host, "prefix_count": offset,
               "added_observations": len(values), "source_prefix_preserved": bool(prefix),
               "questions_seen_by_writer": False})
@@ -69,14 +74,14 @@ def main() -> None:
             destination = args.output / arm / "states" / cid
             if arm == "transfer_only":
                 destination.mkdir(parents=True, exist_ok=True)
-                shutil.copy2(prefix, destination / "state.bin")
+                atomic_write_bytes(destination / "state.bin", prefix.read_bytes())
             else:
                 build(destination, values[case["cut"]:] if arm == "transfer_continue" else values,
                       prefix if arm == "transfer_continue" else None)
     write(args.output / "TARGET_BUILDS_COMPLETE.json", {"completed": True, "conditions": list(ARMS)})
     ranker = EvidenceRanker()
     for arm in ARMS:
-        output = args.output / arm / "predictions.jsonl"; saved = predictions(output); expected = set()
+        output = args.output / arm / "predictions.jsonl"; saved = predictions(output, recover_incomplete=True); expected = set()
         for case in manifest:
             cid = case["case_id"]; snapshot = args.output / arm / "states" / cid / "state.bin"
             store = MemoryStore.from_snapshot(core, snapshot.read_bytes())

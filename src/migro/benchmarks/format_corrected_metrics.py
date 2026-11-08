@@ -47,7 +47,7 @@ def export(out,manifest,labels,predictions,strict):
   scoring_variant="format-only correction: whole ICL label and JSON.answer extraction; original task metrics unchanged",
   official_unchanged_metric_reproduction=False,original_task_metrics_retained=True,
   raw_predictions_modified=False,preferred_reporting=True,
-  read_budget_role=("historical native128k control" if strict["method"]=="transmem" else "see REPORTING_PROTOCOL.json"),
+  read_budget_role=strict.get("read_budget_role","method-native; see generation configuration"),
   original_strict_macro=strict["optional_custom_four_ability_macro"])
  out=Path(out)
  (out/"RESULTS_FORMAT_CORRECTED.json").write_text(json.dumps(result,ensure_ascii=False,indent=2))
@@ -56,7 +56,7 @@ def export(out,manifest,labels,predictions,strict):
   writer=csv.DictWriter(f,fieldnames=list(profiles[0]));writer.writeheader();writer.writerows(profiles)
  text=["# "+strict["method"]+" MAB: format-corrected results","",
   "Preferred scoring: extract complete ICL numeric label / valid DetectiveQA JSON.answer, then apply unchanged original per-task metrics. Invalid JSON or ambiguous labels receive zero. The earlier explicit-choice metric remains a separate diagnostic and is not used here. Raw predictions and strict results are retained.",
-  "","The four-ability macro is custom, not an official overall score. Auxiliary LLM judge remains disclosed as gpt-5.4-mini.","",
+  "",f"The four-ability macro is custom. Auxiliary judge: {strict['auxiliary_judge_model']}.","",
   "|Task|Original metric|n|Score|","|---|---|---:|---:|"]
  for p in profiles:text.append(f'|{p["sub_dataset"]}|{p["metric"]}|{p["n"]}|{p["score"]:.4f}|')
  text+=["",f'Custom four-ability macro: {result["optional_custom_four_ability_macro"]:.6f}.']

@@ -5,6 +5,12 @@ import sys,os,json,time,traceback,codecs,collections,argparse
 def write(p,x):
  p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(x,ensure_ascii=False,indent=2))
 
+def question_field(row, name, index):
+ """Match upstream question metadata stored at top level or under metadata."""
+ value=row.get(name)
+ if value is None:value=row.get("metadata",{}).get(name)
+ return value[index] if isinstance(value,list) and index<len(value) else None if isinstance(value,list) else value
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("--upstream-root",required=True,type=Path)
@@ -46,7 +52,7 @@ def main():
        questions=[];labels=[]
        for qi,(query,answer,qaid) in enumerate(pairs):
         qid=cid+":"+str(qi);questions.append(dict(id=qid,case_id=cid,benchmark="memoryagentbench",system=cc.get_template(source,"system","rag_migro"),messages=[dict(role="user",content=query)],retrieval_query=row["questions"][qi] if len(row["questions"])>qi else row["questions"][0]))
-        md=row["metadata"];labels.append(dict(id=qid,answer=answer,qa_pair_id=qaid,raw_question=row["questions"][qi] if len(row["questions"])>qi else row["questions"][0],question_type=(md.get("question_types") or [None]*len(pairs))[qi],keypoints=md.get("keypoints"),dataset=cfg["dataset"],sub_dataset=source))
+        md=row["metadata"];labels.append(dict(id=qid,answer=answer,qa_pair_id=qaid,raw_question=row["questions"][qi] if len(row["questions"])>qi else row["questions"][0],question_type=question_field(row,"question_types",qi),original_question_id=question_field(row,"question_ids",qi),keypoints=md.get("keypoints"),dataset=cfg["dataset"],sub_dataset=source))
        assert len(questions)==len(labels)>0
        write(folder/"observations.json",observations);write(folder/"questions.json",questions);write(folder/"labels.json",labels)
        metric="llm_judge_accuracy" if "longmemeval" in source else "llm_judge_summary_f1" if "infbench_sum" in source else "recsys_recall@5" if "recsys" in source else "exact_match" if "icl_" in source or "detective_" in source else "substring_exact_match"

@@ -19,5 +19,14 @@ class MABProtocolTests(unittest.TestCase):
         self.assertEqual(retrieval_intent(summary, "infbench_sum_eng_shots2"),
                          "Summarize carefully.\n\nNow summarize the book below.")
 
+
+class QuestionMetadataTests(unittest.TestCase):
+    def test_original_question_ids_survive_nested_and_top_level_metadata(self):
+        from migro.benchmarks.mab_prepare import question_field
+        for row in [{"question_ids":["q1","q2_abs"]},
+                    {"metadata":{"question_ids":["q1","q2_abs"]}}]:
+            self.assertEqual(question_field(row,"question_ids",1), "q2_abs")
+        self.assertIsNone(question_field({}, "question_ids", 0))
+
 if __name__ == "__main__":
     unittest.main()

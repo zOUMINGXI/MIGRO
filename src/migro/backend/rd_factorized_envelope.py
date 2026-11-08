@@ -22,7 +22,7 @@ def candidates(state):
   flags.append(ok);parts.append(ids[len(pre):] if ok else ids);removed+=len(pre) if ok else 0
  lengths=np.asarray([len(v) for v in parts],dtype="<u4")
  flat=np.concatenate(parts).astype("<u2") if parts else np.empty(0,dtype="<u2")
- bitmap=np.packbits(flags,bitorder="little").tobytes();geo=geometry_blob(state)
+ bitmap=np.packbits(np.asarray(flags,dtype=np.uint8),bitorder="little").tobytes();geo=geometry_blob(state)
  out={}
  for codec,compress in [("z",lambda b:zlib.compress(b,9)),("x",lambda b:lzma.compress(b,preset=6))]:
   for layout in ["tokens","planes"]:

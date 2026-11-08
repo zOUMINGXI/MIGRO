@@ -7,6 +7,7 @@ boundary compaction is enabled here.
 """
 from __future__ import annotations
 from .paths import asset_path
+from .._io import atomic_write_bytes
 
 from pathlib import Path
 from typing import Callable, Iterable
@@ -112,7 +113,7 @@ class StorageV1:
         path = Path(path)
         path.parent.mkdir(parents=True, exist_ok=True)
         blob = self.snapshot()
-        path.write_bytes(blob)
+        atomic_write_bytes(path, blob)
         return len(blob)
 
     def handoff(self, target_core: torch.nn.Module | None = None) -> StorageV1:
