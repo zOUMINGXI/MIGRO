@@ -55,5 +55,17 @@
     "receiver_native_write": true,
     "source_state_preserved": true
   },
-  "full_gpu_benchmark_rerun": false
+  "full_gpu_benchmark_rerun": false,
+  "public_download": {
+    "url": "https://github.com/zOUMINGXI/MIGRO/releases/download/runtime-assets-20261112/migro-runtime-assets-20261112.tar.gz",
+    "authentication_required": false,
+    "download_extract_compile_and_cpu_runtime": "passed"
+  },
+  "model_download_helper": {
+    "tested": [
+      "cross-encoder/ms-marco-MiniLM-L6-v2"
+    ],
+    "anonymous_download": "passed",
+    "downloaded_checkpoint_load": "passed"
+  }
 }
