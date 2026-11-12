@@ -1,17 +1,59 @@
 {
-  "date": "2026-11-08",
-  "tests": 23,
-  "passed": 23,
+  "date": "2026-11-12",
+  "installation": {
+    "python": "3.10",
+    "fresh_virtual_environment": true,
+    "installed_package": true,
+    "torch_cpu": "2.5.1+cpu",
+    "torch_cuda": "2.5.1+cu121",
+    "transformers": "5.3.0",
+    "numpy": "2.2.6",
+    "tokenizers": "0.22.1",
+    "pip_check": "passed"
+  },
+  "tests": 33,
+  "passed": 33,
   "skipped": 0,
   "native_kernels_compiled": 3,
-  "assets_from": "freshly extracted release archive",
-  "device": "cpu",
+  "assets_from": "freshly extracted sanitized release archive",
   "checks": [
     "exact source bindings",
     "state handoff",
     "append after handoff",
     "compact and restore",
-    "metadata and Unicode restoration"
+    "metadata and Unicode restoration",
+    "Phi and Mistral interface checkpoints load strictly"
   ],
+  "checkpoint_export": {
+    "tensor_values_and_dtypes_preserved": true,
+    "interface_fields": [
+      "adapter",
+      "interface_scope"
+    ],
+    "encoder_source_tensors_equal": true,
+    "source_embedding_equal": true
+  },
+  "gpu_generation": {
+    "device": "NVIDIA H800 80GB",
+    "input": "demo/starter.json",
+    "script": "demo/run.py",
+    "source_model": "Qwen/Qwen3-4B-Instruct-2507",
+    "target_model": "mistralai/Mistral-7B-Instruct-v0.3",
+    "stages": [
+      "source",
+      "handoff",
+      "append",
+      "new_only",
+      "rebuild"
+    ],
+    "nonempty_answers": 15,
+    "source_bindings_preserved": true
+  },
+  "phi_generation": {
+    "model": "microsoft/Phi-3-mini-4k-instruct",
+    "nonempty_answers": 2,
+    "receiver_native_write": true,
+    "source_state_preserved": true
+  },
   "full_gpu_benchmark_rerun": false
 }

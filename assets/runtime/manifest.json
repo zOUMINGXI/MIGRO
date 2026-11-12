@@ -1,7 +1,7 @@
 {
   "name": "MIGRO shared runtime assets",
-  "date": "2026-11-08",
-  "runtime_commit": "d1f84460d286a21c66a9bdc7aec2bc22ab6d2a04",
+  "date": "2026-11-12",
+  "license": "Apache-2.0 for MIGRO components; upstream components retain their licenses",
   "files": [
     {
       "path": "research/rd_shared_pages_20261025/deployment/minimal_core.pt",
@@ -13,19 +13,19 @@
     },
     {
       "path": "research/rd_shared_pages_20261025/deployment/semantic_tokenizer/tokenizer_config.json",
-      "bytes": 413
+      "bytes": 393
     },
     {
       "path": "research/rd_shared_pages_20261025/deployment/semantic_tokenizer/tokenizer.json",
-      "bytes": 711396
+      "bytes": 711397
     },
     {
       "path": "research/rd_shared_pages_20261025/deployment/source_tokenizer/tokenizer_config.json",
-      "bytes": 2351
+      "bytes": 2331
     },
     {
       "path": "research/rd_shared_pages_20261025/deployment/source_tokenizer/tokenizer.json",
-      "bytes": 2424069
+      "bytes": 2424070
     },
     {
       "path": "research/rd_shared_pages_20261025/model/csr_codec.npz",
@@ -49,18 +49,20 @@
     },
     {
       "path": "research/decomem_v1_20261028/frozen_interfaces/Phi_boundary.pt",
-      "bytes": 395590
+      "bytes": 394742
     },
     {
       "path": "research/decomem_v1_20261028/frozen_interfaces/Mistral_cal64.pt",
-      "bytes": 525778
+      "bytes": 525820
     }
   ],
+  "provenance": "PROVENANCE.json",
+  "third_party_notices": "THIRD_PARTY_NOTICES.md",
   "excludes": [
     "backbone and reranker model weights",
     "benchmark histories and answers",
     "per-user memory states",
+    "training configuration and optimizer state",
     "native binaries"
-  ],
-  "notes": "Includes optional legacy factor codec and shared packed codec; not a universal interface for every backbone."
+  ]
 }

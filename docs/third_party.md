@@ -1,6 +1,6 @@
 # Third-party references
 
-The repository includes the MIGRO memory runtime, benchmark entry points and reporting tools. Obtain baseline implementations, backbone and reranker models, and benchmark datasets from their original sources. Shared runtime checkpoints are prepared separately with component provenance and license notices.
+The repository includes the MIGRO memory runtime, benchmark entry points and reporting tools. Obtain baseline implementations, backbone and reranker models, and benchmark datasets from their original sources. Shared runtime checkpoints include the component provenance and licenses listed in [third-party notices](../THIRD_PARTY_NOTICES.md). MIGRO-owned code and generated assets use [Apache-2.0](../LICENSE).
 
 Methods:
 - PlugMem: https://github.com/TIMAN-group/PlugMem

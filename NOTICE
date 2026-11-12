@@ -1,0 +1,10 @@
+MIGRO
+Copyright 2026 Mingxi Zou
+
+MIGRO-owned code and generated runtime assets are licensed under Apache-2.0.
+The shared core also includes BGE-small-en-v1.5 encoder weights and FLAN-T5-small
+input embeddings. Their upstream licenses and notices remain applicable.
+See THIRD_PARTY_NOTICES.md and PROVENANCE.json for component attribution.
+
+The repository's lettering and embedded fonts retain their original licenses,
+documented in assets/lettering-credits.md.

@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=68", "wheel"]
+requires = ["setuptools>=77", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,12 +7,14 @@ name = "migro-eval"
 version = "0.0.1"
 description = "MIGRO persistent memory, host interfaces and evaluation tools"
 requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE", "THIRD_PARTY_NOTICES.md", "licenses/*.txt"]
 authors = [{name = "Mingxi Zou"}]
 
 [project.optional-dependencies]
 analysis = ["numpy>=1.24"]
 transport = ["torch>=2.1", "tokenizers>=0.15", "numpy>=1.24"]
-runtime = ["torch>=2.5", "transformers==5.3.0", "numpy>=1.24", "nltk", "zstandard", "pyppmd", "brotli"]
+runtime = ["torch>=2.5", "transformers==5.3.0", "numpy>=1.24", "nltk", "zstandard", "pyppmd", "brotli", "scipy>=1.9"]
 benchmarks = ["pyarrow", "pyyaml", "tiktoken", "nltk", "editdistance", "rouge-score"]
 
 [tool.setuptools.packages.find]

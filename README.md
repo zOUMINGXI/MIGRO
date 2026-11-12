@@ -332,10 +332,10 @@ tests/                  Component and reporting checks
 
 ## Release status
 
-This repository is being prepared for open-source release. The upload contains the shared-anchor memory backend, exact coding source, host interfaces, MAB preparation/generation/scoring and MIGRO continued-writing entry points, experimental contracts and reporting tools. Shared core/interface checkpoints are being prepared for a separate release with component provenance and license notices; [runtime setup](docs/runtime.md) describes the required assets. Backbone models and datasets are obtained separately. Complete baseline adapters and the remaining benchmark orchestration are still being prepared; this is not yet a self-contained reproduction bundle.
+This repository is being prepared for open-source release. The upload contains the shared-anchor memory backend, exact coding source, host interfaces, MAB preparation/generation/scoring and MIGRO continued-writing entry points, experimental contracts and reporting tools. Shared core/interface checkpoints are available in the [runtime asset release](https://github.com/zOUMINGXI/MIGRO/releases/tag/runtime-assets-20261112), including component provenance and license notices; [runtime setup](docs/runtime.md) gives the download and verification commands. Backbone models and datasets are obtained separately. Complete baseline adapters and the remaining benchmark orchestration are still being prepared; this is not yet a self-contained reproduction bundle.
 
 The [selected result summaries](results/README.md) follow the current manuscript: primary benchmarks, same-host scaling, migration and matched-state storage. Comparisons still pending in the manuscript retain no final score. Detailed result data and run artifacts are reserved for a later release.
 
-Public licensing and full reproduction instructions will be specified for the open-source release. Third-party methods and datasets retain their respective licenses.
+MIGRO-owned code and runtime assets are licensed under [Apache-2.0](LICENSE). Bundled upstream components and external models retain the licenses listed in [third-party notices](THIRD_PARTY_NOTICES.md).
 
 [Implementation scope](docs/implementation.md) · [Release scope](docs/release_scope.md) · [Third-party references](docs/third_party.md)

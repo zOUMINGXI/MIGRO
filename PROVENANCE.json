@@ -1,0 +1,51 @@
+{
+  "format": 1,
+  "name": "MIGRO shared runtime assets",
+  "date": "2026-11-12",
+  "components": [
+    {
+      "component": "BGE semantic encoder",
+      "source": "https://huggingface.co/BAAI/bge-small-en-v1.5",
+      "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+      "license": "MIT",
+      "assets": [
+        "research/rd_shared_pages_20261025/deployment/minimal_core.pt:semantic_encoder.*",
+        "research/rd_shared_pages_20261025/deployment/semantic_config/",
+        "research/rd_shared_pages_20261025/deployment/semantic_tokenizer/"
+      ],
+      "conversion": "Frozen encoder exported as a state dictionary. Nonpersistent position-index buffer is supplied by the Transformers model.",
+      "verification": "Encoder tensors compared exactly with the source checkpoint."
+    },
+    {
+      "component": "FLAN-T5 source embeddings and tokenizer",
+      "source": "https://huggingface.co/google/flan-t5-small",
+      "revision": "0fc9ddf78a1e988dac52e2dac162b0ede4fd74ab",
+      "license": "Apache-2.0",
+      "assets": [
+        "research/rd_shared_pages_20261025/deployment/minimal_core.pt:source.embedding.weight",
+        "research/rd_shared_pages_20261025/deployment/source_tokenizer/"
+      ],
+      "conversion": "Only the shared input embedding matrix and tokenizer are exported.",
+      "verification": "Input embedding tensor compared exactly with the source checkpoint."
+    },
+    {
+      "component": "MIGRO generated runtime components",
+      "source": "https://github.com/zOUMINGXI/MIGRO",
+      "license": "Apache-2.0",
+      "assets": [
+        "research/rd_shared_pages_20261025/deployment/minimal_core.pt:native_input_rms,value_basis",
+        "research/rd_shared_pages_20261025/model/",
+        "research/rd_semantic_factor_20261025/",
+        "research/decomem_v1_20261028/frozen_interfaces/"
+      ],
+      "conversion": "The read interfaces retain adapter tensors and resolved interface_scope. Training and experiment metadata is omitted.",
+      "verification": "All retained interface tensors compared exactly before and after export."
+    }
+  ],
+  "license_files": [
+    "LICENSE",
+    "licenses/BGE-MIT.txt"
+  ],
+  "external_models_included": false,
+  "benchmark_records_included": false
+}
