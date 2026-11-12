@@ -10,18 +10,18 @@ python -m migro.backend.build_native
 
 The build uses CXX or c++ and writes three binaries to $MIGRO_ASSETS/native. MIGRO_NATIVE_DIR overrides that directory. Build before importing migro.memory. Source for all three research coding kernels is included.
 
-## Download the shared runtime assets
+## Shared runtime assets
 
-The [runtime asset release](https://github.com/zOUMINGXI/MIGRO/releases/tag/runtime-assets-20261108) contains the shared core, coding parameters, semantic/source tokenizers and frozen Phi/Mistral read interfaces (159.6 MB compressed). Download through the release page or GitHub CLI:
+The earlier checkpoint bundle has been withdrawn from public download while its component provenance, license notices and deployment metadata are prepared for release. Fresh model generation requires a separately supplied asset directory. The online and offline demos remain available for recorded playback.
+
+For an existing asset directory:
 
 ~~~bash
-gh release download runtime-assets-20261108 --repo zOUMINGXI/MIGRO --pattern 'migro-runtime-assets-20261108.tar.gz'
-tar -xzf migro-runtime-assets-20261108.tar.gz
-export MIGRO_ASSETS="$(pwd)/migro-assets"
+export MIGRO_ASSETS=/path/to/migro-assets
 python -m migro.backend.build_native
 ~~~
 
-While the repository is private, downloads require an account with repository access. The bundle's ASSETS.json lists all 13 payload files. The Phi checkpoint is the selected step-0 identity interface; the Mistral checkpoint is the calibrated 64-example interface. This is the shared bundle for the published runtime, not target-trained weights for every evaluated backbone or baseline.
+The runtime asset manifest lists the required payload files. The Phi checkpoint is the selected step-0 identity interface; the Mistral checkpoint is the calibrated 64-example interface. This is the shared bundle for the published runtime, not target-trained weights for every evaluated backbone or baseline.
 
 The frozen generation path uses CUDA and local model directories. Backbone and reranker model directories are obtained separately; the resulting layout is:
 
@@ -53,7 +53,7 @@ $MIGRO_ASSETS/
 
 Relative names preserve existing snapshot/configuration contracts. MIGRO_ASSETS relocates access without rewriting stored state fields. MIGRO_QWEN_MODEL, MIGRO_PHI_MODEL, MIGRO_MISTRAL_MODEL and MIGRO_RERANKER_MODEL override model directories; set them before importing. MIGRO_PROFILES can point to a JSON containing reader_profiles; bundled profiles retain frozen reference settings.
 
-Shared checkpoints are distributed as a Release attachment rather than Git blobs. The bundle also includes the optional legacy research/rd_semantic_factor_20261025/model/codec.npz and packed global codec. Causal neural archives require the original model, dtype, attention backend, page size and batch contract for exact decoding.
+Shared checkpoints will be distributed separately from Git blobs. The asset manifest also lists the optional legacy research/rd_semantic_factor_20261025/model/codec.npz and packed global codec. Causal neural archives require the original model, dtype, attention backend, page size and batch contract for exact decoding.
 
 ## Python API
 

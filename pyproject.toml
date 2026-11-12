@@ -7,7 +7,7 @@ name = "migro-eval"
 version = "0.0.1"
 description = "MIGRO persistent memory, host interfaces and evaluation tools"
 requires-python = ">=3.10"
-authors = [{name = "Mingxi Zou"}, {name = "Codex (AI-assisted implementation)"}]
+authors = [{name = "Mingxi Zou"}]
 
 [project.optional-dependencies]
 analysis = ["numpy>=1.24"]

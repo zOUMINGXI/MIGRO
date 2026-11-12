@@ -332,7 +332,7 @@ tests/                  Component and reporting checks
 
 ## Release status
 
-This repository is being prepared for open-source release. The upload contains the shared-anchor memory backend, exact coding source, host interfaces, MAB preparation/generation/scoring and MIGRO continued-writing entry points, experimental contracts and reporting tools. Shared core/interface checkpoints are available in the [runtime asset release](https://github.com/zOUMINGXI/MIGRO/releases/tag/runtime-assets-20261108); backbone models and datasets are obtained separately. Complete baseline adapters and the remaining benchmark orchestration are still being prepared; this is not yet a self-contained reproduction bundle.
+This repository is being prepared for open-source release. The upload contains the shared-anchor memory backend, exact coding source, host interfaces, MAB preparation/generation/scoring and MIGRO continued-writing entry points, experimental contracts and reporting tools. Shared core/interface checkpoints are being prepared for a separate release with component provenance and license notices; [runtime setup](docs/runtime.md) describes the required assets. Backbone models and datasets are obtained separately. Complete baseline adapters and the remaining benchmark orchestration are still being prepared; this is not yet a self-contained reproduction bundle.
 
 The [selected result summaries](results/README.md) follow the current manuscript: primary benchmarks, same-host scaling, migration and matched-state storage. Comparisons still pending in the manuscript retain no final score. Detailed result data and run artifacts are reserved for a later release.
 

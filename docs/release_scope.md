@@ -2,7 +2,7 @@
 
 Included code: shared-anchor memory and residual addresses; exact source-token bindings and metadata; snapshots, compaction and continued writing; C++ coding kernels and build command; host interfaces and readers; MAB preparation, incremental generation, matched read budgeting and format-aware scoring; MIGRO continued-writing generation with transfer-only and full-history rebuilding controls; reporting, paired analysis and targeted tests.
 
-The [runtime asset release](https://github.com/zOUMINGXI/MIGRO/releases/tag/runtime-assets-20261108) adds the shared core, coding parameters, tokenizer/config files and frozen Phi/Mistral interface checkpoints. See [runtime setup](runtime.md). Backbone and reranker models, datasets and third-party packages are obtained separately. The release follows repository access: it is not an anonymous public download while this repository is private.
+Shared runtime assets are being prepared for a separate release with component provenance, license notices and deployment-only checkpoint metadata. See [runtime setup](runtime.md). Backbone and reranker models, datasets and third-party packages are obtained from their original sources.
 
 The [selected result summaries](../results/README.md) include primary benchmarks, same-host scale-up, migration and matched-state storage. README tables follow the current manuscript. Detailed experimental data, intermediate artifacts and run-status exports are reserved for a later release.
 

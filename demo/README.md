@@ -1,6 +1,6 @@
 # The Handoff
 
-[**Open the interactive demo ↗**](https://migro-handoff.lucentsole3.chatgpt.site) — works directly in your browser, with no download or installation. Make a decision from the latest messages, open the earlier memory and try again. Then compare the recorded model answers and inspect their evidence. The online demo is public; the research repository remains private.
+[**Open the interactive demo ↗**](https://migro-handoff.lucentsole3.chatgpt.site) — works directly in your browser, with no download or installation. Make a decision from the latest messages, open the earlier memory and try again. Then compare the recorded model answers and inspect their evidence. The online demo is available directly in the browser.
 
 For offline playback, [download MIGRO-Handoff.zip](https://github.com/zOUMINGXI/MIGRO/raw/refs/heads/main/demo/MIGRO-Handoff.zip), unzip it and open **MIGRO-Handoff.html**. The handwritten interface, cases, source correspondence and recorded answers are bundled for offline use.
 

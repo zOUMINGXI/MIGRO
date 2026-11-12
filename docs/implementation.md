@@ -59,7 +59,7 @@ Defaults require 1,986 matching questions per condition. The LoCoMo cohort has 1
 
 ## Assets and attribution
 
-Supply models, tokenizers, checkpoints and benchmark data separately under their original licenses. This upload contains no benchmark observations, labels, predictions, model artifacts, machine addresses or operational credentials. Attribution remains in `CONTRIBUTORS.md`.
+Obtain models, tokenizers and benchmark data from their original sources under their respective licenses. Shared runtime checkpoint distribution is described in [runtime setup](runtime.md). Third-party method and dataset references are listed in [third-party references](third_party.md).
 
 ## State backend
 

@@ -1,6 +1,6 @@
 # Third-party references
 
-The initial code in this repository implements reporting and aggregation. It does not vendor baseline implementations, model weights or benchmark datasets.
+The repository includes the MIGRO memory runtime, benchmark entry points and reporting tools. Obtain baseline implementations, backbone and reranker models, and benchmark datasets from their original sources. Shared runtime checkpoints are prepared separately with component provenance and license notices.
 
 Methods:
 - PlugMem: https://github.com/TIMAN-group/PlugMem
