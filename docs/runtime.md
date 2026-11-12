@@ -1,3 +1,7 @@
+<p align="center">
+  <strong>English</strong> &nbsp; · &nbsp; <a href="runtime.zh-CN.md">简体中文</a> &nbsp; · &nbsp; <a href="runtime.es.md">Español</a>
+</p>
+
 # Run MIGRO
 
 The shared runtime bundle includes the frozen core, coding tables, tokenizers and

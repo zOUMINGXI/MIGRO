@@ -1,4 +1,8 @@
 <p align="center">
+  <strong>English</strong> &nbsp; · &nbsp; <a href="README.zh-CN.md">简体中文</a> &nbsp; · &nbsp; <a href="README.es.md">Español</a>
+</p>
+
+<p align="center">
   <img src="assets/migro-launch.svg" alt="MIGRO — Models evolve. Memory endures. Persistent memory across language models." width="1600">
 </p>
 
