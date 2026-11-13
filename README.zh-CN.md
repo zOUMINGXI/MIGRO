@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <a href="https://migro-handoff.lucentsole3.chatgpt.site">
+  <a href="https://zoumingxi.github.io/MIGRO/">
     <img src="assets/migro-demo-entry.svg" alt="体验 MIGRO demo：先做决定，再找回上下文，看看答案如何改变。点击即可在浏览器中体验，无需安装。" width="1600">
   </a>
 </p>
@@ -18,7 +18,8 @@
 </p>
 
 <p align="center">
-  <a href="https://migro-handoff.lucentsole3.chatgpt.site"><strong>在线体验 ↗</strong></a> &nbsp; · &nbsp;
+  <a href="https://arxiv.org/abs/2611.15315"><strong>论文 ↗</strong></a> &nbsp; · &nbsp;
+  <a href="https://zoumingxi.github.io/MIGRO/"><strong>在线体验 ↗</strong></a> &nbsp; · &nbsp;
   <a href="#记忆连续性的挑战">项目概览</a> &nbsp; · &nbsp;
   <a href="#系统设计">系统架构</a> &nbsp; · &nbsp;
   <a href="#实验结果">实验结果</a> &nbsp; · &nbsp;
@@ -70,9 +71,9 @@ MIGRO 从三个层面回答这个问题：
 
 Leah 刚更换助手，厨房供应商就发来确认请求。最新邮件里有新的报价、图纸和送货方案；而她的预算上限、现场尺寸和楼宇限制，仍留在四月的往来邮件中。现在由你接手：先做出自己的判断，再找回早先的上下文，重新考虑这个决定。随后，可以对比五种记忆条件下模型实际生成的答案。第二个案例则根据发布提交，重现了我们自己遇到的 demo 下载支持问题。
 
-[![The Handoff — Qwen 到 Mistral 的已记录会话](demo/preview.webp)](https://migro-handoff.lucentsole3.chatgpt.site)
+[![The Handoff — Qwen 到 Mistral 的已记录会话](demo/preview.webp)](https://zoumingxi.github.io/MIGRO/)
 
-[**打开交互式 demo ↗**](https://migro-handoff.lucentsole3.chatgpt.site) · [下载离线 demo（.zip）](https://github.com/zOUMINGXI/MIGRO/raw/refs/heads/main/demo/MIGRO-Handoff.zip) · [运行自己的会话](demo/README.md#run-your-own-session)
+[**打开交互式 demo ↗**](https://zoumingxi.github.io/MIGRO/) · [下载离线 demo（.zip）](https://github.com/zOUMINGXI/MIGRO/raw/refs/heads/main/demo/MIGRO-Handoff.zip) · [运行自己的会话](demo/README.md#run-your-own-session)
 
 使用浏览器即可打开在线 demo，无需下载或安装。你可以查看已记录的模型运行结果、切换记忆条件，并检查检索出的证据。要根据自己的输入生成新答案，请使用上方链接中的本地运行环境。
 
