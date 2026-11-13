@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <a href="https://migro-handoff.lucentsole3.chatgpt.site">
+  <a href="https://zoumingxi.github.io/MIGRO/">
     <img src="assets/migro-demo-entry.svg" alt="Prueba la demo de MIGRO: toma una decisión, recupera el contexto y observa qué cambia. Haz clic para probarla en el navegador, sin instalar nada." width="1600">
   </a>
 </p>
@@ -18,7 +18,8 @@
 </p>
 
 <p align="center">
-  <a href="https://migro-handoff.lucentsole3.chatgpt.site"><strong>Prueba la demo ↗</strong></a> &nbsp; · &nbsp;
+  <a href="https://arxiv.org/abs/2611.15315"><strong>Artículo ↗</strong></a> &nbsp; · &nbsp;
+  <a href="https://zoumingxi.github.io/MIGRO/"><strong>Prueba la demo ↗</strong></a> &nbsp; · &nbsp;
   <a href="#el-problema-de-la-continuidad">Visión general</a> &nbsp; · &nbsp;
   <a href="#diseño-del-sistema">Arquitectura</a> &nbsp; · &nbsp;
   <a href="#evidencia-experimental">Resultados</a> &nbsp; · &nbsp;
@@ -70,9 +71,9 @@ Estos objetivos determinan tanto la arquitectura como la evaluación. Un archivo
 
 Un proveedor de cocinas pide la aprobación justo cuando Leah cambia de asistente. Los últimos correos incluyen el nuevo presupuesto, los planos y las opciones de entrega; su límite de gasto, las medidas del lugar y las restricciones del edificio están en la correspondencia de abril. Ponte al frente de la decisión: elige qué hacer, recupera el contexto anterior y reconsidera. Después, compara las respuestas reales de cinco condiciones de memoria. Un segundo caso reconstruye nuestro propio problema de soporte para descargar la demo a partir de los commits de publicación.
 
-[![The Handoff — sesión registrada de Qwen a Mistral](demo/preview.webp)](https://migro-handoff.lucentsole3.chatgpt.site)
+[![The Handoff — sesión registrada de Qwen a Mistral](demo/preview.webp)](https://zoumingxi.github.io/MIGRO/)
 
-[**Abrir la demo interactiva ↗**](https://migro-handoff.lucentsole3.chatgpt.site) · [Descargar la demo sin conexión (.zip)](https://github.com/zOUMINGXI/MIGRO/raw/refs/heads/main/demo/MIGRO-Handoff.zip) · [Ejecutar tu propia sesión](demo/README.md#run-your-own-session)
+[**Abrir la demo interactiva ↗**](https://zoumingxi.github.io/MIGRO/) · [Descargar la demo sin conexión (.zip)](https://github.com/zOUMINGXI/MIGRO/raw/refs/heads/main/demo/MIGRO-Handoff.zip) · [Ejecutar tu propia sesión](demo/README.md#run-your-own-session)
 
 Abre la demo en cualquier navegador, sin descargar ni instalar nada. Explora las ejecuciones registradas, cambia de condición de memoria e inspecciona la evidencia recuperada. Para generar respuestas nuevas a partir de tus propias entradas, utiliza el entorno local enlazado arriba.
 
