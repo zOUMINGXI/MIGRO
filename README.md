@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <a href="https://migro-handoff.lucentsole3.chatgpt.site">
+  <a href="https://zoumingxi.github.io/MIGRO/">
     <img src="assets/migro-demo-entry.svg" alt="Try the MIGRO demo — make a call, recover the context, and see what changes. Click to play in your browser; no setup." width="1600">
   </a>
 </p>
@@ -18,7 +18,8 @@
 </p>
 
 <p align="center">
-  <a href="https://migro-handoff.lucentsole3.chatgpt.site"><strong>Try the demo ↗</strong></a> &nbsp; · &nbsp;
+  <a href="https://arxiv.org/abs/2611.15315"><strong>Paper ↗</strong></a> &nbsp; · &nbsp;
+  <a href="https://zoumingxi.github.io/MIGRO/"><strong>Try the demo ↗</strong></a> &nbsp; · &nbsp;
   <a href="#the-continuity-problem">Overview</a> &nbsp; · &nbsp;
   <a href="#system-design">Architecture</a> &nbsp; · &nbsp;
   <a href="#experimental-evidence">Evidence</a> &nbsp; · &nbsp;
@@ -70,9 +71,9 @@ These objectives shape both the architecture and the evaluation. A smaller archi
 
 A kitchen supplier asks for sign-off just as Leah changes assistants. The new quote, drawing and delivery options are in the latest emails; her spending cap, site measurements and building restrictions are in April’s correspondence. Take over the decision desk: make your own call, recover the earlier context and reconsider. Then compare the actual answers from five memory conditions. A second case reconstructs our own demo-download support issue from the release commits.
 
-[![The Handoff — recorded Qwen to Mistral session](demo/preview.webp)](https://migro-handoff.lucentsole3.chatgpt.site)
+[![The Handoff — recorded Qwen to Mistral session](demo/preview.webp)](https://zoumingxi.github.io/MIGRO/)
 
-[**Open the interactive demo ↗**](https://migro-handoff.lucentsole3.chatgpt.site) · [Download the offline demo (.zip)](https://github.com/zOUMINGXI/MIGRO/raw/refs/heads/main/demo/MIGRO-Handoff.zip) · [Run your own session](demo/README.md#run-your-own-session)
+[**Open the interactive demo ↗**](https://zoumingxi.github.io/MIGRO/) · [Download the offline demo (.zip)](https://github.com/zOUMINGXI/MIGRO/raw/refs/heads/main/demo/MIGRO-Handoff.zip) · [Run your own session](demo/README.md#run-your-own-session)
 
 Open the online demo in any browser—no download or installation required. Explore the recorded model runs, switch memory conditions and inspect their retrieved evidence. To generate fresh answers from your own inputs, use the local runtime linked above.
 
