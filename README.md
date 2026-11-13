@@ -7,9 +7,10 @@
 </p>
 
 <p align="center">
-  <a href="https://zoumingxi.github.io/MIGRO/">
-    <img src="assets/migro-demo-entry.svg" alt="Try the MIGRO demo — make a call, recover the context, and see what changes. Click to play in your browser; no setup." width="1600">
-  </a>
+  <a href="https://arxiv.org/abs/2611.15315"><img src="https://img.shields.io/badge/arXiv-2611.15315-B75125?style=flat-square" alt="Paper on arXiv"></a>
+  <a href="https://zoumingxi.github.io/MIGRO/"><img src="https://img.shields.io/badge/Demo-Try%20online-E87524?style=flat-square" alt="Interactive demo"></a>
+  <img src="https://img.shields.io/badge/Python-3.10%2B-315F78?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python 3.10 and later">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache--2.0-315F78?style=flat-square" alt="Apache-2.0"></a>
 </p>
 
 <p align="center">
@@ -18,53 +19,54 @@
 </p>
 
 <p align="center">
+  <a href="#quick-start">Quick start</a> &nbsp; · &nbsp;
   <a href="https://arxiv.org/abs/2611.15315"><strong>Paper ↗</strong></a> &nbsp; · &nbsp;
   <a href="https://zoumingxi.github.io/MIGRO/"><strong>Try the demo ↗</strong></a> &nbsp; · &nbsp;
-  <a href="#the-continuity-problem">Overview</a> &nbsp; · &nbsp;
+  <a href="#why-migro">Overview</a> &nbsp; · &nbsp;
   <a href="#system-design">Architecture</a> &nbsp; · &nbsp;
   <a href="#experimental-evidence">Evidence</a> &nbsp; · &nbsp;
-  <a href="#released-components">Code</a> &nbsp; · &nbsp;
-  <a href="docs/system_overview.md">System notes</a> &nbsp; · &nbsp;
-  <a href="docs/performance_protocol.md">Evaluation protocol</a>
+  <a href="docs/README.md">Documentation</a> &nbsp; · &nbsp;
+  <a href="#citation">Citation</a>
 </p>
 
 ---
 
-An agent's model can change in an afternoon. Its useful history may take months to accumulate.
+## Why MIGRO
 
-That history carries the context behind decisions: what a user values, which constraints still apply, how a plan changed, and what happened before the current conversation. As models evolve, preserving access to that experience becomes a systems problem.
+**MIGRO keeps long-term experience available as language models change.** It stores observations, historical relationships and retrieval addresses in a persistent state that successive hosts can read and extend.
 
-**MIGRO is a memory architecture for carrying accumulated experience across language-model hosts.** Its central design separates a persistent memory substrate from the interfaces through which individual backbones read it. Writing, storage and cross-model access are treated as parts of the same continuity problem.
+- **Useful memory.** Exact evidence and query-time selection support answers about events, revisions and context across long histories.
+- **Portable experience.** Host-specific interfaces let a receiving model access inherited state and keep writing after handoff.
+- **Economical growth.** Compact semantic addresses and reversible archives reduce persistent storage while retaining the saved evidence.
 
-> **The ambition: let improvements in the model build on the experience already accumulated by the agent.**
+## News
 
-## The continuity problem
+- **2026-11-12** — [Shared runtime assets released](https://github.com/zOUMINGXI/MIGRO/releases/tag/runtime-assets-20261112), with core and host-interface checkpoints, setup and verification tools.
+- **2026-11-11** — [MIGRO technical report published on arXiv](https://arxiv.org/abs/2611.15315).
 
-Long-lived agents operate on a different timescale from the models that power them. A deployment may change backbone, tokenizer or model family while its history continues to grow. Each change raises a practical question: **what must be carried forward, and what must be rebuilt?**
+## Quick start
 
-MIGRO approaches that question at three levels:
+**Try it in your browser.** [Open the interactive demo](https://zoumingxi.github.io/MIGRO/) to compare recorded model answers and inspect retrieved evidence. [Download the offline demo](https://github.com/zOUMINGXI/MIGRO/raw/refs/heads/main/demo/MIGRO-Handoff.zip) for local replay.
 
-|System concern|Design objective|
-|---|---|
-|**Memory utility**|Recover evidence from accumulated history and use it to answer questions.|
-|**Persistent footprint**|Represent content and retrieval addresses compactly, with explicit accounting for stored state and shared deployment assets.|
-|**Host continuity**|Reconnect existing state to a receiving backbone through a host-specific read interface.|
+**Install from source.** The base installation provides reporting tools and portable text controls.
 
-These objectives shape both the architecture and the evaluation. A smaller archive must still restore the intended state. A successful host connection must still provide useful evidence. A migration comparison must identify the operation actually performed.
+~~~bash
+git clone https://github.com/zOUMINGXI/MIGRO.git
+cd MIGRO
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e .
+python scripts/render_results.py --help
+~~~
+
+**Run the memory system.** Follow [runtime setup](docs/runtime.md) to install runtime dependencies, download shared assets, compile the coding kernels and run the provided verification. Then use [the local demo guide](demo/README.md#run-your-own-session) to generate fresh answers with the required backbone and reranker models.
+
+[Documentation index](docs/README.md) · [Experiment commands](docs/experiments.md) · [Release scope](docs/release_scope.md)
 
 ## System design
 
 <p align="center">
   <img src="assets/migro-system.svg" alt="MIGRO reference architecture: observed experience enters a source-host writer; persistent memory stores evidence, semantic addresses and encoded state; a transport and calibration interface connects it to receiving hosts." width="1600">
-</p>
-
-<p align="center">
-  <a href="assets/joint_frontier.png"><img src="assets/joint_frontier.png" alt="Joint memory frontier: continued writing after Qwen 4B to Mistral 7B handoff, comparing answer quality, private memory footprint and rebuilding quality retained." width="1600"></a>
-</p>
-
-<p align="center">
-  <strong>Carry the experience. Keep writing.</strong><br>
-  Continued writing after a Qwen 4B → Mistral 7B handoff: answer quality, private memory footprint and quality retained relative to target-side rebuilding.
 </p>
 
 ### The Handoff · interactive demo
@@ -106,174 +108,25 @@ The label belongs to the run. A method can have both transferred-state results a
 
 ## Experimental evidence
 
-An upgrade should retain useful history and leave room for the next experience. The current results test memory utility, larger hosts, continued writing and persistent footprint. Completed cohorts are shown below; the [dated result index](results/README.md) records protocols and pending work.
+The report evaluates answer quality, cross-host continuity and persistent storage. These measurements use their respective cohorts and accounting scopes.
 
-### Memory utility
+| Study | Representative result |
+|---|---|
+| Long-term QA · LongMemEval-S | **68.40** under the Qwen 4B reference host |
+| Continued writing · Qwen 4B → Mistral 7B | **45.13**, compared with **45.19** for target-side full-history rebuilding |
+| Million-token BEAM histories | **1.857 MB** private state per history, averaged over five histories |
+| Shared deployment · 1,000 independent memories | **2.154 MB per memory**, including required shared assets |
 
-| Method | LoCoMo | LongMemEval-S | MemOps | BEAM-1M | MAB · primary |
-|---|---:|---:|---:|---:|---:|
-| MIGRO | 54.13 | 68.40 | 66.30 | 55.83 | 35.16 |
-| PlugMem | 41.89 | 43.20 | 35.09 | 34.11 | 7.76 |
-| Mem0 | 52.12 | 56.80 | 52.13 | 52.43 | 32.82 |
-| TiMem | 49.13 | 48.40 | 50.66 | 51.90 | 18.90 |
-| A-MEM | 36.20 | 35.10 | 39.78 | 33.25 | 16.72 |
-| LSTMem | 40.64 | 26.00 | 52.59 | 28.44 | 6.56 |
-| TransMem | 45.85 | 37.40 | 62.51 | 28.76 | 22.80 |
-| Doc-to-LoRA | 14.96 | 12.80 | 15.35 | 30.20 | 11.62 |
+[All benchmark and baseline tables](docs/evaluation.md) · [Metrics and scoring](docs/performance_protocol.md) · [Migration settings](docs/migration_protocol.md)
 
-Scores are on a 0–100 scale. LoCoMo uses the custom all-question composite (1,986 questions); LongMemEval-S uses auxiliary accuracy (500); MemOps uses longitudinal answer accuracy (2,006); BEAM uses its category aggregate (700). MAB uses a custom four-ability macro (2,071). These metrics are not interchangeable.
+<p align="center">
+  <a href="assets/joint_frontier.png"><img src="assets/joint_frontier.png" alt="Joint memory frontier: continued writing after Qwen 4B to Mistral 7B handoff, comparing answer quality, private memory footprint and rebuilding quality retained." width="1600"></a>
+</p>
 
-**Separate MAB budget-sensitivity runs:** at the same 2,000-source-token cap, MIGRO scores **35.14** and TransMem **22.88**; at 8,000, **40.30** and **28.99**. These retained budget-sensitivity runs are separate from the manuscript's primary MAB table. Other methods retain their native read paths; equal source caps do not equalize inference compute.
-
-[Benchmark summary · CSV](results/performance_snapshot.csv) · [JSON](results/performance_snapshot.json) · [Scoring definitions](docs/performance_protocol.md)
-
-### Larger hosts, existing memory
-
-|Receiving Qwen host|MIGRO · State Transfer from 4B|MIGRO · Full-History Rebuilding|
-|---|---:|---:|
-|8B|55.52|55.68|
-|14B|60.37|60.32|
-|32B|62.33|61.83|
-
-The separate heterogeneous chain **Qwen 4B → Ministral 14B → Gemma 26B-A4B** scores **57.41 → 66.28** on the two receiving hosts, with a 2,000-source-token budget and no new calibration examples. Both hops reuse the same immutable state, with no writes between hops. Gemma 26B-A4B denotes total/active MoE size. This chain differs from the historical Phi/Mistral experiment below.
-
-[Same-host scaling](results/quality_scaling.csv) · [Migration summaries](results/migration_snapshot.csv)
-
-<details>
-<summary><strong>All methods · same-host scale-up and Qwen migration</strong></summary>
-
-| Host | MIGRO | PlugMem | Mem0 | TiMem | A-MEM | LSTMem | TransMem | Doc-to-LoRA |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| Qwen3-4B-Instruct-2507 | 54.13 | 41.89 | 52.12 | 49.13 | 36.20 | 40.64 | 45.85 | 14.96 |
-| Qwen3-8B | 55.68 | 34.86 | 54.88 | 46.19 | 44.70 | 19.70 | 46.39 | 12.77 |
-| Qwen3-14B | 60.32 | 40.10 | 54.36 | 50.25 | 40.88 | 16.58 | 49.83 | 12.30 |
-| Qwen3-32B | 61.83 | 44.66 | 57.16 | 49.24 | 45.38 | 14.35 | 48.03 | 13.18 |
-
-| Method | Operation | Qwen 8B | Qwen 14B | Qwen 32B |
-|---|---:|---:|---:|---:|
-| MIGRO | State Transfer | 55.52 | 60.37 | 62.33 |
-| PlugMem | State Transfer | 44.41 | 46.10 | 49.15 |
-| Mem0 | State Transfer | 53.18 | 57.07 | 57.17 |
-| TiMem | Full-History Rebuilding | 46.19 | 50.25 | 49.24 |
-| A-MEM | Full-History Rebuilding | 44.70 | 40.88 | 45.38 |
-| LSTMem | Full-History Rebuilding | 19.70 | 16.58 | 14.35 |
-| TransMem | Full-History Rebuilding | 46.39 | 49.83 | 48.03 |
-| Doc-to-LoRA | Full-History Rebuilding | 12.77 | 12.30 | 13.18 |
-
-TransMem's Qwen rebuilding values are the same-host references used in the manuscript's transfer profile.
-
-</details>
-
-### Keep writing after the handoff
-
-In the Qwen 4B → Mistral 7B continuation study, MIGRO scores **45.13** after appending the second half, versus **36.94** with transfer alone and **45.19** with full-history target rebuilding. All three are scored against the same final history. Old-history, new-history and cross-boundary questions are reported separately for all eight methods.
-
-<details>
-<summary><strong>Continued-writing results across all methods</strong></summary>
-
-| Method | First-half memory only | Continued writing | Full-history rebuilding |
-|---|---:|---:|---:|
-| MIGRO | 36.94 | 45.13 | 45.19 |
-| PlugMem | 33.46 | 37.38 | 36.95 |
-| Mem0 | 35.59 | 43.89 | 44.37 |
-| TiMem | 32.30 | 37.17 | 40.92 |
-| A-MEM | 29.67 | 34.01 | 37.87 |
-| LSTMem | 11.34 | 11.15 | 11.16 |
-| TransMem | 9.60 | 7.04 | 7.04 |
-| Doc-to-LoRA | 11.04 | 10.98 | 11.32 |
-
-All conditions use final-history labels under the Mistral receiver. LSTMem and Doc-to-LoRA use target-built prefixes; TransMem rebuilds its view on append. The other methods extend inherited prefix states.
-
-</details>
-
-### Access across model families
-
-The manuscript follows Qwen 4B → Mistral 7B → Phi. Receiving-host LoCoMo scores use the operation shown for each method.
-
-| Method | Operation | Mistral 7B | Phi |
-|---|---:|---:|---:|
-| MIGRO | State Transfer | 45.69 | 49.77 |
-| PlugMem | State Transfer | 38.60 | 36.30 |
-| Mem0 | State Transfer | 44.06 | 44.72 |
-| TiMem | Full-History Rebuilding | 41.22 | 28.03 |
-| A-MEM | Full-History Rebuilding | 37.73 | 29.57 |
-| LSTMem | Full-History Rebuilding | 11.31 | 16.84 |
-| TransMem | Full-History Rebuilding | 7.04 | 18.79 |
-| Doc-to-LoRA | Full-History Rebuilding | 11.32 | 14.07 |
-
-[Migration summary · CSV](results/migration_snapshot.csv) · [JSON](results/migration_snapshot.json) · [Operations and interfaces](docs/migration_protocol.md)
-
-<details>
-<summary><strong>Evaluation details and interpretation</strong></summary>
-
-The LoCoMo composite was selected post hoc. It weights all 1,986 questions equally: 1,540 category 1–4 question scores and 446 category 5 scores. It is not official LoCoMo token F1. The host rows do not form a strict controlled ranking of model capability.
-
-For MIGRO's AB reference, the existing state contains a Qwen-written prefix followed by Phi continuation. Phi uses the selected step-0 identity interface. Mistral uses a read interface with 131,072 parameters, calibrated on 64 unique public human-QA examples for 64 optimizer updates. The backbones and shared memory core are frozen; LoCoMo answers are not calibration targets.
-
-PlugMem and mem0 reuse their Qwen-built source states for their State Transfer rows. Their source trajectories differ from MIGRO's AB reference. A migration-loss claim requires a matched target-backbone rebuilding reference.
-
-LongMemEval-S and MemOps use the recorded auxiliary judge protocol. BEAM uses category-specific scoring with auxiliary judging where required. These are research-harness evaluations, not official leaderboard reproductions. Baselines retain their declared native read paths; inference compute is not equalized.
-
-</details>
-
-### Compact memory, economical growth
-
-Quality and bytes are paired on the same evaluated states. LoCoMo storage sums ten conversation states; BEAM storage is per million-token history.
-
-| Method | LoCoMo | Private MB / 10 states | BEAM MB / history | 500K–1M bytes/token |
-|---|---:|---:|---:|---:|
-| MIGRO | 54.13 | 1.115 | 1.857 | 1.809 |
-| PlugMem | 41.89 | 92.078 | 82.871 | 79.608 |
-| Mem0 | 50.45 | 160.671 | 125.499 | 123.093 |
-| TiMem | 47.22 | 10.851 | 6.166 | 6.178 |
-| A-MEM | 35.29 | 23.340 | 23.191 | 23.639 |
-| LSTMem | 40.64 | 1.871 | 4.371 | 4.370 |
-| TransMem | 45.96 | 1.200 | 7.092 | 7.778 |
-| Doc-to-LoRA | 14.96 | 283.140 | 56.625 | 28.313 |
-
-MIGRO averages **1.857 MB** per million-token history. Sharing its required resources across **1,000 independent memories** gives **2.154 MB per memory**, including fixed deployment assets. The common growth window is **500K–1M source tokens**.
-
-<details>
-<summary><strong>Shared-resource estimates · 100–100,000 independent memories</strong></summary>
-
-Average MB per million-token memory, including required assets shared once:
-
-| Method | 100 memories | 1,000 | 10,000 | 100,000 |
-|---|---:|---:|---:|---:|
-| MIGRO | 4.829 | 2.154 | 1.887 | 1.860 |
-| PlugMem | 84.237 | 83.008 | 82.885 | 82.873 |
-| Mem0 | 127.018 | 125.651 | 125.514 | 125.500 |
-| TiMem | 7.532 | 6.303 | 6.180 | 6.167 |
-| A-MEM | 24.557 | 23.328 | 23.205 | 23.193 |
-| LSTMem | 4.775 | 4.411 | 4.375 | 4.371 |
-| TransMem | 24.292 | 8.812 | 7.264 | 7.109 |
-| Doc-to-LoRA | 73.465 | 58.309 | 56.794 | 56.642 |
-
-</details>
-
-[Storage summary · CSV](results/storage_summary.csv) · [JSON](results/storage_summary.json)
-
-### Mechanisms under examination
-
-The experiment contracts separate questions about the complete system from questions about individual components.
-
-|Research question|Controlled comparison|Specification|
-|---|---|---|
-|Does the memory system provide useful evidence?|Full memory, BM25, recent history and no-memory controls, with target-native rebuilding as a reference.|[Core transfer](configs/ablations/core_transfer.json)|
-|What does the host interface contribute?|Boundary composition crossed with frozen calibration.|[Transport and calibration](configs/ablations/transport_composition.json)|
-|What is the address space–quality tradeoff?|Anchor + residual, anchor-only and original full addresses.|[Address representation](configs/ablations/addresses.json)|
-|What does persistence coding save?|Full lossless selection, existing literal candidates and an uncompressed archive.|[Persistence encoding](configs/ablations/persistence.json)|
-
-The manuscript reports the following matched controls. LoCoMo values use the local full-mechanism reference of 54.21, separately from the primary table's 54.13.
-
-| Mechanism | Full mechanism | Simpler control |
-|---|---:|---:|
-| Evidence selection | 54.21 | 50.48 without host association; 44.82 semantic Top-K |
-| Semantic addresses | 54.21 · Anchor + Residual | 51.73 · anchor only |
-| Mistral boundary composition | 45.48 | 39.98 without boundary composition |
-| Archive encoding | 0.870 MB | 0.953 MB existing lossless; 2.381 MB uncompressed |
-
-Anchor + Residual reduces address-table bytes by **91.1%** relative to float32, with a **0.46-point** quality gap. Core transfer controls also outperform BM25, recent-history windows and no memory; the reported direct-minus-BM25 gains are **11.74 points on Phi** and **3.93 on Mistral**.
+<p align="center">
+  <strong>Carry the experience. Keep writing.</strong><br>
+  Continued writing after a Qwen 4B → Mistral 7B handoff: answer quality, private memory footprint and quality retained relative to target-side rebuilding.
+</p>
 
 ## Released components
 
@@ -290,17 +143,6 @@ The repository provides entry points into the implementation and the evaluation 
 |**Observation handling**|Deterministic formatting and temporal notes.|[`migro.observations`](src/migro/observations.py)|
 |**Memory controls**|Portable BM25 and recent-window baselines.|[`migro.controls`](src/migro/controls.py)|
 |**Paired analysis**|Matched-cohort comparison and conversation-level bootstrap intervals.|[`migro_eval.ablations`](src/migro_eval/ablations.py)|
-
-### Installation
-
-Use Python 3.10 or later. Reporting and the portable text controls use the standard library. The optional transport and analysis extras install the dependencies needed by those modules.
-
-```bash
-python -m pip install -e .
-python -m pip install -e '.[transport,analysis]'
-```
-
-For the memory backend and benchmark entry points, install `.[runtime,benchmarks]`, compile the included kernels and provide the shared model assets. [Runtime setup](docs/runtime.md) · [Running experiments](docs/experiments.md) · [Component contracts](docs/implementation.md)
 
 ### Reporting and paired analysis
 
@@ -337,10 +179,38 @@ tests/                  Component and reporting checks
 
 ## Release status
 
-This repository is being prepared for open-source release. The upload contains the shared-anchor memory backend, exact coding source, host interfaces, MAB preparation/generation/scoring and MIGRO continued-writing entry points, experimental contracts and reporting tools. Shared core/interface checkpoints are available in the [runtime asset release](https://github.com/zOUMINGXI/MIGRO/releases/tag/runtime-assets-20261112), including component provenance and license notices; [runtime setup](docs/runtime.md) gives the download and verification commands. Backbone models and datasets are obtained separately. Complete baseline adapters and the remaining benchmark orchestration are still being prepared; this is not yet a self-contained reproduction bundle.
+The [shared runtime bundle](https://github.com/zOUMINGXI/MIGRO/releases/tag/runtime-assets-20261112) and implementation are available. The release includes persistent memory, coding kernels, host interfaces, setup and verification helpers, the demo and documented benchmark entry points. Backbone and reranker models and datasets are obtained from their publishers. The [release scope](docs/release_scope.md) lists available components and remaining reproduction work.
 
-The [selected result summaries](results/README.md) follow the current manuscript: primary benchmarks, same-host scaling, migration and matched-state storage. Comparisons still pending in the manuscript retain no final score. Detailed result data and run artifacts are reserved for a later release.
+MIGRO-owned code and runtime assets use [Apache-2.0](LICENSE). Bundled upstream components retain the licenses described in [third-party notices](THIRD_PARTY_NOTICES.md).
 
-MIGRO-owned code and runtime assets are licensed under [Apache-2.0](LICENSE). Bundled upstream components and external models retain the licenses listed in [third-party notices](THIRD_PARTY_NOTICES.md).
+## Contributing
 
-[Implementation scope](docs/implementation.md) · [Release scope](docs/release_scope.md) · [Third-party references](docs/third_party.md)
+Contributions to documentation, integrations, memory interfaces and evaluation tooling are welcome. Read the [contribution guide](CONTRIBUTING.md), [report a bug](https://github.com/zOUMINGXI/MIGRO/issues/new?template=bug_report.md), or [propose an improvement](https://github.com/zOUMINGXI/MIGRO/issues/new?template=feature_request.md).
+
+## Citation
+
+If MIGRO is useful in your research, please cite the [technical report](https://arxiv.org/abs/2611.15315). Machine-readable metadata is available in [CITATION.cff](CITATION.cff).
+
+~~~bibtex
+@article{zou2026migro,
+  title = {{MIGRO}: A Decoupled and Portable Long-Term Memory System for Language Models},
+  author = {Zou, Mingxi and
+            Xu, Yinghui and
+            Chen, Jiaxiang and
+            Liang, Langzhang and
+            Zhu, Wei and
+            Ye, Peng and
+            Zhao, Runkai and
+            Jiang, Ruoxi and
+            Chen, Sijin and
+            Wang, Song and
+            Wang, Zhuo and
+            Qu, Lizhen and
+            Xu, Zenglin},
+  year = {2026},
+  eprint = {2611.15315},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.AI},
+  url = {https://arxiv.org/abs/2611.15315}
+}
+~~~
