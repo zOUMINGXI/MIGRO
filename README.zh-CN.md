@@ -10,6 +10,7 @@
   <a href="https://arxiv.org/abs/2611.15315"><img src="https://img.shields.io/badge/arXiv-2611.15315-B75125?style=flat-square" alt="Paper on arXiv"></a>
   <a href="https://zoumingxi.github.io/MIGRO/"><img src="https://img.shields.io/badge/Demo-Try%20online-E87524?style=flat-square" alt="Interactive demo"></a>
   <img src="https://img.shields.io/badge/Python-3.10%2B-315F78?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python 3.10 and later">
+  <a href="https://huggingface.co/dasd1231/MIGRO"><img src="https://img.shields.io/badge/Hugging%20Face-Models-FF9D00?style=flat-square" alt="MIGRO memory checkpoints on Hugging Face"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache--2.0-315F78?style=flat-square" alt="Apache-2.0"></a>
 </p>
 
@@ -20,6 +21,7 @@
 
 <p align="center">
   <a href="#快速开始">快速开始</a> &nbsp; · &nbsp;
+  <a href="https://huggingface.co/dasd1231/MIGRO">模型权重 🤗</a> &nbsp; · &nbsp;
   <a href="https://arxiv.org/abs/2611.15315"><strong>论文 ↗</strong></a> &nbsp; · &nbsp;
   <a href="https://zoumingxi.github.io/MIGRO/"><strong>在线体验 ↗</strong></a> &nbsp; · &nbsp;
   <a href="#为什么选择-migro">项目概览</a> &nbsp; · &nbsp;

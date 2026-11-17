@@ -89,3 +89,23 @@ python -m pip check
 La descarga incluye `ASSETS.json`, `PROVENANCE.json`, `NOTICE` y los archivos de licencia. Las pruebas de estado en CPU y las comprobaciones de generación con modelos reales se resumen en el [registro de validación](../assets/runtime/validation.json).
 
 [Volver al proyecto](../README.es.md)
+
+## Descargar desde Hugging Face
+
+El mismo núcleo, las interfaces, los recursos de codificación y los tokenizadores están disponibles en [Hugging Face](https://huggingface.co/dasd1231/MIGRO). Tras instalar las dependencias indicadas arriba, descarga el repositorio completo en el directorio de recursos y ejecuta la compilación y verificación.
+
+
+~~~python
+from huggingface_hub import snapshot_download
+
+snapshot_download(
+    repo_id="dasd1231/MIGRO",
+    local_dir="./migro-assets",
+)
+~~~
+
+~~~bash
+export MIGRO_ASSETS="$PWD/migro-assets"
+python -m migro.backend.build_native
+python scripts/verify_runtime.py --assets-dir "$MIGRO_ASSETS"
+~~~

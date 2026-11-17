@@ -110,3 +110,23 @@ python -m pip check
 The bundle's `ASSETS.json`, `PROVENANCE.json`, `NOTICE` and license files are included
 in the download. CPU state tests and real-model generation checks are summarized in
 [the runtime validation record](../assets/runtime/validation.json).
+
+## Download from Hugging Face
+
+The same shared core, host interfaces, coding resources and tokenizers are also available on [Hugging Face](https://huggingface.co/dasd1231/MIGRO). After installing the runtime dependencies above, download the complete repository into the asset root. The existing directory layout is preserved.
+
+
+~~~python
+from huggingface_hub import snapshot_download
+
+snapshot_download(
+    repo_id="dasd1231/MIGRO",
+    local_dir="./migro-assets",
+)
+~~~
+
+~~~bash
+export MIGRO_ASSETS="$PWD/migro-assets"
+python -m migro.backend.build_native
+python scripts/verify_runtime.py --assets-dir "$MIGRO_ASSETS"
+~~~

@@ -89,3 +89,23 @@ python -m pip check
 下载包内附有 `ASSETS.json`、`PROVENANCE.json`、`NOTICE` 和许可文件。CPU 状态测试与真实模型生成检查见[运行验证记录](../assets/runtime/validation.json)。
 
 [返回项目首页](../README.zh-CN.md)
+
+## 从 Hugging Face 下载
+
+同一套核心权重、宿主接口、编码资源和分词器也已发布到 [Hugging Face](https://huggingface.co/dasd1231/MIGRO)。安装上文的运行依赖后，将完整模型仓库下载到资源目录，再运行编译和验证。目录结构与现有运行时兼容。
+
+
+~~~python
+from huggingface_hub import snapshot_download
+
+snapshot_download(
+    repo_id="dasd1231/MIGRO",
+    local_dir="./migro-assets",
+)
+~~~
+
+~~~bash
+export MIGRO_ASSETS="$PWD/migro-assets"
+python -m migro.backend.build_native
+python scripts/verify_runtime.py --assets-dir "$MIGRO_ASSETS"
+~~~
